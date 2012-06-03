@@ -1,0 +1,101 @@
+// (c) 2012 Olivier Giulieri 
+
+ .evo-pop { 
+	padding:3px;
+	width:162px;
+ }
+  
+.evo-palette {
+	border-collapse: separate;
+	border-spacing: 4px 0px;
+	*border-collapse: expression('separate', cellSpacing = '4px');
+ }
+.evo-palette td  {
+	font-size:1px;
+	border:solid 1px #C0C0C0;
+	padding:7px;
+	cursor:pointer;
+ }
+.evo-palette tr.top td {
+	border-bottom:0;
+ }
+.evo-palette tr.in td {
+	border-top:0;
+	border-bottom:0;
+ }
+.evo-palette tr.bottom td {
+	border-top:0;
+ } 
+.evo-palette tr th {
+	border:0;
+	padding:5px 3px;
+	text-align:left;
+	font-weight:normal;
+ }
+.evo-palette div.sep {
+	height:3px;
+ }
+ 
+.evo-palette2 {
+	margin:auto;
+	border-collapse: collapse;
+ }
+.evo-palette2 td{
+	font-size:1px;
+	padding:7px;
+	cursor:pointer;
+ }
+.evo-palette tr th {
+	border:0;
+	padding:5px 3px;
+	text-align:left;
+	font-weight:normal;
+ }
+ .evo-palcenter{
+	
+	padding: 5px;
+	
+ }
+
+.evo-colorind{
+	border:solid 1px #C3C3C3;
+	width:20px;
+	height:20px;
+	float:right;
+	position:relative;
+	top:2px;
+ }
+.evo-colorind:after{
+	clear:both;
+ }
+ .sep{}
+ .sep2{height:10px;}
+ .evo-more{
+	padding:5px;
+	font-size:smaller;
+ }
+.evo-color{
+	padding-left:5px;
+ }
+.evo-color div{
+	border:solid 1px #808080;
+	border-right:solid 1px #C0C0C0;
+	border-bottom:solid 1px #C0C0C0;
+	padding:3px;
+	width:10px;
+	height:10px;
+	float:left;
+	margin: 1px;
+ }
+.evo-color span{
+	margin: 1px 6px 4px;
+	float:left;
+ }
+.evo-color:after{
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+ }
+ 
