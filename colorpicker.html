@@ -1,0 +1,66 @@
+<html xmlns="http://www.w3.org/1999/xhtml" > 
+<head>
+<title>Evolutility  :: Color Picker</title>
+	<link id="jquiCSS" rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/ui-lightness/jquery-ui.css" type="text/css" media="all" />	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js" type="text/javascript"></script>  
+	<link href="css/evol.colorpicker.css" rel="stylesheet" /> 
+    <script src="js/evol.colorpicker.js" type="text/javascript"></script>  
+</head>
+<body>   
+
+<h1 id="title">Color Picker</h1> 
+  
+ 
+<p>Theme: 
+<a href="#" class="css">le-frog</a> - 
+<a href="#" class="css">redmond</a> - 
+<a href="#" class="css">start</a> - 
+<a href="#" class="css">ui-darkness</a> - 
+<a href="#" class="css">ui-lightness</a>
+</p>
+
+
+<input class="cp" style="width:120px;" id="c1"/>
+<p><br/>
+<div class="cp"></div>
+<span class="cp"></span>
+	 
+<a href="#" id="bVal">val</a>
+<a href="#" id="bKill">kill</a>
+
+<script> 
+
+    $('.css').click(function(){ 
+        $('#jquiCSS').attr('href','http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/themes/'+this.innerHTML+'/jquery-ui.css');
+    });
+
+    $('.cp').colorpicker();
+	$('#c1')
+		.bind('color.hover', function(evt){
+			$('#title').attr('style','background-color:'+evt.color)
+		})
+		.bind('color.change', function(evt){
+			alert(evt.color)
+		})
+	
+	$('#bVal').click(function(){
+		var v=$('.cp').colorpicker("val")
+		alert(v)
+	})
+	$('#bKill').click(function(){
+		var v=$('#c1').colorpicker("destroy") 
+	})
+	
+	
+	
+</script>
+ 
+
+<br />
+
+  
+</body>
+
+
+</html>
