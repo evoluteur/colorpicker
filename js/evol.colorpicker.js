@@ -183,7 +183,7 @@ $.widget( "evol.colorpicker", {
 
 	hidePalette: function() {
 		if(this.elemPalette){
-			// TD.unbind...
+			this.elemPalette.find('td').unbind();
 			$(document.body)
 				.unbind('click',this.hidePalette);
 			this.elemPalette
@@ -232,7 +232,7 @@ $.widget( "evol.colorpicker", {
 			e.unwrap()
 				.next().remove();			
 		}
-		//unbind colors
+		this.elemPalette.find('td').unbind();
 		e.unbind()
 			.empty();
 		this.elemPalette=null;
