@@ -165,25 +165,24 @@ $.widget( "evol.colorpicker", {
     },
 
 	showPalette: function() {
-		var e=$(this.element[0]);		
-		e.after(this._paletteHTML());
-		this.elemPalette=e.next();
-		this._bindColors();
-		$('.evo-pop').click(function(evt){
-			evt.stopPropagation();
-		})
-		var that=this;
-		$(document.body)
-			.bind('click',function(){
-				that.hidePalette()
+		this.elemPalette=$(this.element[0]).next().after(this._paletteHTML()).next()
+			.bind('click',function(evt){
+				evt.stopPropagation();
 			});
-		this.elemPalette.find('.evo-more a')
-			.bind('click',function(){that._switchPalette()});
+		this._bindColors();
+		var that=this;
+		$(document.body).bind('click',function(){
+			that.hidePalette()
+		});
+		this.elemPalette.find('.evo-more a').bind('click',function(){
+			that._switchPalette()
+		});
     },	
 
 	hidePalette: function() {
 		if(this.elemPalette){
-			this.elemPalette.find('td').unbind();
+			this.elemPalette.find('td')
+				.unbind();
 			$(document.body)
 				.unbind('click',this.hidePalette);
 			this.elemPalette
