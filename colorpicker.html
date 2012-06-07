@@ -20,39 +20,48 @@
 <a href="#" class="css">ui-lightness</a>
 </p>
 
+<p>Using a textbox:<br/>
+<input style="width:120px;" id="c1"/>
+<br/>
+<a href="#" id="Val-1">Value</a>
+<a href="#" id="Kill-1">Remove</a>
+</p>
 
-<input class="cp" style="width:120px;" id="c1"/>
-<p><br/>
-<div class="cp"></div>
-<span class="cp"></span>
-	 
-<a href="#" id="bVal">val</a>
-<a href="#" id="bKill">kill</a>
+<p>Using a DIV tag:<br/>
+<div id="c2"></div> 
+<br/>
+<a href="#" id="Val-2">Value</a>
+<a href="#" id="Kill-2">Remove</a>
+</p>	 
 
 <script> 
 
-    $('.css').click(function(){ 
-        $('#jquiCSS').attr('href','http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/themes/'+this.innerHTML+'/jquery-ui.css');
-    });
-
-    $('.cp').colorpicker();
+    $('#c1,#c2').colorpicker();
 	$('#c1')
 		.bind('color.hover', function(evt){
 			$('#title').attr('style','background-color:'+evt.color)
 		})
 		.bind('color.change', function(evt){
-			alert(evt.color)
+			alert('color='+evt.color)
 		})
 	
-	$('#bVal').click(function(){
-		var v=$('.cp').colorpicker("val")
-		alert(v)
+	$('#Val-1').click(function(){
+		alert($('#c1').colorpicker("val"))
 	})
-	$('#bKill').click(function(){
+	$('#Kill-1').click(function(){
 		var v=$('#c1').colorpicker("destroy") 
 	})
 	
+	$('#Val-2').click(function(){
+		alert($('#c2').colorpicker("val"))
+	})
+	$('#Kill-2').click(function(){
+		var v=$('#c2').colorpicker("destroy") 
+	})	
 	
+    $('.css').click(function(){ 
+        $('#jquiCSS').attr('href','http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/themes/'+this.innerHTML+'/jquery-ui.css');
+    });
 	
 </script>
  
