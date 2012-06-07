@@ -1,4 +1,5 @@
 // (c) 2012 Olivier Giulieri 
+//  ColorPicker for jQuery UI 
 
 $.widget( "evol.colorpicker", {
 
@@ -19,7 +20,7 @@ $.widget( "evol.colorpicker", {
 				this.elemPalette=e;
 				this._bindColors();
 				e.find('.evo-more a')
-					.bind('click',function(){
+					.bind('click', function(){
 						that._switchPalette()
 					});
 				break;
@@ -28,11 +29,13 @@ $.widget( "evol.colorpicker", {
 				this._isPopup=true;
 				e.wrap('<div style="width:'+(e.width()+32)+'px"></div>')
 					.after('<div class="evo-colorind"></div>')
-					.bind('click', function(evt){
-						evt.stopPropagation();
-					})
-					.bind('focus', function(){
-						that.showPalette();
+					.bind({
+						click: function(evt){
+							evt.stopPropagation();
+						},
+						focus: function(){
+							that.showPalette();
+						}
 					})
 				break; 
 		}

@@ -1,8 +1,9 @@
-// (c) 2012 Olivier Giulieri 
+/*  (c) 2012 Olivier Giulieri  */
+/*  ColorPicker for jQuery UI  */
 
- .evo-pop { 
+.evo-pop { 
 	padding:3px;
-	width:162px;
+	width:204px;
  }
   
 .evo-palette {
@@ -45,12 +46,6 @@
 	padding:7px;
 	cursor:pointer;
  }
-.evo-palette tr th {
-	border:0;
-	padding:5px 3px;
-	text-align:left;
-	font-weight:normal;
- }
  .evo-palcenter{
 	
 	padding: 5px;
@@ -65,14 +60,14 @@
 	position:relative;
 	top:2px;
  }
-.evo-colorind:after{
-	clear:both;
- }
- .sep{}
- .sep2{height:10px;}
- .evo-more{
-	padding:5px;
-	font-size:smaller;
+.evo-pop:after,
+.evo-colorind:after, 
+.evo-color span:after{
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
  }
 .evo-color{
 	padding-left:5px;
@@ -91,11 +86,10 @@
 	margin: 1px 6px 4px;
 	float:left;
  }
-.evo-color:after{
-    content: ".";
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden;
+ .sep{}
+ .sep2{height:10px;}
+ .evo-more{
+	padding:5px;
+	font-size:smaller;
  }
  
