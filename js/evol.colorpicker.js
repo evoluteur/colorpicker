@@ -26,9 +26,10 @@ $.widget( "evol.colorpicker", {
 				break;
 			case 'INPUT':
 				var that=this; 
+				var indStyle=($.browser.msie)?'style="top:-22px"':'';
 				this._isPopup=true;
 				e.wrap('<div style="width:'+(e.width()+32)+'px"></div>')
-					.after('<div class="evo-colorind"></div>')
+					.after('<div class="evo-colorind"'+indStyle+'></div>')
 					.bind({
 						click: function(evt){
 							evt.stopPropagation();
