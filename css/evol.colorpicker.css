@@ -4,12 +4,16 @@
 .evo-pop { 
 	padding:3px;
 	width:204px;
- }
+}
+.evo-popie { 
+	padding:3px;
+	width:212px;
+}
   
 .evo-palette {
 	border-collapse: separate;
 	border-spacing: 4px 0px;
-	*border-collapse: expression('separate', cellSpacing = '4px');
+	*border-collapse: expression('separate', cellSpacing = '4px 0px');
  }
 .evo-palette td  {
 	font-size:1px;
@@ -37,15 +41,20 @@
 	height:3px;
  }
  
-.evo-palette2 {
+.evo-palette2, .evo-palette2ie {
 	margin:auto;
 	border-collapse: collapse;
  }
-.evo-palette2 td{
+.evo-palette2 td, .evo-palette2ie td{
 	font-size:1px;
-	padding:7px;
 	cursor:pointer;
  }
+.evo-palette2 td{
+	padding:7px;
+ }
+.evo-palette2ie td{
+	padding:5px;
+ } 
  .evo-palcenter{
 	
 	padding: 5px;
@@ -61,6 +70,7 @@
 	top:2px;
  }
 .evo-pop:after,
+.evo-popie:after,
 .evo-colorind:after, 
 .evo-color span:after{
     content: ".";

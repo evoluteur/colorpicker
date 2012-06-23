@@ -26,7 +26,7 @@ $.widget( "evol.colorpicker", {
 				break;
 			case 'INPUT':
 				var that=this; 
-				var indStyle=($.browser.msie)?'style="top:-22px"':'';
+				var indStyle=($.browser.msie)?'style="top:-20px"':'';
 				this._isPopup=true;
 				e.wrap('<div style="width:'+(e.width()+32)+'px"></div>')
 					.after('<div class="evo-colorind"'+indStyle+'></div>')
@@ -45,7 +45,7 @@ $.widget( "evol.colorpicker", {
 
 	_paletteHTML: function() {
 		var isIE=$.browser.msie, h=[], pIdx=this._paletteIdx;
-		h.push('<div class="evo-pop ui-widget ui-widget-content ui-corner-all"',
+		h.push('<div class="evo-pop',isIE?'ie':'',' ui-widget ui-widget-content ui-corner-all"',
 			this._isPopup?' style="position:absolute"':'', '>');
 		h.push('<span id="p">');
 		h.push(this['_paletteHTML'+pIdx]());
@@ -124,14 +124,15 @@ $.widget( "evol.colorpicker", {
 			];
 		var isIE=$.browser.msie, h=[];
 		var oTD='<td style="background-color:#',
-			cTD=isIE?'"><div style="width:5px;"></div></td>':'"><span/></td>';			
+			cTD=isIE?'"><div style="width:5px;"></div></td>':'"><span/></td>',
+			oTabTR='<table class="evo-palette2'+(isIE?'ie':'')+'"><tr>';
 		h.push('<div class="evo-palcenter">');
 		if(isIE){
 			h.push('<center>');
 		}
 		// hexagon colors
 		for(var r=0,rMax=moreColors.length;r<rMax;r++){
-			h.push('<table class="evo-palette2"><tr>');
+			h.push(oTabTR);
 			var cs=moreColors[r];
 			for(var i=0,iMax=cs.length;i<iMax;i++){ 
 				h.push(oTD, cs[i], cTD);
@@ -141,13 +142,13 @@ $.widget( "evol.colorpicker", {
 		h.push('<div class="sep2"/>');
 		// gray scale colors
 		var h2=[];
-		h.push('<table class="evo-palette2"><tr>');
+		h.push(oTabTR);
 		for(var i=255;i>10;i=i-10){
 			h.push(oTD, toHex(i), cTD);
 			i=i-10;
 			h2.push(oTD, toHex(i), cTD); 
 		}
-		h.push('</tr></table><table class="evo-palette2"><tr>',h2.join(''),'</tr></table>');		
+		h.push('</tr></table>',oTabTR,h2.join(''),'</tr></table>');		
 		if(isIE){
 			h.push('</center>');
 		}
