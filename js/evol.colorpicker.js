@@ -62,9 +62,9 @@ $.widget( "evol.colorpicker", {
 			standardColors=['C00000','FF0000','FFC000','FFFF00','92D050','00B050','00B0F0','0070C0','002060','7030A0'];
 		var isIE=$.browser.msie, h=[];
 		var oTD='<td style="background-color:#',
-			cTD=isIE?'"><div style="width:5px;"></div></td>':'"><span/></td>';
+			cTD=isIE?'"><div style="width:2px;"></div></td>':'"><span/></td>';
 		// base theme colors
-		h.push('<table class="evo-palette"><tr><th colspan="10" class="ui-widget-content">',labels[0],'</th></tr><tr>');
+		h.push('<table class="evo-palette',this._ie,'"><tr><th colspan="10" class="ui-widget-content">',labels[0],'</th></tr><tr>');
 		for(var i=0;i<10;i++){ 
 			h.push(oTD, baseThemeColors[i], cTD);
 		}

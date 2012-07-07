@@ -13,10 +13,10 @@
 	width:212px;
 }
   
-.evo-palette {
+.evo-palette, .evo-palette-ie  {
 	border-collapse: separate;
 	border-spacing: 4px 0px;
-	*border-collapse: expression('separate', cellSpacing = '4px 0px');
+	*border-collapse: expression('separate', cellSpacing = '2px');
 }
 .evo-palette td  {
 	font-size:1px;
@@ -34,7 +34,7 @@
 .evo-palette tr.bottom td {
 	border-top:0;
 } 
-.evo-palette tr th {
+.evo-palette th, .evo-palette-ie th  {
 	border:0;
 	padding:5px 3px;
 	text-align:left;
@@ -43,6 +43,13 @@
 .evo-palette div.sep {
 	height:3px;
 }
+
+.evo-palette-ie td  {
+	font-size:1px;
+	border:solid 1px #C0C0C0;
+	padding:7px;
+	cursor:pointer;
+} 
  
 .evo-palette2, .evo-palette2-ie {
 	margin:auto;
