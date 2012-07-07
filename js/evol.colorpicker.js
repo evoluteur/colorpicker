@@ -3,56 +3,50 @@
 
 $.widget( "evol.colorpicker", {
 
-    options: {
-		strings: 'Theme Colors,Standard Colors,More Colors,Less Colors',
-		animation: 'slide' // possible values: 'fade' or 'slide'
+	options: {
+		strings: 'Theme Colors,Standard Colors,More Colors,Less Colors'
 	},
 
-    _create: function() {
+	_create: function() {
 		this._paletteIdx=1;
-		var e=$(this.element[0]);
+		this._ie=$.browser.msie?'-ie':'';
 		var that=this;
 		switch(this.element[0].tagName){
 			case 'DIV':
 			case 'SPAN':
 				this._isPopup=false;
-				e.html(this._paletteHTML());
-				this.elemPalette=e;
-				this._bindColors();
-				e.find('.evo-more a')
-					.bind('click', function(){
+				this.element.html(this._paletteHTML())
+					.find('.evo-more a').on('click', function(){
 						that._switchPalette()
 					});
+				this._palette=this.element;
+				this._cTxt=$(this._palette.find('div.evo-color').children()[0]);
+				this._bindColors();
 				break;
 			case 'INPUT':
-				var that=this; 
-				var indStyle=($.browser.msie)?'style="top:-20px"':'';
+				var that=this;
 				this._isPopup=true;
-				e.wrap('<div style="width:'+(e.width()+32)+'px"></div>')
-					.after('<div class="evo-colorind"'+indStyle+'></div>')
-					.bind({
-						click: function(evt){
-							evt.stopPropagation();
-						},
-						focus: function(){
-							that.showPalette();
-						}
-					})
+				this._palette=null;
+				this.element.wrap('<div style="width:'+(this.element.width()+32)+'px"></div>')
+					.after('<div class="evo-colorind'+this._ie+'"></div>')
+					.on('focus', function(){
+						that.showPalette();
+					})	
 				break; 
 		}
 		this._color=null;
-    },
+	},
 
 	_paletteHTML: function() {
-		var isIE=$.browser.msie, h=[], pIdx=this._paletteIdx;
-		h.push('<div class="evo-pop',isIE?'ie':'',' ui-widget ui-widget-content ui-corner-all"',
+		var h=[], pIdx=this._paletteIdx;
+		h.push('<div class="evo-pop',this._ie,' ui-widget ui-widget-content ui-corner-all"',
 			this._isPopup?' style="position:absolute"':'', '>');
 		h.push('<span id="p">');
 		h.push(this['_paletteHTML'+pIdx]());
 		h.push('</span><div class="evo-more"><a href="javascript:void(0)">',this.options.strings.split(',')[1+pIdx],'</a></div>');
-		h.push('<div class="evo-color"></div></div>');
+		h.push('<div class="evo-color"><div style="display:none">',$.browser.msie?'&nbsp;&nbsp;&nbsp;':'','</div><span/></div></div>');
 		return h.join(''); 
-    },
+	},
 
 	_paletteHTML1: function() {
 		var labels=this.options.strings.split(','),
@@ -97,7 +91,7 @@ $.widget( "evol.colorpicker", {
 		}
 		h.push('</tr></table>');
 		return h.join(''); 
-    },
+	},
 
 	_paletteHTML2: function() {
 		function toHex(i){
@@ -125,7 +119,7 @@ $.widget( "evol.colorpicker", {
 		var isIE=$.browser.msie, h=[];
 		var oTD='<td style="background-color:#',
 			cTD=isIE?'"><div style="width:5px;"></div></td>':'"><span/></td>',
-			oTabTR='<table class="evo-palette2'+(isIE?'ie':'')+'"><tr>';
+			oTabTR='<table class="evo-palette2'+this._ie+'"><tr>';
 		h.push('<div class="evo-palcenter">');
 		if(isIE){
 			h.push('<center>');
@@ -154,95 +148,97 @@ $.widget( "evol.colorpicker", {
 		}
 		h.push('</div>');
 		return h.join('');
-    },
+	},
 
 	_switchPalette: function() {		
 		if(this._paletteIdx==2){
-			var htm=this._paletteHTML1();
+			var h=this._paletteHTML1();
 			this._paletteIdx=1;
 		}else{
-			var htm=this._paletteHTML2();
+			var h=this._paletteHTML2();
 			this._paletteIdx=2;
 		}
-		this.elemPalette.find('#p').html(htm);
-		this._bindColors();
-		this.elemPalette.find('.evo-more a').html(this.options.strings.split(',')[this._paletteIdx+1]);
-    },
+		this._palette.find('.evo-more').prev().html(h).end()
+			.children(0).html(this.options.strings.split(',')[this._paletteIdx+1]);
+	},
 
 	showPalette: function() {
-		this.elemPalette=$(this.element[0]).next().after(this._paletteHTML()).next()
-			.bind('click',function(evt){
-				evt.stopPropagation();
+		if(this._palette==null){
+			this._palette=this.element.next()
+				.after(this._paletteHTML()).next()
+				.on('click',function(evt){
+					evt.stopPropagation();
+				});
+			this._cTxt=$(this._palette.find('div.evo-color').children()[0]);
+			this._bindColors();
+			var that=this;
+			$(document.body).on('click.colorpicker',function(evt){
+				if(evt.target!=that.element[0]){
+					that.hidePalette()
+				}
+			})
+			.on('mouseleave.colorpicker',function(evt){
+				that.hidePalette()
 			});
-		this._bindColors();
-		var that=this;
-		$(document.body).bind('click',function(){
-			that.hidePalette()
-		});
-		this.elemPalette.find('.evo-more a').bind('click',function(){
-			that._switchPalette()
-		});
-    },	
+			this._palette.find('.evo-more a').on('click', function(evt){
+				that._switchPalette();
+			});
+		}
+	},	
 
 	hidePalette: function() {
-		if(this.elemPalette){
-			this.elemPalette.find('td')
-				.unbind();
-			$(document.body)
-				.unbind('click',this.hidePalette);
-			this.elemPalette
-				.unbind()
-				.remove();
-			this.elemPalette=null;
+		if(this._palette){
+			$(document.body).off('.colorpicker');
+			var that=this;
+			this._palette.off('mouseover click', 'td')
+				.fadeOut(function(){
+					that._palette.remove();
+					that._palette=that._cTxt=null;
+				})
 		}
-    },
+	},
 
 	_bindColors: function() {
 		var that=this;
-		this.elemPalette.find('td')
-			.bind({
-				click: function(evt){
-					evt.stopPropagation();
-					var c=$(this).attr('style').substring(17);
-					if(that._isPopup){
-						that.hidePalette();
-						$(that.element[0])
-							.val(c)
-							.next().attr('style', 'background-color:'+c)
-					}
-					that._color=c;
-					$(that.element[0]).triggerHandler({ type:"color.change", color:c});
-				},
-				mouseover: function(evt){
-					var c=$(this).attr('style').substring(17);
-					that.elemPalette.find('div.evo-color')
-						.html('<div style="background-color:'+c+'"> </div><span>'+c+'</span>');
-					$(that.element[0]).triggerHandler({ type:"color.hover", color:c});
+		this._palette
+			.on('click', 'td', function(evt){
+				var c=$(this).attr('style').substring(17);
+				if(that._isPopup){
+					that.hidePalette();
+					that.element
+						.val(c)
+						.next().attr('style', 'background-color:'+c);
 				}
+				that._color=c;
+				that.element.triggerHandler({type:"color.change", color:c});
 			})
-    },
+			.on('mouseover', 'td', function(evt){
+				var c=$(this).attr('style').substring(17);
+				that._cTxt.attr('style','background-color:'+c)
+					.next().html(c);
+				that.element.triggerHandler({type:"color.hover", color:c});
+			})
+	},
 
 	val: function() {
-        return this._color;
-    },
+		return this._color;
+	},
 
-    _setOption: function(key, value) {
-        this.options[key] = value;
-    },	
+	_setOption: function(key, value) {
+		this.options[key] = value;
+	},	
 
-    destroy: function() {
-		var e=$(this.element[0])
-		if(this.elemPalette){
-			this.elemPalette.find('td').unbind();
-			this.elemPalette=null;
+	destroy: function() {
+		if(this._palette){
+			this._palette.off('mouseover click', 'td');
+			this._palette=this._cTxt=null;
 		}
 		if(this._isPopup){
-			e.unwrap()
-				.unbind()				
+			this.element.unwrap().off()				
 				.next().remove();			
 		}
-		e.empty();
-        $.Widget.prototype.destroy.call(this);
-    }
+		this.element.empty();
+		$.Widget.prototype.destroy.call(this);
+	}
 
 });
