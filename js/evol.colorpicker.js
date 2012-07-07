@@ -31,7 +31,10 @@ $.widget( "evol.colorpicker", {
 					.after('<div class="evo-colorind'+this._ie+'"></div>')
 					.on('focus', function(){
 						that.showPalette();
-					})	
+					}).next().on('click', function(evt){
+						evt.stopPropagation();
+						that.showPalette();
+					})
 				break; 
 		}
 		this._color=null;
@@ -229,13 +232,18 @@ $.widget( "evol.colorpicker", {
 	},	
 
 	destroy: function() {
+		$(document.body).off('.colorpicker');
 		if(this._palette){
 			this._palette.off('mouseover click', 'td');
+			if(this._isPopup){
+				this._palette.remove();
+			}
 			this._palette=this._cTxt=null;
 		}
 		if(this._isPopup){
-			this.element.unwrap().off()				
-				.next().remove();			
+			this.element
+				.next().off('click').remove()
+				.end().off('focus').unwrap();						
 		}
 		this.element.empty();
 		$.Widget.prototype.destroy.call(this);
