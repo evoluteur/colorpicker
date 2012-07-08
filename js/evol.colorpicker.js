@@ -206,14 +206,7 @@ $.widget( "evol.colorpicker", {
 		this._palette
 			.on('click', 'td', function(evt){
 				var c=$(this).attr('style').substring(17);
-				if(that._isPopup){
-					that.hidePalette();
-					that.element
-						.val(c)
-						.next().attr('style', 'background-color:'+c);
-				}
-				that._color=c;
-				that.element.triggerHandler({type:"color.change", color:c});
+				that._setValue(c);
 			})
 			.on('mouseover', 'td', function(evt){
 				var c=$(this).attr('style').substring(17);
@@ -223,10 +216,24 @@ $.widget( "evol.colorpicker", {
 			})
 	},
 
-	val: function() {
-		return this._color;
+	val: function(value) {
+		if (typeof value=='undefined') {
+			return this._color;
+		}else{
+			this._setValue(value);
+		}
 	},
-
+	
+	_setValue: function(c) {
+		this._color=c;
+		if(this._isPopup){
+			this.hidePalette();
+			this.element.val(c)
+				.next().attr('style', 'background-color:'+c);
+		}
+		this.element.triggerHandler({type:"color.change", color:c});
+	},
+	
 	_setOption: function(key, value) {
 		this.options[key] = value;
 	},	
