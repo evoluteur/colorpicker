@@ -3,10 +3,32 @@
 <title>Evolutility  :: Color Picker</title>
 	<link id="jquiCSS" rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/ui-lightness/jquery-ui.css" type="text/css" media="all" />	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js" type="text/javascript"></script>  
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js" type="text/javascript"></script>
+  
 	<link href="css/evol.colorpicker.css" rel="stylesheet" /> 
     <script src="js/evol.colorpicker.js" type="text/javascript"></script>  
+	
+	<style> 
+		body{ 
+			font-size: 11pt;
+			font-family: "Century Gothic",arial;	
+		}
+		.demoPanel{ 
+			border: 2px solid #A7C8E2;
+			margin: 6px 3px 12px 3px;
+			border-radius: 10px;
+			padding: 10px; 
+			width:212px;
+			float:left;
+		}
+		.footer{
+			text-align: center;
+			font-size:smaller;
+			color:Gray;
+		}
+	</style>
 </head>
+
 <body>   
 
 <h1 id="title">Color Picker</h1> 
@@ -20,56 +42,77 @@
 <a href="#" class="css">ui-lightness</a>
 </p>
 
-<p>Using a textbox:<br/>
-<input style="width:120px;" id="c1"/>
-<br/>
-<a href="#" id="Val-1">Value</a>
-<a href="#" id="Kill-1">Remove</a>
-</p>
+<div class="demoPanel">
+	Using a textbox:<br/>
+	<br/>
+	<a href="#" id="getVal">Get Value</a>
+	<a href="#" id="setVal">Set Value</a>
+	<a href="#" id="destroy1">Destroy</a>
+	<br/><br/>
+	<input style="width:120px;" id="cp1"/>
+</div>
 
-<p>Using a DIV tag:<br/>
-<div id="c2"></div> 
-<br/>
-<a href="#" id="Val-2">Value</a>
-<a href="#" id="Kill-2">Remove</a>
-</p>	 
+<div class="demoPanel">
+	Multiple textbox:<br/>
+	<br/> 
+	<input style="width:120px;" class="cp" />
+	<input style="width:120px;" class="cp" />
+	<input style="width:120px;" class="cp" />
+</div>
 
-<script> 
+<div class="demoPanel">
+	Using a DIV tag:<br/><br/>
+	<div id="cpDiv"></div> 
+	<br/>
+	<a href="#" id="getVal2">Get Value</a>
+	<a href="#" id="setVal2">Set Value</a>
+	<a href="#" id="destroy2">Destroy</a>
+</div>
 
-    $('#c1,#c2').colorpicker();
-	$('#c1')
-		.bind('color.hover', function(evt){
-			$('#title').attr('style','background-color:'+evt.color)
-		})
-		.bind('color.change', function(evt){
-			alert('color='+evt.color)
-		})
-	
-	$('#Val-1').click(function(){
-		alert($('#c1').colorpicker("val"))
-	})
-	$('#Kill-1').click(function(){
-		var v=$('#c1').colorpicker("destroy") 
-	})
-	
-	$('#Val-2').click(function(){
-		alert($('#c2').colorpicker("val"))
-	})
-	$('#Kill-2').click(function(){
-		var v=$('#c2').colorpicker("destroy") 
-	})	
-	
+<script>
+
+	// Change theme
     $('.css').click(function(){ 
         $('#jquiCSS').attr('href','http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/themes/'+this.innerHTML+'/jquery-ui.css');
     });
 	
+	// Instanciate colorpickers
+    $('#cp1,#cpDiv,.cp').colorpicker();
+	
+	// Bind events for demo
+	$('#cp1')
+		.bind('color.change', function(evt){
+			alert('color='+evt.color);
+		})
+		.bind('color.hover', function(evt){
+			$('#title').attr('style','background-color:'+evt.color);
+		})
+	
+	$('#getVal').click(function(){
+		alert($('#cp1').colorpicker("val"));
+	})
+	$('#setVal').click(function(){
+		$('#cp1').colorpicker("val",'#31859B');
+	})
+	$('#destroy1').click(function(){
+		var v=$('#cp1').colorpicker("destroy") ;
+	})	
+
+	$('#getVal2').click(function(){
+		alert($('#cpDiv').colorpicker("val"));
+	})
+	$('#setVal2').click(function(){
+		$('#cpDiv').colorpicker("val",'#31859B');
+	})
+	$('#destroy2').click(function(){
+		var v=$('#cpDiv').colorpicker("destroy");
+	})
+	
 </script>
  
 
-<br />
-
-  
+<div style="clear:both;"/><br/><br/>
+<div class="footer">© 2012 Olivier Giulieri</div> 
 </body>
-
 
 </html>
