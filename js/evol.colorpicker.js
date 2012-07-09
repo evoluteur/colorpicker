@@ -1,6 +1,11 @@
 // (c) 2012 Olivier Giulieri 
 //  ColorPicker for jQuery UI 
 
+(function( $, undefined ) {
+
+var _idx=0;
+var _ie=$.browser.msie?'-ie':'';
+
 $.widget( "evol.colorpicker", {
 
 	options: {
@@ -9,7 +14,7 @@ $.widget( "evol.colorpicker", {
 
 	_create: function() {
 		this._paletteIdx=1;
-		this._ie=$.browser.msie?'-ie':'';
+		this._id='evo-cp'+_idx++;
 		var that=this;
 		switch(this.element[0].tagName){
 			case 'DIV':
@@ -27,8 +32,9 @@ $.widget( "evol.colorpicker", {
 				var that=this;
 				this._isPopup=true;
 				this._palette=null;
-				this.element.wrap('<div style="width:'+(this.element.width()+32)+'px"></div>')
-					.after('<div class="evo-colorind'+this._ie+'"></div>')
+				this.element.addClass('colorPicker '+this._id)
+					.wrap('<div style="width:'+(this.element.width()+32)+'px"></div>')
+					.after('<div class="evo-colorind'+_ie+'"></div>')
 					.on('focus', function(){
 						that.showPalette();
 					}).next().on('click', function(evt){
@@ -42,7 +48,7 @@ $.widget( "evol.colorpicker", {
 
 	_paletteHTML: function() {
 		var h=[], pIdx=this._paletteIdx;
-		h.push('<div class="evo-pop',this._ie,' ui-widget ui-widget-content ui-corner-all"',
+		h.push('<div class="evo-pop',_ie,' ui-widget ui-widget-content ui-corner-all"',
 			this._isPopup?' style="position:absolute"':'', '>');
 		h.push('<span>');
 		h.push(this['_paletteHTML'+pIdx]());
@@ -65,7 +71,7 @@ $.widget( "evol.colorpicker", {
 			cTD=isIE?'"><div style="width:2px;"></div></td>':'"><span/></td>',
 			oTRTH='<tr><th colspan="10" class="ui-widget-content">';
 		// base theme colors
-		h.push('<table class="evo-palette',this._ie,'">',oTRTH,labels[0],'</th></tr><tr>');
+		h.push('<table class="evo-palette',_ie,'">',oTRTH,labels[0],'</th></tr><tr>');
 		for(var i=0;i<10;i++){ 
 			h.push(oTD, baseThemeColors[i], cTD);
 		}
@@ -123,7 +129,7 @@ $.widget( "evol.colorpicker", {
 		var h=[],
 			oTD='<td style="background-color:#',
 			cTD=$.browser.msie?'"><div style="width:5px;"></div></td>':'"><span/></td>',
-			oTabTR='<table class="evo-palette2'+this._ie+'"><tr>';
+			oTabTR='<table class="evo-palette2'+_ie+'"><tr>';
 		h.push('<div class="evo-palcenter">');
 		// hexagon colors
 		for(var r=0,rMax=moreColors.length;r<rMax;r++){
@@ -162,6 +168,7 @@ $.widget( "evol.colorpicker", {
 	},
 
 	showPalette: function() {
+		$('.colorPicker').not('.'+this._id).colorpicker('hidePalette')
 		if(this._palette==null){
 			this._palette=this.element.next()
 				.after(this._paletteHTML()).next()
@@ -171,14 +178,11 @@ $.widget( "evol.colorpicker", {
 			this._cTxt=$(this._palette.find('div.evo-color').children()[0]);
 			this._bindColors();
 			var that=this;
-			$(document.body).on('click.colorpicker',function(evt){
+			$(document.body).on('click.'+this._id,function(evt){
 				if(evt.target!=that.element[0]){
 					that.hidePalette()
 				}
 			})
-			.on('mouseleave.colorpicker',function(evt){
-				that.hidePalette()
-			});
 			this._palette.find('.evo-more a').on('click', function(evt){
 				that._switchPalette();
 			});
@@ -186,8 +190,8 @@ $.widget( "evol.colorpicker", {
 	},	
 
 	hidePalette: function() {
-		if(this._palette){
-			$(document.body).off('.colorpicker');
+		if(this._isPopup && this._palette){
+			$(document.body).off('.'+this._id);
 			var that=this;
 			this._palette.off('mouseover click', 'td')
 				.fadeOut(function(){
@@ -235,7 +239,7 @@ $.widget( "evol.colorpicker", {
 	},	
 
 	destroy: function() {
-		$(document.body).off('.colorpicker');
+		$(document.body).off('.'+this._id);
 		if(this._palette){
 			this._palette.off('mouseover click', 'td');
 			if(this._isPopup){
@@ -248,8 +252,10 @@ $.widget( "evol.colorpicker", {
 				.next().off('click').remove()
 				.end().off('focus').unwrap();						
 		}
-		this.element.empty();
+		this.element.removeClass('colorPicker '+this.id).empty();
 		$.Widget.prototype.destroy.call(this);
 	}
 
 });
+
+})(jQuery);
