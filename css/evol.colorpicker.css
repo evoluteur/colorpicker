@@ -1,7 +1,6 @@
 /*  (c) 2012 Olivier Giulieri  */
 /*  ColorPicker for jQuery UI  */
 
-
 .evo-pop, .evo-pop-ie  { 
 	padding:3px;
 	z-index:10000;
@@ -39,11 +38,11 @@
 	padding:5px 3px;
 	text-align:left;
 	font-weight:normal;
+	background:transparent !important;
 }
 .evo-palette div.sep {
 	height:3px;
 }
-
 .evo-palette-ie td  {
 	font-size:1px;
 	border:solid 1px #C0C0C0;
@@ -67,33 +66,42 @@
 } 
 .evo-palcenter{
 	padding:5px;
-	text-align: center
+	text-align:center;
 }
 
-.evo-colorind,.evo-colorind-ie{
+.evo-colorind,.evo-colorind-ie,.evo-colorind-ff{
 	border:solid 1px #C3C3C3;
 	width:20px;
 	height:20px;
 	float:right;
-	position:relative;
 }
 .evo-colorind{
+	position:relative;
 	top:2px;
 }
 .evo-colorind-ie{
+	position:relative;
 	top:-23px;
 }
- 
+.evo-colorbox-ie{
+	font-size:8px;
+}
+.evo-colortxt-ie{
+	position:relative;
+	top:-6px;
+}
 .evo-pop:after,
 .evo-pop-ie:after,
 .evo-colorind:after, 
 .evo-colorind-ie:after, 
+.evo-colorind-ff:after, 
 .evo-color span:after{
-    content: ".";
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden;
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+	font-size: 0;
 }
 .evo-color{
 	padding-left:5px;
@@ -112,10 +120,12 @@
 	margin: 1px 6px 4px;
 	float:left;
 }
-.sep{}
-.sep2{height:10px;}
+.evo-sep{
+	height:10px;
+	font-size:0;
+}
 .evo-more{
-	padding:5px;
+	padding:2px 5px 4px;
 	font-size:smaller;
 }
  
