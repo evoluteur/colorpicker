@@ -44,12 +44,13 @@
 
 <div class="demoPanel">
 	Using a textbox:<br/>
-	<br/>
 	<a href="#" id="getVal">Get Value</a>
 	<a href="#" id="setVal">Set Value</a>
 	<a href="#" id="destroy1">Destroy</a>
 	<br/><br/>
-	<input style="width:120px;" id="cp1"/>
+	<input style="width:120px;" id="cp1"/><br/>
+	Default value #8DB3E2<br/>
+	click and hover events binded.<br/>
 </div>
 
 <div class="demoPanel">
@@ -76,11 +77,8 @@
         $('#jquiCSS').attr('href','http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/themes/'+this.innerHTML+'/jquery-ui.css');
     });
 	
-	// Instanciate colorpickers
-    $('#cp1,#cpDiv,.cp').colorpicker();
-	
-	// Bind events for demo
-	$('#cp1')
+	// First demo, instance w/ default value + Bind events for demo
+	$('#cp1').colorpicker({color:'#8DB3E2'})
 		.bind('color.change', function(evt){
 			alert('color='+evt.color);
 		})
@@ -97,6 +95,10 @@
 	$('#destroy1').click(function(){
 		var v=$('#cp1').colorpicker("destroy") ;
 	})	
+	
+	// Instanciate colorpickers
+    $('#cpDiv,.cp').colorpicker();
+	
 
 	$('#getVal2').click(function(){
 		alert($('#cpDiv').colorpicker("val"));
