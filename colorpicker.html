@@ -75,6 +75,8 @@
 
 <script>
 
+$(document).ready(function(){
+
 	// Change theme
     $('.css').click(function(){ 
         $('#jquiCSS').attr('href','http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/themes/'+this.innerHTML+'/jquery-ui.css');
@@ -112,7 +114,9 @@
 	$('#destroy2').click(function(){
 		var v=$('#cpDiv').colorpicker("destroy");
 	})
-	
+
+});
+
 </script>
  
 <p>Download: <a href="https://github.com/evoluteur/colorpicker" target="download">https://github.com/evoluteur/colorpicker</a></p>
