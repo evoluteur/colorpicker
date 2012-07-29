@@ -66,12 +66,17 @@ $.widget( "evol.colorpicker", {
 				this._palette=null;
 				if(color!=null){
 					this.element.val(color);
+				}else{
+					var v=this.element.val();
+					if(v!=''){
+						color=this.options.color=v;
+					}
 				}
 				this.element.addClass('colorPicker '+this._id)
-					.wrap('<div style="width:'+(this.element.width()+32)+($.browser.mozilla?'px;padding:1px 0':'px;')+'"></div>')
+					.wrap('<div style="width:'+(this.element.width()+32)+
+						($.browser.mozilla?'px;padding:1px 0':'px;')+'"></div>')
 					.after('<div class="evo-colorind'+($.browser.mozilla?'-ff':_ie)+'" '+
-						(color!=null?'style="background-color:'+color+'"':'')
-						+'></div>')
+						(color!=null?'style="background-color:'+color+'"':'')+'></div>')
 					.on('focus', function(){
 						that.showPalette();
 					})
@@ -94,15 +99,25 @@ $.widget( "evol.colorpicker", {
 		h.push('<div class="evo-pop',_ie,' ui-widget ui-widget-content ui-corner-all"',
 			this._isPopup?' style="position:absolute"':'', '>');
 		h.push('<span>',this['_paletteHTML'+pIdx](),'</span>');
-		h.push('<div class="evo-more"><a href="javascript:void(0)">',this.options.strings.split(',')[1+pIdx],'</a></div>');
-		h.push('<div class="evo-color"><div style="display:none;"');
+		h.push('<div class="evo-more"><a href="javascript:void(0)">',
+			this.options.strings.split(',')[1+pIdx],'</a></div>');
+		h.push(this._colorIndHTML(this.options.color));
+		h.push('</div>');
+		return h.join('');
+	},
+
+	_colorIndHTML: function(c) {
+		var h=[];
+		h.push('<div class="evo-color"><div style="');
+		h.push(c?'background-color:'+c:'display:none');
 		if($.browser.msie){
-			h.push(' class="evo-colorbox-ie">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div><span class=".evo-colortxt-ie"/>');
-		}else{		
-			h.push('></div><span/>');
+			h.push('" class="evo-colorbox-ie"></div><span class=".evo-colortxt-ie" ');
+		}else{
+			h.push('"></div><span ');
 		}
-		h.push('</div></div>');
-		return h.join(''); 
+		h.push(c?'>'+c+'</span>':'/>');
+		h.push('</div>');
+		return h.join('');
 	},
 
 	_paletteHTML1: function() {
@@ -238,8 +253,7 @@ $.widget( "evol.colorpicker", {
 			})
 			.on('mouseover', 'td', function(evt){
 				var c=$(this).attr('style').substring(17);
-				that._cTxt.attr('style','background-color:'+c)
-					.next().html(c);
+				that._setColorInd(c);
 				that.element.triggerHandler({type:"color.hover", color:c});
 			})
 	},
@@ -252,20 +266,29 @@ $.widget( "evol.colorpicker", {
 			return this;
 		}
 	},
-	
-	_setValue: function(c) {
+
+	_setValue: function(c, noHide) {
 		this.options.color=c;
 		if(this._isPopup){
-			this.hidePalette();
+			if(!noHide){
+				this.hidePalette();
+			}
 			this.element.val(c)
 				.next().attr('style', 'background-color:'+c);
+		}else{
+			this._setColorInd(c);
 		}
 		this.element.triggerHandler({type:"color.change", color:c});
 	},
-	
+
+	_setColorInd: function(c) {
+		this._cTxt.attr('style','background-color:'+c)
+			.next().html(c);
+	},
+
 	_setOption: function(key, value) {
-		this.options[key] = value;
-	},	
+		this.options[key]=value;
+	},
 
 	destroy: function() {
 		$(document.body).off('.'+this._id);

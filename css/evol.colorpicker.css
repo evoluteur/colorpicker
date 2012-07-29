@@ -1,17 +1,17 @@
 /*  (c) 2012 Olivier Giulieri  */
 /*  ColorPicker for jQuery UI  */
 
-.evo-pop, .evo-pop-ie  { 
-	padding:3px;
-	z-index:10000;
-}
 .evo-pop {
+	z-index:10000;
 	width:204px;
+	padding:3px 3px 0;
 }
 .evo-pop-ie {
+	z-index:10000;
 	width:212px;
+	padding:3px;
 }
-  
+
 .evo-palette, .evo-palette-ie  {
 	border-collapse: separate;
 	border-spacing: 4px 0px;
@@ -49,7 +49,7 @@
 	padding:7px;
 	cursor:pointer;
 } 
- 
+
 .evo-palette2, .evo-palette2-ie {
 	margin:auto;
 	border-collapse:collapse;
@@ -85,6 +85,7 @@
 }
 .evo-colorbox-ie{
 	font-size:8px;
+	padding:3px 9px !important;
 }
 .evo-colortxt-ie{
 	position:relative;
@@ -104,7 +105,7 @@
 	font-size: 0;
 }
 .evo-color{
-	padding-left:5px;
+	padding: 1px 0 0 4px;
 }
 .evo-color div{
 	border:solid 1px #808080;
@@ -114,10 +115,9 @@
 	width:12px;
 	height:12px;
 	float:left;
-	margin: 1px;
 }
 .evo-color span{
-	margin: 1px 6px 4px;
+	margin: 1px 0 4px 3px;
 	float:left;
 }
 .evo-sep{
@@ -128,4 +128,3 @@
 	padding:2px 5px 4px;
 	font-size:smaller;
 }
- 
