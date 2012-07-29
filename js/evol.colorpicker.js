@@ -57,7 +57,7 @@ $.widget( "evol.colorpicker", {
 						that._switchPalette();
 					});
 				this._palette=this.element;
-				this._cTxt=$(this._palette.find('div.evo-color').children()[0]);
+				this._cTxt=this._palette.find('div.evo-color').children().eq(0);
 				this._bindColors();
 				break;
 			case 'INPUT':
@@ -74,7 +74,14 @@ $.widget( "evol.colorpicker", {
 						+'></div>')
 					.on('focus', function(){
 						that.showPalette();
-					}).next().on('click', function(evt){
+					})
+					.on('keyup onpaste', function(evt){
+						var c=$(this).val();
+						if(c!=that.options.color){
+							that._setValue(c, true);
+						}
+					})
+					.next().on('click', function(evt){
 						evt.stopPropagation();
 						that.showPalette();
 					})
@@ -99,9 +106,9 @@ $.widget( "evol.colorpicker", {
 	},
 
 	_paletteHTML1: function() {
-		var labels=this.options.strings.split(',');
-		var isIE=$.browser.msie, h=[];
-		var oTD='<td style="background-color:#',
+		var h=[], labels=this.options.strings.split(','),
+			isIE=$.browser.msie,
+			oTD='<td style="background-color:#',
 			cTD=isIE?'"><div style="width:2px;"></div></td>':'"><span/></td>',
 			oTRTH='<tr><th colspan="10" class="ui-widget-content">';
 		// base theme colors
@@ -183,7 +190,7 @@ $.widget( "evol.colorpicker", {
 		}
 		this._palette.find('.evo-more')
 			.prev().html(h).end()
-			.children(0).html(this.options.strings.split(',')[this._paletteIdx+1]);
+			.children().eq(0).html(this.options.strings.split(',')[this._paletteIdx+1]);
 	},
 
 	showPalette: function() {
@@ -194,11 +201,11 @@ $.widget( "evol.colorpicker", {
 				.on('click',function(evt){
 					evt.stopPropagation();
 				});
-			this._cTxt=$(this._palette.find('div.evo-color').children()[0]);
+			this._cTxt=this._palette.find('div.evo-color').children().eq(0);
 			this._bindColors();
 			var that=this;
 			$(document.body).on('click.'+this._id,function(evt){
-				if(evt.target!=that.element[0]){
+				if(evt.target!=that.element.get(0)){
 					that.hidePalette();
 				}
 			})
