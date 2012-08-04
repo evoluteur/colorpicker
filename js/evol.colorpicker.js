@@ -73,8 +73,10 @@ $.widget( "evol.colorpicker", {
 					}
 				}
 				this.element.addClass('colorPicker '+this._id)
-					.wrap('<div style="width:'+(this.element.width()+32)+
-						($.browser.mozilla?'px;padding:1px 0':'px;')+'"></div>')
+					.wrap('<div style="width:'+(this.element.width()+32)+'px;'
+						+($.browser.msie?'margin-bottom:-21px;':'')
+						+($.browser.mozilla?'padding:1px 0;':'')
+						+'"></div>')
 					.after('<div class="evo-colorind'+($.browser.mozilla?'-ff':_ie)+'" '+
 						(color!=null?'style="background-color:'+color+'"':'')+'></div>')
 					.on('focus', function(){
