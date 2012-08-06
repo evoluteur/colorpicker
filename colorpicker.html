@@ -60,15 +60,15 @@
 	<a href="#" id="destroy1">Destroy</a>
 	<br/><br/>
 	<input style="width:100px;" id="cp1"/><br/>
-	Default value #8DB3E2<br/>
+	Default value #8db3e2<br/>
 	click and hover events binded.<br/>
 </div>
 
 <div class="demoPanel" style="width:130px">
 	Multiple textbox:<br/>
 	<br/> 
-	<input class="cp" value="#92CDDC" />
-	<input class="cp" value="#31859B" />
+	<input class="cp" value="#92cddc" />
+	<input class="cp" value="#31859b" />
 	<input class="cp" />
 	<input class="cp" />
 	<input class="cp" />
@@ -85,7 +85,7 @@ $(document).ready(function(){
     });
 	
 	// First demo, instance w/ default value + Bind events for demo
-	$('#cp1').colorpicker({color:'#8DB3E2'})
+	$('#cp1').colorpicker({color:'#8db3e2'})
 		.bind('color.change', function(evt){
 			alert('color='+evt.color);
 		})
@@ -97,7 +97,7 @@ $(document).ready(function(){
 		alert($('#cp1').colorpicker("val"));
 	})
 	$('#setVal').click(function(){
-		$('#cp1').colorpicker("val",'#31859B');
+		$('#cp1').colorpicker("val",'#31859b');
 	})
 	$('#destroy1').click(function(){
 		var v=$('#cp1').colorpicker("destroy") ;
@@ -111,7 +111,7 @@ $(document).ready(function(){
 		alert($('#cpDiv').colorpicker("val"));
 	})
 	$('#setVal2').click(function(){
-		$('#cpDiv').colorpicker("val",'#31859B');
+		$('#cpDiv').colorpicker("val",'#31859b');
 	})
 	$('#destroy2').click(function(){
 		var v=$('#cpDiv').colorpicker("destroy");
