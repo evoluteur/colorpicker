@@ -89,23 +89,35 @@ This event is triggered when the mouse mouves over a color box on the palette.
 
 ## Methods
 
-### val()
+### enable()
 Get the currently selected color value (returned as a string).
 
-    var color1 = $("#mycolor").colorpicker("val");
+    $("#mycolor").colorpicker("enable");
 
-### val(color)
-Sets the color value.
+### disable()
+Get the currently selected color value (returned as a string).
 
-    $("#mycolor").colorpicker("val", "#0d0d0d");
+    $("#mycolor").colorpicker("disable");
+
+### isDisabled()
+Get the currently selected color value (returned as a string).
+
+    $("#mycolor").colorpicker("isDisabled");
+
+### val([color])
+Get or set the currently selected color value (as a string, ie. "#d0d0d0").
+
+    $("#mycolor").colorpicker("val");
+
+    $("#mycolor").colorpicker("val", "#d0d0d0");
 
 ### showPalette()
-Shows the palette (when using the widget as a popup).
+Show the palette (when using the widget as a popup).
 
     $("#mycolor").colorpicker("showPalette");
 
 ### hidePalette()
-Hides the palette (when using the widget as a popup).
+Hide the palette (when using the widget as a popup).
 
     $("#mycolor").colorpicker("hidePalette");
 

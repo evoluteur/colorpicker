@@ -49,14 +49,18 @@
 	<div id="cpDiv"></div> 
 	<br/>
 	<a href="#" id="getVal2">Get Value</a>
-	<a href="#" id="setVal2">Set Value</a>
+	<a href="#" id="setVal2">Set Value</a><br/>
+	<a href="#" id="enable2">Enable</a>
+	<a href="#" id="disable2">Disable</a>
 	<a href="#" id="destroy2">Destroy</a>
 </div>
 
 <div class="demoPanel">
 	Using a textboxes:<br/>
 	<a href="#" id="getVal">Get Value</a>
-	<a href="#" id="setVal">Set Value</a>
+	<a href="#" id="setVal">Set Value</a><br/>
+	<a href="#" id="enable">Enable</a>
+	<a href="#" id="disable">Disable</a>
 	<a href="#" id="destroy1">Destroy</a>
 	<br/><br/>
 	<input id="cp1"/><br/>
@@ -106,6 +110,12 @@ $(document).ready(function(){
 	$('#setVal').click(function(){
 		$('#cp1').colorpicker("val",'#31859b');
 	})
+	$('#enable').click(function(){
+		$('#cp1').colorpicker("enable");
+	})
+	$('#disable').click(function(){
+		$('#cp1').colorpicker("disable");
+	})
 	$('#destroy1').click(function(){
 		var v=$('#cp1').colorpicker("destroy") ;
 	})	
@@ -121,6 +131,12 @@ $(document).ready(function(){
 	})
 	$('#setVal2').click(function(){
 		$('#cpDiv').colorpicker("val",'#31859b');
+	})
+	$('#enable2').click(function(){
+		$('#cpDiv').colorpicker("enable");
+	})
+	$('#disable2').click(function(){
+		$('#cpDiv').colorpicker("disable");
 	})
 	$('#destroy2').click(function(){
 		var v=$('#cpDiv').colorpicker("destroy");

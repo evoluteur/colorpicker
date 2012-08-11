@@ -47,6 +47,7 @@ $.widget( "evol.colorpicker", {
 	_create: function() {
 		this._paletteIdx=1;
 		this._id='evo-cp'+_idx++;
+		this._enabled=true;
 		var that=this;
 		switch(this.element[0].tagName){
 			case 'INPUT':
@@ -197,36 +198,40 @@ $.widget( "evol.colorpicker", {
 	},
 
 	_switchPalette: function() {
-		if(this._paletteIdx==2){
-			var h=this._paletteHTML1();
-			this._paletteIdx=1;
-		}else{
-			var h=this._paletteHTML2();
-			this._paletteIdx=2;
+		if(this._enabled){
+			if(this._paletteIdx==2){
+				var h=this._paletteHTML1();
+				this._paletteIdx=1;
+			}else{
+				var h=this._paletteHTML2();
+				this._paletteIdx=2;
+			}
+			this._palette.find('.evo-more')
+				.prev().html(h).end()
+				.children().eq(0).html(this.options.strings.split(',')[this._paletteIdx+1]);
 		}
-		this._palette.find('.evo-more')
-			.prev().html(h).end()
-			.children().eq(0).html(this.options.strings.split(',')[this._paletteIdx+1]);
 	},
 
 	showPalette: function() {
-		$('.colorPicker').not('.'+this._id).colorpicker('hidePalette');
-		if(this._palette==null){
-			this._palette=this.element.next()
-				.after(this._paletteHTML()).next()
-				.on('click',function(evt){
-					evt.stopPropagation();
+		if(this._enabled){
+			$('.colorPicker').not('.'+this._id).colorpicker('hidePalette');
+			if(this._palette==null){
+				this._palette=this.element.next()
+					.after(this._paletteHTML()).next()
+					.on('click',function(evt){
+						evt.stopPropagation();
+					});
+				this._bindColors();
+				var that=this;
+				$(document.body).on('click.'+this._id,function(evt){
+					if(evt.target!=that.element.get(0)){
+						that.hidePalette();
+					}
+				})
+				this._palette.find('.evo-more a').on('click', function(evt){
+					that._switchPalette();
 				});
-			this._bindColors();
-			var that=this;
-			$(document.body).on('click.'+this._id,function(evt){
-				if(evt.target!=that.element.get(0)){
-					that.hidePalette();
-				}
-			})
-			this._palette.find('.evo-more a').on('click', function(evt){
-				that._switchPalette();
-			});
+			}
 		}
 		return this;
 	},	
@@ -251,13 +256,17 @@ $.widget( "evol.colorpicker", {
 		var that=this;
 		this._palette
 			.on('click', 'td', function(evt){
-				var c=$(this).attr('style').substring(17);
-				that._setValue(c);
+				if(that._enabled){
+					var c=$(this).attr('style').substring(17);
+					that._setValue(c);
+				}
 			})
 			.on('mouseover', 'td', function(evt){
-				var c=$(this).attr('style').substring(17);
-				that._setColorInd(c,2);
-				that.element.triggerHandler({type:"color.hover", color:c});
+				if(that._enabled){
+					var c=$(this).attr('style').substring(17);
+					that._setColorInd(c,2);
+					that.element.triggerHandler({type:"color.hover", color:c});
+				}
 			})
 	},
 
@@ -295,6 +304,31 @@ $.widget( "evol.colorpicker", {
 		}else{
 			this.options[key]=value;
 		}
+	},
+
+	enable: function() {
+		if(this._isPopup){
+			this.element.removeAttr('disabled');
+		}else{
+			this.element.css({'opacity': '1'});
+		}
+		this._enabled=true;
+		return this;
+	},
+
+	disable: function() {
+		if(this._isPopup){
+			this.element.attr('disabled', 'disabled');
+		}else{
+			this.hidePalette()
+				.element.css({'opacity': '0.3'});
+		}
+		this._enabled=false;
+		return this;
+	},
+
+	isDisabled: function() {
+		return !this._enabled;
 	},
 
 	destroy: function() {
