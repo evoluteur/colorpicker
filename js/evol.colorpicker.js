@@ -92,7 +92,7 @@ $.widget( "evol.colorpicker", {
 						evt.stopPropagation();
 						that.showPalette();
 					})
-				break; 
+				break;
 		}
 	},
 
@@ -103,14 +103,15 @@ $.widget( "evol.colorpicker", {
 		h.push('<span>',this['_paletteHTML'+pIdx](),'</span>');
 		h.push('<div class="evo-more"><a href="javascript:void(0)">',
 			this.options.strings.split(',')[1+pIdx],'</a></div>');
-		h.push(this._colorIndHTML(this.options.color));
+		h.push(this._colorIndHTML(this.options.color,'left'));
+		h.push(this._colorIndHTML('','right'));
 		h.push('</div>');
 		return h.join('');
 	},
 
-	_colorIndHTML: function(c) {
+	_colorIndHTML: function(c,fl) {
 		var h=[];
-		h.push('<div class="evo-color"><div style="');
+		h.push('<div class="evo-color" style="float:left"><div style="');
 		h.push(c?'background-color:'+c:'display:none');
 		if($.browser.msie){
 			h.push('" class="evo-colorbox-ie"></div><span class=".evo-colortxt-ie" ');
@@ -187,9 +188,9 @@ $.widget( "evol.colorpicker", {
 		// gray scale colors
 		var h2=[];
 		h.push(oTabTR);
-		for(var i=255;i>10;i=i-10){
+		for(var i=255;i>10;i-=10){
 			h.push(oTD, toHex(i), cTD);
-			i=i-10;
+			i-=10;
 			h2.push(oTD, toHex(i), cTD); 
 		}
 		h.push('</tr></table>',oTabTR,h2.join(''),'</tr></table>');	
@@ -197,7 +198,7 @@ $.widget( "evol.colorpicker", {
 		return h.join('');
 	},
 
-	_switchPalette: function() {		
+	_switchPalette: function() {
 		if(this._paletteIdx==2){
 			var h=this._paletteHTML1();
 			this._paletteIdx=1;
@@ -218,7 +219,6 @@ $.widget( "evol.colorpicker", {
 				.on('click',function(evt){
 					evt.stopPropagation();
 				});
-			this._cTxt=this._palette.find('div.evo-color').children().eq(0);
 			this._bindColors();
 			var that=this;
 			$(document.body).on('click.'+this._id,function(evt){
@@ -247,6 +247,9 @@ $.widget( "evol.colorpicker", {
 	},
 
 	_bindColors: function() {
+		var es=this._palette.find('div.evo-color')
+		this._cTxt1=es.eq(0).children().eq(0);
+		this._cTxt2=es.eq(1).children().eq(0);
 		var that=this;
 		this._palette
 			.on('click', 'td', function(evt){
@@ -255,7 +258,7 @@ $.widget( "evol.colorpicker", {
 			})
 			.on('mouseover', 'td', function(evt){
 				var c=$(this).attr('style').substring(17);
-				that._setColorInd(c);
+				that._setColorInd(c,2);
 				that.element.triggerHandler({type:"color.hover", color:c});
 			})
 	},
@@ -278,13 +281,13 @@ $.widget( "evol.colorpicker", {
 			this.element.val(c)
 				.next().attr('style', 'background-color:'+c);
 		}else{
-			this._setColorInd(c);
+			this._setColorInd(c,1);
 		}
 		this.element.triggerHandler({type:"color.change", color:c});
 	},
 
-	_setColorInd: function(c) {
-		this._cTxt.attr('style','background-color:'+c)
+	_setColorInd: function(c,idx) {
+		this['_cTxt'+idx].attr('style','background-color:'+c)
 			.next().html(c);
 	},
 
