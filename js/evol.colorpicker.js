@@ -49,17 +49,6 @@ $.widget( "evol.colorpicker", {
 		this._id='evo-cp'+_idx++;
 		var that=this;
 		switch(this.element[0].tagName){
-			case 'DIV':
-			case 'SPAN':
-				this._isPopup=false;
-				this.element.html(this._paletteHTML())
-					.find('.evo-more a').on('click', function(){
-						that._switchPalette();
-					});
-				this._palette=this.element;
-				this._cTxt=this._palette.find('div.evo-color').children().eq(0);
-				this._bindColors();
-				break;
 			case 'INPUT':
 				var color=this.options.color;
 				this._isPopup=true;
@@ -92,6 +81,15 @@ $.widget( "evol.colorpicker", {
 						evt.stopPropagation();
 						that.showPalette();
 					})
+				break;
+			default:
+				this._isPopup=false;
+				this.element.html(this._paletteHTML())
+					.find('.evo-more a').on('click', function(){
+						that._switchPalette();
+					});
+				this._palette=this.element;
+				this._bindColors();
 				break;
 		}
 	},
