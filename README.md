@@ -3,7 +3,7 @@
 This project is a web color picker which look like the one in Microsoft Office 2010. It can be used inline or as a popup binded to a text box.
 It is a full jQuery UI widget, supporting various configurations and themes.
 
-![screenshot 1](screenshot1.png) ![screenshot 2](screenshot2.png)
+![screenshot 1](https://raw.github.com/evoluteur/colorpicker/master/screenshot1.png) ![screenshot 2](https://raw.github.com/evoluteur/colorpicker/master/screenshot2.png)
 
 
 ## Usage
