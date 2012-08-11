@@ -290,7 +290,11 @@ $.widget( "evol.colorpicker", {
 	},
 
 	_setOption: function(key, value) {
-		this.options[key]=value;
+		if(key=='color'){
+			this._setValue(value, true)
+		}else{
+			this.options[key]=value;
+		}
 	},
 
 	destroy: function() {
