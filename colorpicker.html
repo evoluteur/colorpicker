@@ -1,6 +1,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml" > 
 <head>
-<title>Evolutility  :: Color Picker</title>
+<title>evol.colorpicker demo</title>
 	<link id="jquiCSS" rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/themes/ui-lightness/jquery-ui.css" type="text/css" media="all">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js" type="text/javascript"></script>
@@ -34,7 +34,7 @@
 
 <body>   
 
-<h1 id="title">Color Picker</h1> 
+<h1>evol.colorpicker demo</h1> 
   
 <p>Theme: 
 <a href="#" class="css">le-frog</a> - 
@@ -45,38 +45,37 @@
 </p>
 
 <div class="demoPanel">
-	Using a DIV tag:<br/><br/>
-	<div id="cpDiv"></div> 
-	<br/>
+	Inline (using a DIV tag):<br/>
 	<a href="#" id="getVal2">Get Value</a>
 	<a href="#" id="setVal2">Set Value</a><br/>
 	<a href="#" id="enable2">Enable</a>
 	<a href="#" id="disable2">Disable</a>
-	<a href="#" id="destroy2">Destroy</a>
-</div>
-
-<div class="demoPanel">
-	Using a textboxes:<br/>
-	<a href="#" id="getVal">Get Value</a>
-	<a href="#" id="setVal">Set Value</a>
-	<a href="#" id="show">Show</a><br/>
-	<a href="#" id="enable">Enable</a>
-	<a href="#" id="disable">Disable</a>
-	<a href="#" id="destroy1">Destroy</a>
-	<br/><br/>
-	<input id="cp1"/><br/>
-	Default value #8db3e2<br/>
-	click and hover events binded.<br/>
+	<a href="#" id="destroy2">Destroy</a><br/><br/>
+	<div id="cpDiv"></div> 
 </div>
 
 <div class="demoPanel" style="width:130px">
-	Multiple textbox:<br/>
-	<br/> 
-	<input class="cp" value="#92cddc" />
-	<input class="cp" value="#31859b" />
-	<input class="cp" />
-	<input class="cp" />
-	<input class="cp" />
+	Using "showOn" option:<br/><br/>
+	focus 
+	<input id="cpFocus" value="#dbeef3" />
+	button
+	<input id="cpButton" value="#92cddc" />
+	both
+	<input id="cpBoth" value="#31859b" />
+	<a href="#" id="show">Show</a>
+	<input id="cpOther" value="#002060" />
+</div>
+
+<div class="demoPanel" style="width:170px">
+	Event binding:<br/>
+	color.change and color.hover<br/><br/>
+	<input id="cp1"/><br/> 
+	<a href="#" id="getVal">Get Value</a>
+	<a href="#" id="setVal">Set Value</a><br/>
+	<a href="#" id="enable">Enable</a>
+	<a href="#" id="disable">Disable</a>
+	<a href="#" id="destroy1">Destroy</a>
+	<br/>
 </div>
 
 <div class="demoPanel" style="width:130px">
@@ -96,7 +95,7 @@ $(document).ready(function(){
         $('#jquiCSS').attr('href','http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/themes/'+this.innerHTML+'/jquery-ui.css');
     });
 	
-	// First demo, instance w/ default value + Bind events for demo
+	// Events demo
 	$('#cp1').colorpicker({color:'#8db3e2'})
 		.bind('color.change', function(evt){
 			alert('color='+evt.color);
@@ -111,10 +110,6 @@ $(document).ready(function(){
 	$('#setVal').click(function(){
 		$('#cp1').colorpicker("val",'#31859b');
 	})
-	$('#show').click(function(event){
-		event.stopImmediatePropagation();
-		$('#cp1').colorpicker("showPalette");
-	})
 	$('#enable').click(function(){
 		$('#cp1').colorpicker("enable");
 	})
@@ -126,10 +121,19 @@ $(document).ready(function(){
 	})	
 	
 	// Instanciate colorpickers
-    $('#cpDiv,.cp').colorpicker();
-	// Instanciate the French colorpicker
-    $('#frenchColor').colorpicker({strings: "Couleurs de themes,Couleurs de base,Plus de couleurs,Moins de couleurs"});
+    $('#cpDiv,#cpBoth').colorpicker();
+    $('#cpFocus').colorpicker({showOn:'focus'});
+    $('#cpButton').colorpicker({showOn:'button'});
+    $('#cpOther').colorpicker({showOn:'none'});
+	$('#show').click(function(event){
+		event.stopImmediatePropagation();
+		$('#cpOther').colorpicker("showPalette");
+	})
 	
+	// French colorpicker
+    $('#frenchColor').colorpicker({
+		strings: "Couleurs de themes,Couleurs de base,Plus de couleurs,Moins de couleurs"
+	});
 
 	$('#getVal2').click(function(){
 		alert($('#cpDiv').colorpicker("val"));
@@ -151,7 +155,7 @@ $(document).ready(function(){
 
 </script>
  
-<p>Download: <a href="https://github.com/evoluteur/colorpicker" target="download">https://github.com/evoluteur/colorpicker</a></p>
+<p><br/>Download: <a href="https://github.com/evoluteur/colorpicker" target="download">https://github.com/evoluteur/colorpicker</a></p>
 
 <br/><br/>
 <div class="footer">© 2012 Olivier Giulieri</div> 
