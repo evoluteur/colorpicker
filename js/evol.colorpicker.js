@@ -41,6 +41,7 @@ $.widget( "evol.colorpicker", {
 	
 	options: {
 		color: null, // example default:'#31859B'
+		showOn: 'both', // possible values 'focus','button','both'
 		strings: 'Theme Colors,Standard Colors,More Colors,Less Colors'
 	},
 
@@ -51,37 +52,43 @@ $.widget( "evol.colorpicker", {
 		var that=this;
 		switch(this.element[0].tagName){
 			case 'INPUT':
-				var color=this.options.color;
+				var color=this.options.color,
+					e=this.element;
 				this._isPopup=true;
 				this._palette=null;
 				if(color!=null){
-					this.element.val(color);
+					e.val(color);
 				}else{
-					var v=this.element.val();
+					var v=e.val();
 					if(v!=''){
 						color=this.options.color=v;
 					}
 				}
-				this.element.addClass('colorPicker '+this._id)
+				e.addClass('colorPicker '+this._id)
 					.wrap('<div style="width:'+(this.element.width()+32)+'px;'
 						+($.browser.msie?'margin-bottom:-21px;':'')
 						+($.browser.mozilla?'padding:1px 0;':'')
 						+'"></div>')
 					.after('<div class="evo-colorind'+($.browser.mozilla?'-ff':_ie)+'" '+
 						(color!=null?'style="background-color:'+color+'"':'')+'></div>')
-					.on('focus', function(){
-						that.showPalette();
-					})
 					.on('keyup onpaste', function(evt){
 						var c=$(this).val();
 						if(c!=that.options.color){
 							that._setValue(c, true);
 						}
-					})
-					.next().on('click', function(evt){
-						evt.stopPropagation();
+					});
+				var showOn=this.options.showOn;
+				if(showOn=='both' || showOn=='focus'){
+					e.on('focus', function(){
 						that.showPalette();
 					})
+				}
+				if(showOn=='both' || showOn=='button'){
+					e.next().on('click', function(evt){
+						evt.stopPropagation();
+						that.showPalette();
+					});
+				}
 				break;
 			default:
 				this._isPopup=false;

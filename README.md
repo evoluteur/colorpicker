@@ -48,6 +48,17 @@ evol.colorpicker is as easily themeable as any jQuery UI widget, using one of th
 
 evol.colorpicker provides several options to customize its behaviour:
 
+### showOn (String)
+
+Have the colorpicker appear automatically when the field receives focus ("focus"), appear only when a button is clicked ("button"), or appear when either event takes place ("both").
+This option only takes effect when the color picker is instanciated on a textbox.
+
+    $("#mycolor").colorpicker({
+        showOn: "button"
+    });
+
+Defaults to *"both"*.
+
 ### strings (String)
 
 Used to translate the widget. It is a coma separated list of all labels used in the UI. 
