@@ -58,7 +58,8 @@
 <div class="demoPanel">
 	Using a textboxes:<br/>
 	<a href="#" id="getVal">Get Value</a>
-	<a href="#" id="setVal">Set Value</a><br/>
+	<a href="#" id="setVal">Set Value</a>
+	<a href="#" id="show">Show</a><br/>
 	<a href="#" id="enable">Enable</a>
 	<a href="#" id="disable">Disable</a>
 	<a href="#" id="destroy1">Destroy</a>
@@ -109,6 +110,10 @@ $(document).ready(function(){
 	})
 	$('#setVal').click(function(){
 		$('#cp1').colorpicker("val",'#31859b');
+	})
+	$('#show').click(function(event){
+		event.stopImmediatePropagation();
+		$('#cp1').colorpicker("showPalette");
 	})
 	$('#enable').click(function(){
 		$('#cp1').colorpicker("enable");
