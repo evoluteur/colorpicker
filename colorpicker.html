@@ -34,7 +34,7 @@
 
 <body>   
 
-<h1>evol.colorpicker demo</h1> 
+<h1 id="title">evol.colorpicker demo</h1> 
   
 <p>Theme: 
 <a href="#" class="css">le-frog</a> - 
@@ -62,7 +62,7 @@
 	<input id="cpButton" value="#92cddc" />
 	both
 	<input id="cpBoth" value="#31859b" />
-	<a href="#" id="show">Show</a>
+	<a href="#" id="show">link to show</a>
 	<input id="cpOther" value="#002060" />
 </div>
 
@@ -98,7 +98,7 @@ $(document).ready(function(){
 	// Events demo
 	$('#cp1').colorpicker({color:'#8db3e2'})
 		.bind('color.change', function(evt){
-			alert('color='+evt.color);
+			$('#title').attr('style','color:'+evt.color);
 		})
 		.bind('color.hover', function(evt){
 			$('#title').attr('style','background-color:'+evt.color);
