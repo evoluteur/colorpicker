@@ -2,34 +2,11 @@
 <head>
 <title>evol.colorpicker demo</title>
 	<link id="jquiCSS" rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/themes/ui-lightness/jquery-ui.css" type="text/css" media="all">
+	<link href="css/demo.css" rel="stylesheet" /> 
+	<link href="css/evol.colorpicker.css" rel="stylesheet" /> 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js" type="text/javascript"></script>
-  
-	<link href="css/evol.colorpicker.css" rel="stylesheet" /> 
-    <script src="js/evol.colorpicker.js" type="text/javascript"></script>  
-	
-	<style> 
-		body{ 
-			font-size: 11pt;
-			font-family: "Century Gothic",arial;	
-		}
-		.demoPanel{ 
-			border: 2px solid #A7C8E2;
-			margin: 4px 3px;
-			border-radius: 10px;
-			padding: 10px; 
-			width:212px;
-			float:left;
-		}
-		.demoPanel input{
-			width:100px;
-		}
-		.footer{
-			text-align: center;
-			font-size:smaller;
-			color:Gray;
-		}
-	</style>
+	<script src="js/evol.colorpicker.js" type="text/javascript"></script>
 </head>
 
 <body>   
@@ -37,11 +14,11 @@
 <h1 id="title">evol.colorpicker demo</h1> 
   
 <p>Theme: 
-<a href="#" class="css">le-frog</a> - 
-<a href="#" class="css">redmond</a> - 
-<a href="#" class="css">start</a> - 
-<a href="#" class="css">ui-darkness</a> - 
-<a href="#" class="css">ui-lightness</a>
+	<a href="#" class="css">le-frog</a> - 
+	<a href="#" class="css">redmond</a> - 
+	<a href="#" class="css">start</a> - 
+	<a href="#" class="css">ui-darkness</a> - 
+	<a href="#" class="css">ui-lightness</a>
 </p>
 
 <div class="demoPanel">
@@ -62,7 +39,7 @@
 	<input id="cpButton" value="#92cddc" />
 	both
 	<input id="cpBoth" value="#31859b" />
-	<a href="#" id="show">link to show</a>
+	<a href="#" id="show">link</a>
 	<input id="cpOther" value="#002060" />
 </div>
 
@@ -121,7 +98,8 @@ $(document).ready(function(){
 	})	
 	
 	// Instanciate colorpickers
-    $('#cpDiv,#cpBoth').colorpicker();
+    $('#cpBoth').colorpicker();
+    $('#cpDiv').colorpicker({color:'#31859b'});
     $('#cpFocus').colorpicker({showOn:'focus'});
     $('#cpButton').colorpicker({showOn:'button'});
     $('#cpOther').colorpicker({showOn:'none'});

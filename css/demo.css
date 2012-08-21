@@ -1,0 +1,30 @@
+
+body{
+	padding: 10px 20px;
+	font-size: 11pt;
+	font-family: "Century Gothic",arial;	
+	color: #777;
+	font-weight: 300;
+}
+a {
+	color: #39C;
+	font-weight: 400;
+}
+.demoPanel{ 
+	float:left;
+	border: 2px solid #A7C8E2;
+	margin: 4px 3px;
+	padding: 10px; 
+	width:212px;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+}
+.demoPanel input{
+	width:100px;
+}
+.footer{
+	text-align: center;
+	font-size:smaller;
+	color:Gray;
+}
