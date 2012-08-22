@@ -37,7 +37,7 @@ var _idx=0,
 			
 $.widget( "evol.colorpicker", {
 
-	version: '0.1',
+	version: '1.0',
 	
 	options: {
 		color: null, // example default:'#31859B'
