@@ -1,5 +1,5 @@
 /*!
- * Evol.ColorPicker 0.1
+ * Evol.ColorPicker 1.0
  *
  * Copyright (c) 2012, Olivier Giulieri 
  *
@@ -93,6 +93,7 @@ $.widget( "evol.colorpicker", {
 			default:
 				this._isPopup=false;
 				this.element.html(this._paletteHTML())
+					.attr('aria-haspopup','true')
 					.find('.evo-more a').on('click', function(){
 						that._switchPalette();
 					});
@@ -319,6 +320,7 @@ $.widget( "evol.colorpicker", {
 		}else{
 			this.element.css({'opacity': '1'});
 		}
+		this.element.removeAttr('aria-disabled');
 		this._enabled=true;
 		return this;
 	},
@@ -330,6 +332,7 @@ $.widget( "evol.colorpicker", {
 			this.hidePalette()
 				.element.css({'opacity': '0.3'});
 		}
+		this.element.attr('aria-disabled','true');
 		this._enabled=false;
 		return this;
 	},
