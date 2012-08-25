@@ -89,7 +89,7 @@ Defaults to *null*.
 
 This event is triggered when a color is selected.
 
-    $("#mycolor").bind("color.change", function(event){
+    $("#mycolor").on("color.change", function(event){
         $('#title').attr('style','background-color:'+event.color);
     })
 
@@ -97,7 +97,7 @@ This event is triggered when a color is selected.
 
 This event is triggered when the mouse mouves over a color box on the palette.
 
-    $("#mycolor").bind("color.hover", function(event){
+    $("#mycolor").on("color.hover", function(event){
         $('#title').attr('style','background-color:'+event.color);
     })
 
