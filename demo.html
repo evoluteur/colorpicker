@@ -74,10 +74,10 @@ $(document).ready(function(){
 	
 	// Events demo
 	$('#cp1').colorpicker({color:'#8db3e2'})
-		.bind('color.change', function(evt){
+		.on('color.change', function(evt){
 			$('#title').attr('style','color:'+evt.color);
 		})
-		.bind('color.hover', function(evt){
+		.on('color.hover', function(evt){
 			$('#title').attr('style','background-color:'+evt.color);
 		})
 	
@@ -133,7 +133,7 @@ $(document).ready(function(){
 
 </script>
  
-<p><br/>Download: <a href="https://github.com/evoluteur/colorpicker" target="download">https://github.com/evoluteur/colorpicker</a></p>
+<p><br/>evol.colorpicker on GitHub: <a href="https://github.com/evoluteur/colorpicker" target="download">https://github.com/evoluteur/colorpicker</a></p>
 
 <br/><br/>
 <div class="footer">© 2012 Olivier Giulieri</div> 
