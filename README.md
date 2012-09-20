@@ -16,7 +16,7 @@ First, load [jQuery](http://jquery.com/) (v1.7 or greater), [jQuery UI](http://j
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="js/evol.colorpicker.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/evol.colorpicker.min.js" type="text/javascript" charset="utf-8"></script>
 
 The widget requires a jQuery UI theme to be present, as well as its own included base CSS file ([evol.colorpicker.css](http://github.com/evoluteur/colorpicker/raw/master/css/evol.colorpicker.css)). Here we use the "ui-lightness" theme as an example:
 
