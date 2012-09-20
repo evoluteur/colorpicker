@@ -85,20 +85,20 @@ Defaults to *null*.
 
 ## Events
 
-### color.change
+### change.color
 
 This event is triggered when a color is selected.
 
-    $("#mycolor").on("color.change", function(event){
-        $('#title').attr('style','background-color:'+event.color);
+    $("#mycolor").on("change.color", function(event, color){
+        $('#title').attr('style','background-color:'+color);
     })
 
-### color.hover
+### mouseover.color
 
 This event is triggered when the mouse mouves over a color box on the palette.
 
-    $("#mycolor").on("color.hover", function(event){
-        $('#title').attr('style','background-color:'+event.color);
+    $("#mycolor").on("mouseover.color", function(event, color){
+        $('#title').attr('style','background-color:'+color);
     })
 
 

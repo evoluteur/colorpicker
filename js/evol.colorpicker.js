@@ -1,5 +1,5 @@
 /*!
- * Evol.ColorPicker 1.0
+ * Evol.ColorPicker 1.0.1
  *
  * Copyright (c) 2012, Olivier Giulieri 
  *
@@ -99,7 +99,6 @@ $.widget( "evol.colorpicker", {
 					});
 				this._palette=this.element;
 				this._bindColors();
-				break;
 		}
 	},
 
@@ -180,40 +179,37 @@ $.widget( "evol.colorpicker", {
 		var h=[],
 			oTD='<td style="background-color:#',
 			cTD=$.browser.msie?'"><div style="width:5px;"></div></td>':'"><span/></td>',
-			oTabTR='<table class="evo-palette2'+_ie+'"><tr>';
+			oTableTR='<table class="evo-palette2'+_ie+'"><tr>',
+			cTableTR='</tr></table>';
 		h.push('<div class="evo-palcenter">');
 		// hexagon colors
 		for(var r=0,rMax=moreColors.length;r<rMax;r++){
-			h.push(oTabTR);
+			h.push(oTableTR);
 			var cs=moreColors[r];
 			for(var i=0,iMax=cs.length;i<iMax;i++){ 
 				h.push(oTD, cs[i], cTD);
 			}
-			h.push('</tr></table>');
+			h.push(cTableTR);
 		}
 		h.push('<div class="evo-sep"/>');
 		// gray scale colors
 		var h2=[];
-		h.push(oTabTR);
+		h.push(oTableTR);
 		for(var i=255;i>10;i-=10){
 			h.push(oTD, toHex(i), cTD);
 			i-=10;
 			h2.push(oTD, toHex(i), cTD); 
 		}
-		h.push('</tr></table>',oTabTR,h2.join(''),'</tr></table>');	
+		h.push(cTableTR,oTableTR,h2.join(''),cTableTR);	
 		h.push('</div>');
 		return h.join('');
 	},
 
 	_switchPalette: function() {
 		if(this._enabled){
-			if(this._paletteIdx==2){
-				var h=this._paletteHTML1();
-				this._paletteIdx=1;
-			}else{
-				var h=this._paletteHTML2();
-				this._paletteIdx=2;
-			}
+			var idx=(this._paletteIdx==2)?1:2;
+			var h=this[_paletteHTML+idx]();
+			this._paletteIdx=idx;
 			this._palette.find('.evo-more')
 				.prev().html(h).end()
 				.children().eq(0).html(this.options.strings.split(',')[this._paletteIdx+1]);
@@ -235,7 +231,7 @@ $.widget( "evol.colorpicker", {
 					if(evt.target!=that.element.get(0)){
 						that.hidePalette();
 					}
-				})
+				});
 				this._palette.find('.evo-more a').on('click', function(evt){
 					that._switchPalette();
 				});
@@ -246,7 +242,7 @@ $.widget( "evol.colorpicker", {
 
 	hidePalette: function() {
 		if(this._isPopup && this._palette){
-			$(document.body).off('.'+this._id);
+			$(document.body).off('click.'+this._id);
 			var that=this;
 			this._palette.off('mouseover click', 'td')
 				.fadeOut(function(){
@@ -273,7 +269,7 @@ $.widget( "evol.colorpicker", {
 				if(that._enabled){
 					var c=$(this).attr('style').substring(17);
 					that._setColorInd(c,2);
-					that.element.triggerHandler({type:"color.hover", color:c});
+					that.element.trigger('mouseover.color', c);
 				}
 			})
 	},
@@ -298,7 +294,7 @@ $.widget( "evol.colorpicker", {
 		}else{
 			this._setColorInd(c,1);
 		}
-		this.element.triggerHandler({type:"color.change", color:c});
+		this.element.trigger('change.color', c);
 	},
 
 	_setColorInd: function(c,idx) {
@@ -308,31 +304,33 @@ $.widget( "evol.colorpicker", {
 
 	_setOption: function(key, value) {
 		if(key=='color'){
-			this._setValue(value, true)
+			this._setValue(value, true);
 		}else{
 			this.options[key]=value;
 		}
 	},
 
 	enable: function() {
+		var e=this.element;
 		if(this._isPopup){
-			this.element.removeAttr('disabled');
+			e.removeAttr('disabled');
 		}else{
-			this.element.css({'opacity': '1'});
+			e.css({'opacity': '1'});
 		}
-		this.element.removeAttr('aria-disabled');
+		e.removeAttr('aria-disabled');
 		this._enabled=true;
 		return this;
 	},
 
 	disable: function() {
+		var e=this.element;
 		if(this._isPopup){
-			this.element.attr('disabled', 'disabled');
+			e.attr('disabled', 'disabled');
 		}else{
-			this.hidePalette()
-				.element.css({'opacity': '0.3'});
+			this.hidePalette();
+			e.css({'opacity': '0.3'});
 		}
-		this.element.attr('aria-disabled','true');
+		e.attr('aria-disabled','true');
 		this._enabled=false;
 		return this;
 	},
@@ -342,7 +340,7 @@ $.widget( "evol.colorpicker", {
 	},
 
 	destroy: function() {
-		$(document.body).off('.'+this._id);
+		$(document.body).off('click.'+this._id);
 		if(this._palette){
 			this._palette.off('mouseover click', 'td');
 			if(this._isPopup){

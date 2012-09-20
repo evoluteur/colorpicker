@@ -45,7 +45,7 @@
 
 <div class="demoPanel" style="width:170px">
 	Event binding:<br/>
-	color.change and color.hover<br/><br/>
+	change.color and mouseover.color<br/><br/>
 	<input id="cp1"/><br/> 
 	<a href="#" id="getVal">Get Value</a>
 	<a href="#" id="setVal">Set Value</a><br/>
@@ -74,11 +74,11 @@ $(document).ready(function(){
 	
 	// Events demo
 	$('#cp1').colorpicker({color:'#8db3e2'})
-		.on('color.change', function(evt){
-			$('#title').attr('style','color:'+evt.color);
+		.on('change.color', function(evt, color){
+			$('#title').attr('style','color:'+color);
 		})
-		.on('color.hover', function(evt){
-			$('#title').attr('style','background-color:'+evt.color);
+		.on('mouseover.color', function(evt, color){
+			$('#title').attr('style','background-color:'+color);
 		})
 	
 	$('#getVal').click(function(){
