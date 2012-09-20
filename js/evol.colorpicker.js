@@ -208,7 +208,7 @@ $.widget( "evol.colorpicker", {
 	_switchPalette: function() {
 		if(this._enabled){
 			var idx=(this._paletteIdx==2)?1:2;
-			var h=this[_paletteHTML+idx]();
+			var h=this['_paletteHTML'+idx]();
 			this._paletteIdx=idx;
 			this._palette.find('.evo-more')
 				.prev().html(h).end()
