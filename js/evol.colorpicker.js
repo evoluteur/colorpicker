@@ -315,7 +315,7 @@ $.widget( "evol.colorpicker", {
 		if(this._isPopup){
 			e.removeAttr('disabled');
 		}else{
-			e.css({'opacity': '1'});
+			e.css({'opacity': '1', 'pointer-events': 'auto'});
 		}
 		e.removeAttr('aria-disabled');
 		this._enabled=true;
@@ -328,7 +328,7 @@ $.widget( "evol.colorpicker", {
 			e.attr('disabled', 'disabled');
 		}else{
 			this.hidePalette();
-			e.css({'opacity': '0.3'});
+			e.css({'opacity': '0.3', 'pointer-events': 'none'});
 		}
 		e.attr('aria-disabled','true');
 		this._enabled=false;
