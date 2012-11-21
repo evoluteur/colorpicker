@@ -42,7 +42,8 @@ $.widget( "evol.colorpicker", {
 	options: {
 		color: null, // example default:'#31859B'
 		showOn: 'both', // possible values 'focus','button','both'
-		strings: 'Theme Colors,Standard Colors,More Colors,Less Colors'
+		strings: 'Theme Colors,Standard Colors,More Colors,Less Colors',
+		showIndicators: true
 	},
 
 	_create: function() {
@@ -109,8 +110,8 @@ $.widget( "evol.colorpicker", {
 		h.push('<span>',this['_paletteHTML'+pIdx](),'</span>');
 		h.push('<div class="evo-more"><a href="javascript:void(0)">',
 			this.options.strings.split(',')[1+pIdx],'</a></div>');
-		h.push(this._colorIndHTML(this.options.color,'left'));
-		h.push(this._colorIndHTML('','right'));
+		if(this.options.showIndicators) h.push(this._colorIndHTML(this.options.color,'left'));
+		if(this.options.showIndicators) h.push(this._colorIndHTML('','right'));
 		h.push('</div>');
 		return h.join('');
 	},
