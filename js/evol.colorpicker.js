@@ -1,7 +1,7 @@
 /*!
  * Evol.ColorPicker 1.0.1
  *
- * Copyright (c) 2012, Olivier Giulieri 
+ * Copyright (c) 2012, Olivier Giulieri
  *
  * Depends:
  *	jquery.ui.core.js
@@ -34,15 +34,20 @@ var _idx=0,
 		['996633','cc9900','ff9900','cc6600','ff3300','ff0000','cc0000','990033'],
 		['663300','996600','cc3300','993300','990000','800000','993333']
 	];
-			
+
 $.widget( "evol.colorpicker", {
 
 	version: '1.0',
-	
+
 	options: {
 		color: null, // example default:'#31859B'
 		showOn: 'both', // possible values 'focus','button','both'
-		strings: 'Theme Colors,Standard Colors,More Colors,Less Colors'
+		strings: 'Theme Colors,Standard Colors,More Colors,Less Colors',
+		showIndicators: true,
+		baseThemeColors: baseThemeColors,
+		subThemeColors: subThemeColors,
+		standardColors: standardColors,
+		moreColors: moreColors
 	},
 
 	_create: function() {
@@ -109,8 +114,8 @@ $.widget( "evol.colorpicker", {
 		h.push('<span>',this['_paletteHTML'+pIdx](),'</span>');
 		h.push('<div class="evo-more"><a href="javascript:void(0)">',
 			this.options.strings.split(',')[1+pIdx],'</a></div>');
-		h.push(this._colorIndHTML(this.options.color,'left'));
-		h.push(this._colorIndHTML('','right'));
+		if(this.options.showIndicators) h.push(this._colorIndHTML(this.options.color,'left'));
+		if(this.options.showIndicators) h.push(this._colorIndHTML('','right'));
 		h.push('</div>');
 		return h.join('');
 	},
@@ -137,8 +142,8 @@ $.widget( "evol.colorpicker", {
 			oTRTH='<tr><th colspan="10" class="ui-widget-content">';
 		// base theme colors
 		h.push('<table class="evo-palette',_ie,'">',oTRTH,labels[0],'</th></tr><tr>');
-		for(var i=0;i<10;i++){ 
-			h.push(oTD, baseThemeColors[i], cTD);
+		for(var i=0;i<10;i++){
+			h.push(oTD, this.options.baseThemeColors[i], cTD);
 		}
 		h.push('</tr>');
 		if(!isIE){
@@ -146,26 +151,26 @@ $.widget( "evol.colorpicker", {
 		}
 		h.push('<tr class="top">');
 		// theme colors
-		for(var i=0;i<10;i++){ 
-			h.push(oTD, subThemeColors[i], cTD);
+		for(var i=0;i<10;i++){
+			h.push(oTD, this.options.subThemeColors[i], cTD);
 		}
 		for(var r=1;r<4;r++){
 			h.push('</tr><tr class="in">');
-			for(var i=0;i<10;i++){ 
-				h.push(oTD, subThemeColors[r*10+i], cTD);
-			}			
+			for(var i=0;i<10;i++){
+				h.push(oTD, this.options.subThemeColors[r*10+i], cTD);
+			}
 		}
 		h.push('</tr><tr class="bottom">');
-		for(var i=40;i<50;i++){ 
-			h.push(oTD, subThemeColors[i], cTD);
+		for(var i=40;i<50;i++){
+			h.push(oTD, this.options.subThemeColors[i], cTD);
 		}
 		h.push('</tr>',oTRTH,labels[1],'</th></tr><tr>');
 		// standard colors
-		for(var i=0;i<10;i++){ 
-			h.push(oTD, standardColors[i], cTD);
+		for(var i=0;i<10;i++){
+			h.push(oTD, this.options.standardColors[i], cTD);
 		}
 		h.push('</tr></table>');
-		return h.join(''); 
+		return h.join('');
 	},
 
 	_paletteHTML2: function() {
@@ -183,10 +188,10 @@ $.widget( "evol.colorpicker", {
 			cTableTR='</tr></table>';
 		h.push('<div class="evo-palcenter">');
 		// hexagon colors
-		for(var r=0,rMax=moreColors.length;r<rMax;r++){
+		for(var r=0,rMax=this.options.moreColors.length;r<rMax;r++){
 			h.push(oTableTR);
-			var cs=moreColors[r];
-			for(var i=0,iMax=cs.length;i<iMax;i++){ 
+			var cs=this.options.moreColors[r];
+			for(var i=0,iMax=cs.length;i<iMax;i++){
 				h.push(oTD, cs[i], cTD);
 			}
 			h.push(cTableTR);
@@ -198,9 +203,9 @@ $.widget( "evol.colorpicker", {
 		for(var i=255;i>10;i-=10){
 			h.push(oTD, toHex(i), cTD);
 			i-=10;
-			h2.push(oTD, toHex(i), cTD); 
+			h2.push(oTD, toHex(i), cTD);
 		}
-		h.push(cTableTR,oTableTR,h2.join(''),cTableTR);	
+		h.push(cTableTR,oTableTR,h2.join(''),cTableTR);
 		h.push('</div>');
 		return h.join('');
 	},
@@ -238,7 +243,7 @@ $.widget( "evol.colorpicker", {
 			}
 		}
 		return this;
-	},	
+	},
 
 	hidePalette: function() {
 		if(this._isPopup && this._palette){
@@ -351,7 +356,7 @@ $.widget( "evol.colorpicker", {
 		if(this._isPopup){
 			this.element
 				.next().off('click').remove()
-				.end().off('focus').unwrap();						
+				.end().off('focus').unwrap();
 		}
 		this.element.removeClass('colorPicker '+this.id).empty();
 		$.Widget.prototype.destroy.call(this);
