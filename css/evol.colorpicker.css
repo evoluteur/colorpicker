@@ -96,7 +96,8 @@
 .evo-colorind:after, 
 .evo-colorind-ie:after, 
 .evo-colorind-ff:after, 
-.evo-color span:after{
+.evo-color span:after,
+.evo-cHist:after{
 	content: ".";
 	display: block;
 	height: 0;
@@ -130,4 +131,19 @@
 .evo-more{
 	padding:4px 5px 4px;
 	font-size:smaller;
+}
+.evo-cHist{
+	padding:3px;
+}
+.evo-cHist div{
+	cursor: pointer;
+	border:solid 1px #c0c0c0;
+	padding:3px;
+	margin:5px;
+	width:10px;
+	height:10px;
+	float:left;
+}
+a.evo-hist{
+	margin-left:6px;
 }

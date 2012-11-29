@@ -52,6 +52,26 @@ evol.colorpicker is as easily themeable as any jQuery UI widget, using one of th
 
 evol.colorpicker provides several options to customize its behaviour:
 
+### color (String)
+
+Used to set the default color value.
+
+    $("#mycolor").colorpicker({
+        color: "#ffffff"
+    });
+
+Defaults to *null*.
+
+### history (Boolean)
+
+Used to track selection history (shared among all instances of the colorpicker).
+
+    $("#mycolor").colorpicker({
+        history: false
+    });
+
+Defaults to *true*.
+
 ### showOn (String)
 
 Have the colorpicker appear automatically when the field receives focus ("focus"), appear only when a button is clicked ("button"), or appear when either event takes place ("both").
@@ -68,20 +88,10 @@ Defaults to *"both"*.
 Used to translate the widget. It is a coma separated list of all labels used in the UI. 
 
     $("#mycolor").colorpicker({
-        strings: "Couleurs de themes,Couleurs de base,Plus de couleurs,Moins de couleurs"
+        strings: "Couleurs de themes,Couleurs de base,Plus de couleurs,Moins de couleurs,Palette,Histoire,Pas encore d'histoire."
     });
 
-Defaults to *"Theme Colors,Standard Colors,More Colors,Less Colors"*.
-
-### color (String)
-
-Used to set the default color value.
-
-    $("#mycolor").colorpicker({
-        color: "#ffffff"
-    });
-
-Defaults to *null*.
+Defaults to *"Theme Colors,Standard Colors,More Colors,Less Colors,Back to Palette,History,No history yet."*.
 
 ## Events
 
