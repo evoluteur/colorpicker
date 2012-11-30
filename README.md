@@ -100,7 +100,7 @@ Defaults to *"Theme Colors,Standard Colors,More Colors,Less Colors,Back to Palet
 This event is triggered when a color is selected.
 
     $("#mycolor").on("change.color", function(event, color){
-        $('#title').attr('style','background-color:'+color);
+        $('#title').css('background-color', color);
     })
 
 ### mouseover.color
@@ -108,7 +108,7 @@ This event is triggered when a color is selected.
 This event is triggered when the mouse mouves over a color box on the palette.
 
     $("#mycolor").on("mouseover.color", function(event, color){
-        $('#title').attr('style','background-color:'+color);
+        $('#title').css('background-color', color);
     })
 
 
