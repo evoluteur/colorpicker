@@ -35,7 +35,31 @@ var _idx=0,
 		['a58800','cccc00','ffff00','ffcc00','ff9933','ff6600','ff0033','cc0066','660033'],
 		['996633','cc9900','ff9900','cc6600','ff3300','ff0000','cc0000','990033'],
 		['663300','996600','cc3300','993300','990000','800000','993333']
-	];
+	],
+	int2Hex=function(i){
+		var h=i.toString(16);
+		if(h.length==1){
+			h='0'+h;
+		}
+		return h;
+	},
+	st2Hex=function(s){
+		return int2Hex(Number(s));
+	},
+	int2Hex3=function(i){
+		var h=int2Hex(i);
+		return h+h+h;
+	},
+	toHex3=function(c){
+		if(c.length>10){ // IE9
+			var p1=1+c.indexOf('('),
+				p2=c.indexOf(')'),
+				cs=c.substring(p1,p2).split(',');
+			return ['#',st2Hex(cs[0]),st2Hex(cs[1]),st2Hex(cs[2])].join('');
+		}else{
+			return c;
+		}
+	};
 			
 $.widget( "evol.colorpicker", {
 
@@ -174,13 +198,6 @@ $.widget( "evol.colorpicker", {
 	},
 
 	_paletteHTML2: function() {
-		function toHex(i){
-			var h=i.toString(16);
-			if(h.length==1){
-				h='0'+h;
-			}
-			return h+h+h;
-		};
 		var h=[],
 			oTD='<td style="background-color:#',
 			cTD=isIE?'"><div style="width:5px;"></div></td>':'"><span/></td>',
@@ -201,9 +218,9 @@ $.widget( "evol.colorpicker", {
 		var h2=[];
 		h.push(oTableTR);
 		for(var i=255;i>10;i-=10){
-			h.push(oTD, toHex(i), cTD);
+			h.push(oTD, int2Hex3(i), cTD);
 			i-=10;
-			h2.push(oTD, toHex(i), cTD); 
+			h2.push(oTD, int2Hex3(i), cTD); 
 		}
 		h.push(cTableTR,oTableTR,h2.join(''),cTableTR);	
 		h.push('</div>');
@@ -296,12 +313,13 @@ $.widget( "evol.colorpicker", {
 		this._palette
 			.on('click', sel, function(evt){
 				if(that._enabled){
-					that._setValue($(this).attr('style').substring(17));
+					var c=toHex3($(this).attr('style').substring(17));
+					that._setValue(c);
 				}
 			})
 			.on('mouseover', sel, function(evt){
 				if(that._enabled){
-					var c=$(this).attr('style').substring(17);
+					var c=toHex3($(this).attr('style').substring(17));
 					that._setColorInd(c,2);
 					that.element.trigger('mouseover.color', c);
 				}
