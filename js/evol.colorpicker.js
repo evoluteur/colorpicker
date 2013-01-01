@@ -11,8 +11,8 @@
 (function( $, undefined ) {
 
 var _idx=0,
-	isIE=$.browser.msie,
-	_ie=isIE?'-ie':'',
+	isIE,
+	_ie,
 	history=[],
 	baseThemeColors=['ffffff','000000','eeece1','1f497d','4f81bd','c0504d','9bbb59','8064a2','4bacc6','f79646'],
 	subThemeColors=['f2f2f2','7f7f7f','ddd9c3','c6d9f0','dbe5f1','f2dcdb','ebf1dd','e5e0ec','dbeef3','fdeada',
@@ -72,7 +72,10 @@ $.widget( "evol.colorpicker", {
 		strings: 'Theme Colors,Standard Colors,More Colors,Less Colors,Back to Palette,History,No history yet.'
 	},
 
-	_create: function() {
+	_create: function() { 
+		isIE=$.browser.msie && !jQuery.support.boxModel;
+		_ie=isIE?'-ie':'';
+		
 		this._paletteIdx=1;
 		this._id='evo-cp'+_idx++;
 		this._enabled=true;
