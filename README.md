@@ -88,7 +88,7 @@ Defaults to *"both"*.
 Used to translate the widget. It is a coma separated list of all labels used in the UI. 
 
     $("#mycolor").colorpicker({
-        strings: "Couleurs de themes,Couleurs de base,Plus de couleurs,Moins de couleurs,Palette,Histoire,Pas encore d'histoire."
+        strings: "Couleurs de themes,Couleurs de base,Plus de couleurs,Moins de couleurs,Palette,Historique,Pas encore d'historique."
     });
 
 Defaults to *"Theme Colors,Standard Colors,More Colors,Less Colors,Back to Palette,History,No history yet."*.
