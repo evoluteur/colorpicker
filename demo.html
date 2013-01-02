@@ -56,6 +56,12 @@
 </div>
 
 <div class="demoPanel" style="width:130px">
+	No color indicator on the palette:<br/>
+	<br/> 
+	<input id="noIndColor" value="#92cddc" /><br/> 
+</div>
+
+<div class="demoPanel" style="width:130px">
 	In French:<br/>
 	<br/> 
 	<input id="frenchColor" value="#92cddc" /><br/>
@@ -103,13 +109,18 @@ $(document).ready(function(){
     $('#cpFocus').colorpicker({showOn:'focus'});
     $('#cpButton').colorpicker({showOn:'button'});
     $('#cpOther').colorpicker({showOn:'none'});
-	$('#show').click(function(event){
-		event.stopImmediatePropagation();
+	$('#show').click(function(evt){
+		evt.stopImmediatePropagation();
 		$('#cpOther').colorpicker("showPalette");
 	})
 	
+	// No color indicator
+	$('#noIndColor').colorpicker({
+		displayIndicator: false
+	});
+
 	// French colorpicker
-    $('#frenchColor').colorpicker({
+	$('#frenchColor').colorpicker({
 		strings: "Couleurs de themes,Couleurs de base,Plus de couleurs,Moins de couleurs,Palette,Historique,Pas encore d'historique."
 	});
 
@@ -136,7 +147,7 @@ $(document).ready(function(){
 <p><br/>evol.colorpicker on GitHub: <a href="https://github.com/evoluteur/colorpicker" target="download">https://github.com/evoluteur/colorpicker</a></p>
 
 <br/><br/>
-<div class="footer">© 2012 Olivier Giulieri</div> 
+<div class="footer">(c) 2013 Olivier Giulieri</div> 
 </body>
 
 </html>

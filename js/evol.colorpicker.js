@@ -1,7 +1,7 @@
 /*!
- * Evol.ColorPicker 1.0.1
+ * Evol.ColorPicker 1.1
  *
- * Copyright (c) 2012, Olivier Giulieri 
+ * Copyright (c) 2013, Olivier Giulieri 
  *
  * Depends:
  *	jquery.ui.core.js
@@ -68,6 +68,7 @@ $.widget( "evol.colorpicker", {
 	options: {
 		color: null, // example default:'#31859B'
 		showOn: 'both', // possible values 'focus','button','both'
+		displayIndicator: true,
 		history: true,
 		strings: 'Theme Colors,Standard Colors,More Colors,Less Colors,Back to Palette,History,No history yet.'
 	},
@@ -137,13 +138,18 @@ $.widget( "evol.colorpicker", {
 			labels=opts.strings.split(',');
 		h.push('<div class="evo-pop',_ie,' ui-widget ui-widget-content ui-corner-all"',
 			this._isPopup?' style="position:absolute"':'', '>');
+		// palette
 		h.push('<span>',this['_paletteHTML'+pIdx](),'</span>');
+		// links
 		h.push('<div class="evo-more"><a href="javascript:void(0)">', labels[1+pIdx],'</a>');
 		if(opts.history){
 			h.push('<a href="javascript:void(0)" class="evo-hist">', labels[5],'</a>');			
 		}
 		h.push('</div>');
-		h.push(this._colorIndHTML(this.options.color,'left'), this._colorIndHTML('','right'));
+		// indicator
+		if(opts.displayIndicator){
+			h.push(this._colorIndHTML(this.options.color,'left'), this._colorIndHTML('','right'));
+		}
 		h.push('</div>');
 		return h.join('');
 	},
@@ -323,7 +329,9 @@ $.widget( "evol.colorpicker", {
 			.on('mouseover', sel, function(evt){
 				if(that._enabled){
 					var c=toHex3($(this).attr('style').substring(17));
-					that._setColorInd(c,2);
+					if(that.options.displayIndicator){
+						that._setColorInd(c,2);
+					}
 					that.element.trigger('mouseover.color', c);
 				}
 			})

@@ -72,6 +72,16 @@ Used to track selection history (shared among all instances of the colorpicker).
 
 Defaults to *true*.
 
+### displayIndicator (Boolean)
+
+Used to show color value on hover and click inside the palette.
+
+    $("#mycolor").colorpicker({
+        displayIndicator: false
+    });
+
+Defaults to *true*.
+
 ### showOn (String)
 
 Have the colorpicker appear automatically when the field receives focus ("focus"), appear only when a button is clicked ("button"), or appear when either event takes place ("both").
@@ -158,7 +168,7 @@ evol.colorpicker.js has been tested for the following browsers:
 
 ## License
 
-Copyright (c) 2012 Olivier Giulieri.
+Copyright (c) 2013 Olivier Giulieri.
 
 evol.colorpicker is released under the [MIT license](http://github.com/evoluteur/colorpicker/raw/master/LICENSE.md).
 
