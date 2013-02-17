@@ -1,5 +1,5 @@
 /*!
- * Evol.ColorPicker 2.0
+ * Evol.ColorPicker 2.1
  *
  * Copyright (c) 2013, Olivier Giulieri 
  *
@@ -64,7 +64,7 @@ var _idx=0,
 			
 $.widget( "evol.colorpicker", {
 
-	version: '2.0',
+	version: '2.1',
 	
 	options: {
 		color: null, // example default:'#31859B'
