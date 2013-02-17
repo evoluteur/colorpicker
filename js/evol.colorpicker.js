@@ -11,8 +11,9 @@
 (function( $, undefined ) {
 
 var _idx=0,
-	isIE,
-	_ie,
+	isIE=!$.support.cssFloat,
+	_ie=isIE?'-ie':'',
+	isMoz=isIE?false:/mozilla/.test(navigator.userAgent.toLowerCase()) && !/webkit/.test(navigator.userAgent.toLowerCase()),	
 	history=[],
 	baseThemeColors=['ffffff','000000','eeece1','1f497d','4f81bd','c0504d','9bbb59','8064a2','4bacc6','f79646'],
 	subThemeColors=['f2f2f2','7f7f7f','ddd9c3','c6d9f0','dbe5f1','f2dcdb','ebf1dd','e5e0ec','dbeef3','fdeada',
@@ -73,10 +74,7 @@ $.widget( "evol.colorpicker", {
 		strings: 'Theme Colors,Standard Colors,More Colors,Less Colors,Back to Palette,History,No history yet.'
 	},
 
-	_create: function() { 
-		isIE=$.browser.msie && !jQuery.support.boxModel;
-		_ie=isIE?'-ie':'';
-		
+	_create: function() {
 		this._paletteIdx=1;
 		this._id='evo-cp'+_idx++;
 		this._enabled=true;
@@ -98,9 +96,9 @@ $.widget( "evol.colorpicker", {
 				e.addClass('colorPicker '+this._id)
 					.wrap('<div style="width:'+(this.element.width()+32)+'px;'
 						+(isIE?'margin-bottom:-21px;':'')
-						+($.browser.mozilla?'padding:1px 0;':'')
+						+(isMoz?'padding:1px 0;':'')
 						+'"></div>')
-					.after('<div class="evo-colorind'+($.browser.mozilla?'-ff':_ie)+'" '+
+					.after('<div class="evo-colorind'+(isMoz?'-ff':_ie)+'" '+
 						(color!=null?'style="background-color:'+color+'"':'')+'></div>')
 					.on('keyup onpaste', function(evt){
 						var c=$(this).val();
