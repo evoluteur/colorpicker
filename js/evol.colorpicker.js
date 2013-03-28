@@ -348,6 +348,7 @@ $.widget( "evol.colorpicker", {
 	},
 
 	_setValue: function(c, noHide) {
+		c = c.replace(/ /g,'');
 		this.options.color=c;
 		if(this._isPopup){
 			if(!noHide){
