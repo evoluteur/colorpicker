@@ -1,8 +1,6 @@
 {
   "name": "evol.colorpicker",
-  "title": "evol.colorpicker",
   "version": "2.1.0",
-  "homepage": "http://evoluteur.github.io/colorpicker/index.html",
   "main": [
     "js/evol.colorpicker.js",
     "css/evol.colorpicker.css"
@@ -10,11 +8,5 @@
   "dependencies": {
     "jquery": "~1.7.2",
     "jquery-ui": "~1.8.18"
-  },
-  "readmeFilename": "README.md",
-  "description": "evol.colorpicker is a web color picker which look like the one in Microsoft Office 2010. It can be used inline or as a popup binded to a text box. It is a full jQuery UI widget, supporting various configurations and themes."
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/evoluteur/colorpicker.git"
   }
 }
