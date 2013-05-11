@@ -6,7 +6,7 @@
     "css/evol.colorpicker.css"
   ],
   "dependencies": {
-    "jquery": "~1.7.2",
-    "jquery-ui": "~1.8.18"
+    "jquery": ">=1.7.2",
+    "jquery-ui": ">=1.8.18"
   }
 }
