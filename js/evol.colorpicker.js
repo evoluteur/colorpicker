@@ -94,7 +94,7 @@ $.widget( "evol.colorpicker", {
 					}
 				}
 				e.addClass('colorPicker '+this._id)
-					.wrap('<div style="width:'+(this.element.width()+32)+'px;'
+					.wrap('<div class="colorPickerWrapper" style="width:'+(this.element.width()+32)+'px;'
 						+(isIE?'margin-bottom:-21px;':'')
 						+(isMoz?'padding:1px 0;':'')
 						+'"></div>')
