@@ -1,26 +1,4 @@
-
-# Eclipse
-*.pydevproject
-.project
-.metadata
-bin/**
-tmp/**
-tmp/**/*
-*.tmp
-*.bak
-*.swp
-*~.nib
-local.properties
-.classpath
-.settings/
-.loadpath
-
-# Node
-node_modules
-
-# Windows
-Thumbs.db 
+node_modules/
+Thumbs.db
 Desktop.ini
-
-# Mac
 .DS_Store
