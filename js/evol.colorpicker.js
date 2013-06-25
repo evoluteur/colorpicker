@@ -85,21 +85,21 @@ $.widget( "evol.colorpicker", {
 					e=this.element;
 				this._isPopup=true;
 				this._palette=null;
-				if(color!=null){
+				if(color!==null){
 					e.val(color);
 				}else{
 					var v=e.val();
-					if(v!=''){
+					if(v!==''){
 						color=this.options.color=v;
 					}
 				}
 				e.addClass('colorPicker '+this._id)
-					.wrap('<div class="colorPickerWrapper" style="width:'+(this.element.width()+32)+'px;'
-						+(isIE?'margin-bottom:-21px;':'')
-						+(isMoz?'padding:1px 0;':'')
-						+'"></div>')
+					.wrap('<div style="width:'+(this.element.width()+32)+'px;'+
+						(isIE?'margin-bottom:-21px;':'')+
+						(isMoz?'padding:1px 0;':'')+
+						'"></div>')
 					.after('<div class="evo-colorind'+(isMoz?'-ff':_ie)+'" '+
-						(color!=null?'style="background-color:'+color+'"':'')+'></div>')
+						(color!==null?'style="background-color:'+color+'"':'')+'></div>')
 					.on('keyup onpaste', function(evt){
 						var c=$(this).val();
 						if(c!=that.options.color){
@@ -110,7 +110,7 @@ $.widget( "evol.colorpicker", {
 				if(showOn=='both' || showOn=='focus'){
 					e.on('focus', function(){
 						that.showPalette();
-					})
+					});
 				}
 				if(showOn=='both' || showOn=='button'){
 					e.next().on('click', function(evt){
@@ -125,7 +125,7 @@ $.widget( "evol.colorpicker", {
 					.attr('aria-haspopup','true');
 				this._bindColors();
 		}
-		if(color!=null && this.options.history){					
+		if(color!==null && this.options.history){					
 			this._add2History(color);
 		}
 	},
@@ -182,22 +182,22 @@ $.widget( "evol.colorpicker", {
 		}
 		h.push('<tr class="top">');
 		// theme colors
-		for(var i=0;i<10;i++){ 
+		for(i=0;i<10;i++){ 
 			h.push(oTD, subThemeColors[i], cTD);
 		}
 		for(var r=1;r<4;r++){
 			h.push('</tr><tr class="in">');
-			for(var i=0;i<10;i++){ 
+			for(i=0;i<10;i++){ 
 				h.push(oTD, subThemeColors[r*10+i], cTD);
 			}			
 		}
 		h.push('</tr><tr class="bottom">');
-		for(var i=40;i<50;i++){ 
+		for(i=40;i<50;i++){ 
 			h.push(oTD, subThemeColors[i], cTD);
 		}
 		h.push('</tr>',oTRTH,labels[1],'</th></tr><tr>');
 		// standard colors
-		for(var i=0;i<10;i++){ 
+		for(i=0;i<10;i++){ 
 			h.push(oTD, standardColors[i], cTD);
 		}
 		h.push('</tr></table>');
@@ -205,7 +205,7 @@ $.widget( "evol.colorpicker", {
 	},
 
 	_paletteHTML2: function() {
-		var h=[],
+		var i, h=[],
 			oTD='<td style="background-color:#',
 			cTD=isIE?'"><div style="width:5px;"></div></td>':'"><span/></td>',
 			oTableTR='<table class="evo-palette2'+_ie+'"><tr>',
@@ -215,7 +215,7 @@ $.widget( "evol.colorpicker", {
 		for(var r=0,rMax=moreColors.length;r<rMax;r++){
 			h.push(oTableTR);
 			var cs=moreColors[r];
-			for(var i=0,iMax=cs.length;i<iMax;i++){ 
+			for(i=0,iMax=cs.length;i<iMax;i++){ 
 				h.push(oTD, cs[i], cTD);
 			}
 			h.push(cTableTR);
@@ -224,7 +224,7 @@ $.widget( "evol.colorpicker", {
 		// gray scale colors
 		var h2=[];
 		h.push(oTableTR);
-		for(var i=255;i>10;i-=10){
+		for(i=255;i>10;i-=10){
 			h.push(oTD, int2Hex3(i), cTD);
 			i-=10;
 			h2.push(oTD, int2Hex3(i), cTD); 
@@ -236,13 +236,14 @@ $.widget( "evol.colorpicker", {
 
 	_switchPalette: function(link) {
 		if(this._enabled){
-			var labels=this.options.strings.split(',');
+			var idx, content, label,
+				labels=this.options.strings.split(',');
 			if($(link).hasClass('evo-hist')){
 				// history
 				var h=['<table class="evo-palette"><tr><th class="ui-widget-content">',
 					labels[5], '</th></tr></tr></table>',
 					'<div class="evo-cHist">'];
-				if(history.length==0){
+				if(history.length===0){
 					h.push('<p>&nbsp;',labels[6],'</p>');
 				}else{
 					for(var i=history.length-1;i>-1;i--){
@@ -250,21 +251,20 @@ $.widget( "evol.colorpicker", {
 					}
 				}
 				h.push('</div>');
-				var idx=-this._paletteIdx,
-					content=h.join(''),
-					label=labels[4];
+				idx=-this._paletteIdx;
+				content=h.join('');
+				label=labels[4];
 			}else{
 				// palette
 				if(this._paletteIdx<0){
-					var idx=-this._paletteIdx;
+					idx=-this._paletteIdx;
 					this._palette.find('.evo-hist').show();
 				}else{
-					var idx=(this._paletteIdx==2)?1:2;
+					idx=(this._paletteIdx==2)?1:2;
 				}
-				var content=this['_paletteHTML'+idx](),
-					label=labels[idx+1];
+				content=this['_paletteHTML'+idx]();
+				label=labels[idx+1];
 				this._paletteIdx=idx;
-
 			}
 			this._paletteIdx=idx;
 			var e=this._palette.find('.evo-more')
@@ -279,7 +279,7 @@ $.widget( "evol.colorpicker", {
 	showPalette: function() {
 		if(this._enabled){
 			$('.colorPicker').not('.'+this._id).colorpicker('hidePalette');
-			if(this._palette==null){
+			if(this._palette===null){
 				this._palette=this.element.next()
 					.after(this._paletteHTML()).next()
 					.on('click',function(evt){
