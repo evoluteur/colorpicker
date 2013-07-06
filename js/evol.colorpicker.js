@@ -2,6 +2,7 @@
  * Evol.ColorPicker 2.1
  *
  * Copyright (c) 2013, Olivier Giulieri 
+ * https://github.com/evoluteur/colorpicker
  *
  * Depends:
  *	jquery.ui.core.js
@@ -98,7 +99,7 @@ $.widget( "evol.colorpicker", {
 						(isIE?'margin-bottom:-21px;':'')+
 						(isMoz?'padding:1px 0;':'')+
 						'"></div>')
-					.after('<div class="evo-colorind'+(isMoz?'-ff':_ie)+'" '+
+					.after('<div class="'+((this.options.showOn==='focus')?'':'evo-pointer ')+'evo-colorind'+(isMoz?'-ff':_ie)+'" '+
 						(color!==null?'style="background-color:'+color+'"':'')+'></div>')
 					.on('keyup onpaste', function(evt){
 						var c=$(this).val();
@@ -107,12 +108,12 @@ $.widget( "evol.colorpicker", {
 						}
 					});
 				var showOn=this.options.showOn;
-				if(showOn=='both' || showOn=='focus'){
+				if(showOn==='both' || showOn==='focus'){
 					e.on('focus', function(){
 						that.showPalette();
 					});
 				}
-				if(showOn=='both' || showOn=='button'){
+				if(showOn==='both' || showOn==='button'){
 					e.next().on('click', function(evt){
 						evt.stopPropagation();
 						that.showPalette();
@@ -152,7 +153,7 @@ $.widget( "evol.colorpicker", {
 		return h.join('');
 	},
 
-	_colorIndHTML: function(c,fl) {
+	_colorIndHTML: function(c, fl) {
 		var h=[];
 		h.push('<div class="evo-color" style="float:left"><div style="');
 		h.push(c?'background-color:'+c:'display:none');
@@ -400,7 +401,13 @@ $.widget( "evol.colorpicker", {
 		if(this._isPopup){
 			e.removeAttr('disabled');
 		}else{
-			e.css({'opacity': '1', 'pointer-events': 'auto'});
+			e.css({
+				'opacity': '1', 
+				'pointer-events': 'auto'
+			});
+		}
+		if(this.options.showOn!=='focus'){
+			this.element.next().addClass('evo-pointer');			
 		}
 		e.removeAttr('aria-disabled');
 		this._enabled=true;
@@ -413,7 +420,13 @@ $.widget( "evol.colorpicker", {
 			e.attr('disabled', 'disabled');
 		}else{
 			this.hidePalette();
-			e.css({'opacity': '0.3', 'pointer-events': 'none'});
+			e.css({
+				'opacity': '0.3', 
+				'pointer-events': 'none'
+			});
+		}
+		if(this.options.showOn!=='focus'){
+			this.element.next().removeClass('evo-pointer');
 		}
 		e.attr('aria-disabled','true');
 		this._enabled=false;

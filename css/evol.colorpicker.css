@@ -1,5 +1,6 @@
 /*  (c) 2013 Olivier Giulieri  */
-/*  ColorPicker for jQuery UI  */
+/*  ColorPicker widget for jQuery UI  */
+/* https://github.com/evoluteur/colorpicker */
 
 .evo-pop {
 	z-index:10000;
@@ -146,4 +147,7 @@
 }
 a.evo-hist{
 	margin-left:6px;
+}
+.evo-pointer{
+	cursor:pointer;
 }
