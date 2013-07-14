@@ -23,6 +23,10 @@ a {
 .demoPanel input{
 	width:100px;
 }
+a.sel{
+	color: #000;
+	text-decoration: none;
+}
 .footer{
 	text-align: center;
 	font-size:smaller;
