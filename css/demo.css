@@ -10,6 +10,9 @@ a {
 	color: #39C;
 	font-weight: 400;
 }
+a:hover {
+    color: #FF9900;
+}
 .demoPanel{ 
 	float:left;
 	border: 2px solid #A7C8E2;
