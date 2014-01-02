@@ -1,7 +1,7 @@
 /*!
  * Evol.ColorPicker 2.1
  *
- * Copyright (c) 2013, Olivier Giulieri 
+ * Copyright (c) 2014, Olivier Giulieri
  * https://github.com/evoluteur/colorpicker
  *
  * Depends:

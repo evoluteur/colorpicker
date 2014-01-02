@@ -1,7 +1,7 @@
 {
   "name": "evol.colorpicker",
   "version": "2.1",
-  "copyright": "(c) 2013 Olivier Giulieri",
+  "copyright": "(c) 2014 Olivier Giulieri",
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-contrib-jshint": "~0.4.3",
