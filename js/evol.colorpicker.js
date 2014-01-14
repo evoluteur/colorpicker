@@ -1,9 +1,10 @@
-/*!
- * Evol.ColorPicker 2.1
- *
- * Copyright (c) 2014, Olivier Giulieri
- * https://github.com/evoluteur/colorpicker
- *
+/*
+ evol.colorpicker 2.2
+ ColorPicker widget for jQuery UI
+
+ https://github.com/evoluteur/colorpicker
+ (c) 2014 Olivier Giulieri
+
  * Depends:
  *	jquery.ui.core.js
  *	jquery.ui.widget.js
@@ -65,7 +66,7 @@ var _idx=0,
 			
 $.widget( "evol.colorpicker", {
 
-	version: '2.1',
+	version: '2.2',
 	
 	options: {
 		color: null, // example default:'#31859B'

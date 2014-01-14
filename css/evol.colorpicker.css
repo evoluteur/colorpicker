@@ -1,6 +1,10 @@
-/*  ColorPicker widget for jQuery UI  */
-/*  (c) 2014 Olivier Giulieri  */
-/* https://github.com/evoluteur/colorpicker */
+/*
+ evol.colorpicker 2.2
+ ColorPicker widget for jQuery UI
+ https://github.com/evoluteur/colorpicker
+ (c) 2014 Olivier Giulieri
+ */
+
 .evo-pop {
   z-index: 10000;
   width: 204px;
