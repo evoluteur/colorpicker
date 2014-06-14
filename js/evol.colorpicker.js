@@ -441,7 +441,7 @@ $.widget( "evol.colorpicker", {
 	destroy: function() {
 		$(document.body).off('click.'+this._id);
 		if(this._palette){
-			this._palette.off('mouseover click', 'td')
+			this._palette.off('mouseover click', 'td,.evo-cHist div')
 				.find('.evo-more a').off('click');
 			if(this._isPopup){
 				this._palette.remove();
