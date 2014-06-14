@@ -1,6 +1,6 @@
-/*  ColorPicker widget for jQuery UI  */
+/*  evol.colorpicker = ColorPicker widget for jQuery UI  */
 /*  (c) 2014 Olivier Giulieri  */
-/* https://github.com/evoluteur/colorpicker */
+/*  https://github.com/evoluteur/colorpicker */
 
 .evo-pop {
 	z-index:10000;
@@ -14,20 +14,20 @@
 }
 
 .evo-palette {
-  td  {
+  td {
     font-size:1px;
     border:solid 1px #c0c0c0;
     padding:7px;
     cursor:pointer;
   }
-  tr.top td {
+  tr.top > td {
     border-bottom:0;
   }
-  tr.in td {
+  tr.in > td {
     border-top:0;
     border-bottom:0;
   }
-  tr.bottom td {
+  tr.bottom > td {
     border-top:0;
   }
   div.sep {
@@ -35,12 +35,13 @@
   }
 
 }
-.evo-palette, .evo-palette-ie  {
+.evo-palette,
+.evo-palette-ie {
 	border-collapse: separate;
 	border-spacing: 4px 0px;
 	*border-collapse: expression('separate', cellSpacing = '2px');
 
-  th  {
+  th {
     border:0;
     padding:5px 3px;
     text-align:left;
@@ -50,52 +51,55 @@
 
 }
 
-.evo-palette-ie td  {
+.evo-palette-ie td {
 	font-size:1px;
 	border:solid 1px #c0c0c0;
 	padding:7px;
 	cursor:pointer;
 } 
 
-.evo-palette2, .evo-palette2-ie {
+.evo-palette2,
+.evo-palette2-ie {
 	margin:auto;
 	border-collapse:collapse;
 
-  td{
+  td {
     font-size:1px;
     cursor:pointer;
   }
 }
-.evo-palette2 td{
+.evo-palette2 td {
 	padding:6px 7px;
 }
-.evo-palette2-ie td{
+.evo-palette2-ie td {
 	padding:5px;
 } 
-.evo-palcenter{
+.evo-palcenter {
 	padding:5px;
 	text-align:center;
 }
 
-.evo-colorind,.evo-colorind-ie,.evo-colorind-ff{
+.evo-colorind,
+.evo-colorind-ie,
+.evo-colorind-ff {
 	border:solid 1px #c3c3c3;
 	width:20px;
 	height:20px;
 	float:right;
 }
-.evo-colorind{
+.evo-colorind {
 	position:relative;
 	top:2px;
 }
-.evo-colorind-ie{
+.evo-colorind-ie {
 	position:relative;
 	top:-23px;
 }
-.evo-colorbox-ie{
+.evo-colorbox-ie {
 	font-size:8px;
 	padding:3px 9px !important;
 }
-.evo-colortxt-ie{
+.evo-colortxt-ie {
 	position:relative;
 	top:-6px;
 }
@@ -105,7 +109,7 @@
 .evo-colorind-ie:after, 
 .evo-colorind-ff:after, 
 .evo-color span:after,
-.evo-cHist:after{
+.evo-cHist:after {
 	content: ".";
 	display: block;
 	height: 0;
@@ -113,11 +117,11 @@
 	visibility: hidden;
 	font-size: 0;
 }
-.evo-color{
+.evo-color {
 	width:94px;
 	padding: 1px 3px 0 4px;
 
-  div{
+  div {
     border:solid 1px #808080;
     border-right:solid 1px #c0c0c0;
     border-bottom:solid 1px #c0c0c0;
@@ -127,25 +131,25 @@
     height:10px;
     float:left;
   }
-  span{
+  span {
     font-size:15px;
     margin: 1px 0 4px 3px;
     float:left;
   }
 }
 
-.evo-sep{
+.evo-sep {
 	height:10px;
 	font-size:0;
 }
-.evo-more{
+.evo-more {
 	padding:4px 5px 4px;
 	font-size:smaller;
 }
-.evo-cHist{
+.evo-cHist {
 	padding:3px;
 
-  div{
+  div {
     cursor: pointer;
     border:solid 1px #c0c0c0;
     padding:3px;
@@ -156,9 +160,9 @@
   }
 }
 
-a.evo-hist{
+a.evo-hist {
 	margin-left:6px;
 }
-.evo-pointer{
+.evo-pointer {
 	cursor:pointer;
 }

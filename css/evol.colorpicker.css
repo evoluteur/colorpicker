@@ -1,10 +1,6 @@
-/*
- evol.colorpicker 2.2
- ColorPicker widget for jQuery UI
- https://github.com/evoluteur/colorpicker
- (c) 2014 Olivier Giulieri
- */
-
+/*  evol.colorpicker = ColorPicker widget for jQuery UI  */
+/*  (c) 2014 Olivier Giulieri  */
+/*  https://github.com/evoluteur/colorpicker */
 .evo-pop {
   z-index: 10000;
   width: 204px;
@@ -21,14 +17,14 @@
   padding: 7px;
   cursor: pointer;
 }
-.evo-palette tr.top td {
+.evo-palette tr.top > td {
   border-bottom: 0;
 }
-.evo-palette tr.in td {
+.evo-palette tr.in > td {
   border-top: 0;
   border-bottom: 0;
 }
-.evo-palette tr.bottom td {
+.evo-palette tr.bottom > td {
   border-top: 0;
 }
 .evo-palette div.sep {

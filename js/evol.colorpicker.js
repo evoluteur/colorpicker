@@ -70,7 +70,7 @@ $.widget( "evol.colorpicker", {
 	
 	options: {
 		color: null, // example default:'#31859B'
-		showOn: 'both', // possible values 'focus','button','both'
+		showOn: 'both', // possible values: 'focus','button','both'
 		displayIndicator: true,
 		history: true,
 		strings: 'Theme Colors,Standard Colors,More Colors,Less Colors,Back to Palette,History,No history yet.'
@@ -148,13 +148,13 @@ $.widget( "evol.colorpicker", {
 		h.push('</div>');
 		// indicator
 		if(opts.displayIndicator){
-			h.push(this._colorIndHTML(this.options.color,'left'), this._colorIndHTML('','right'));
+			h.push(this._colorIndHTML(this.options.color), this._colorIndHTML(''));
 		}
 		h.push('</div>');
 		return h.join('');
 	},
 
-	_colorIndHTML: function(c, fl) {
+	_colorIndHTML: function(c) {
 		var h=[];
 		h.push('<div class="evo-color" style="float:left"><div style="');
 		h.push(c?'background-color:'+c:'display:none');
