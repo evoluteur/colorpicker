@@ -1,6 +1,6 @@
 {
   "name": "evol.colorpicker",
-  "version": "2.2",
+  "version": "2.2.1",
   "copyright": "(c) 2014 Olivier Giulieri",
   "license": "MIT",
   "devDependencies": {

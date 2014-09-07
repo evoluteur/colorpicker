@@ -1,5 +1,5 @@
 /*
- evol.colorpicker 2.2
+ evol.colorpicker 2.2.1
  ColorPicker widget for jQuery UI
 
  https://github.com/evoluteur/colorpicker
@@ -67,7 +67,7 @@ var _idx=0,
 			
 $.widget( "evol.colorpicker", {
 
-	version: '2.2',
+	version: '2.2.1',
 	
 	options: {
 		color: null, // example:'#31859B'
