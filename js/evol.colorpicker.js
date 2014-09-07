@@ -13,9 +13,10 @@
 (function( $, undefined ) {
 
 var _idx=0,
-	isIE=!$.support.cssFloat,
+    ua=window.navigator.userAgent,
+    isIE=ua.indexOf("MSIE ")>0,
 	_ie=isIE?'-ie':'',
-	isMoz=isIE?false:/mozilla/.test(navigator.userAgent.toLowerCase()) && !/webkit/.test(navigator.userAgent.toLowerCase()),	
+	isMoz=isIE?false:/mozilla/.test(ua.toLowerCase()) && !/webkit/.test(ua.toLowerCase()),
 	history=[],
 	baseThemeColors=['ffffff','000000','eeece1','1f497d','4f81bd','c0504d','9bbb59','8064a2','4bacc6','f79646'],
 	subThemeColors=['f2f2f2','7f7f7f','ddd9c3','c6d9f0','dbe5f1','f2dcdb','ebf1dd','e5e0ec','dbeef3','fdeada',
@@ -69,7 +70,7 @@ $.widget( "evol.colorpicker", {
 	version: '2.2',
 	
 	options: {
-		color: null, // example default:'#31859B'
+		color: null, // example:'#31859B'
 		showOn: 'both', // possible values: 'focus','button','both'
 		displayIndicator: true,
 		history: true,
