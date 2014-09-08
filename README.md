@@ -135,7 +135,7 @@ $("#mycolor").on("change.color", function(event, color){
 
 ### mouseover.color
 
-This event is triggered when the mouse mouves over a color box on the palette.
+This event is triggered when the mouse moves over a color box on the palette.
 
 ```javascript
 $("#mycolor").on("mouseover.color", function(event, color){
