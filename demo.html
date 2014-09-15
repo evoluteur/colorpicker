@@ -92,23 +92,23 @@ $(document).ready(function(){
 		})
 		.on('mouseover.color', function(evt, color){
 			$('#title').attr('style','background-color:'+color);
-		})
+		});
 	
 	$('#getVal').click(function(){
 		alert($('#cp1').colorpicker("val"));
-	})
+	});
 	$('#setVal').click(function(){
 		$('#cp1').colorpicker("val",'#31859b');
-	})
+	});
 	$('#enable').click(function(){
 		$('#cp1').colorpicker("enable");
-	})
+	});
 	$('#disable').click(function(){
 		$('#cp1').colorpicker("disable");
-	})
+	});
 	$('#destroy1').click(function(){
 		var v=$('#cp1').colorpicker("destroy") ;
-	})	
+	});
 	
 	// Instanciate colorpickers
     $('#cpBoth').colorpicker();
@@ -119,7 +119,7 @@ $(document).ready(function(){
 	$('#show').click(function(evt){
 		evt.stopImmediatePropagation();
 		$('#cpOther').colorpicker("showPalette");
-	})
+	});
 	
 	// No color indicator
 	$('#noIndColor').colorpicker({
@@ -133,19 +133,19 @@ $(document).ready(function(){
 
 	$('#getVal2').click(function(){
 		alert($('#cpDiv').colorpicker("val"));
-	})
+	});
 	$('#setVal2').click(function(){
 		$('#cpDiv').colorpicker("val",'#31859b');
-	})
+	});
 	$('#enable2').click(function(){
 		$('#cpDiv').colorpicker("enable");
-	})
+	});
 	$('#disable2').click(function(){
 		$('#cpDiv').colorpicker("disable");
-	})
+	});
 	$('#destroy2').click(function(){
 		var v=$('#cpDiv').colorpicker("destroy");
-	})
+	});
 
 	// Fix links
 	$('.demo-links > a[href="#"]').attr('href', 'javascript:void(0)');
@@ -154,9 +154,7 @@ $(document).ready(function(){
 
 </script>
  
-<p><br/><a href="https://github.com/evoluteur/colorpicker/archive/master.zip">Download</a>, documentation, and source code are available on GitHub at <a href="https://github.com/evoluteur/colorpicker" target="download">https://github.com/evoluteur/colorpicker</a>.</p>
-
-<p>evol.colorpicker is released under the <a href="http://github.com/evoluteur/colorpicker/raw/master/LICENSE.md">MIT license</a>.</p>
+<p><br/><a href="https://github.com/evoluteur/colorpicker/archive/master.zip">Download</a>, documentation, and source code are available at <a href="https://github.com/evoluteur/colorpicker" target="download">GitHub</a> under the <a href="http://github.com/evoluteur/colorpicker/raw/master/LICENSE.md">MIT license</a>.</p>
 
 <br/><br/>
 <div class="footer">&#169; 2014 Olivier Giulieri</div>
