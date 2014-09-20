@@ -76,7 +76,7 @@ module.exports = function (grunt) {
     grunt.registerTask('dev', ['jshint', 'less:dev']);
 
     // Prod only task(s).
-    grunt.registerTask('prod', ['jshint', 'uglify', 'less:prod']);
+    grunt.registerTask('prod', ['jshint', 'uglify', 'less']);
 
 };
 
