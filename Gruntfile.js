@@ -7,7 +7,7 @@ module.exports = function (grunt) {
         // *************************************************************************************
 
         pkg: grunt.file.readJSON('package.json'),
-        banner :  '/*\n   <%= pkg.name %> <%= pkg.version %>\n   <%= pkg.copyright %>\n*/\n',
+        banner :  '/*\n   <%= pkg.name %> <%= pkg.version %>\n   <%= pkg.copyright %>\n   <%= pkg.homepage %>\n*/\n',
 
         // *************************************************************************************
         //      JSHINT options
