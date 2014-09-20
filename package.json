@@ -20,6 +20,10 @@
         "url": "git://github.com/evoluteur/colorpicker.git"
     },
     "bugs": "https://github.com/evoluteur/colorpicker/issues",
+    "dependencies": {
+        "jquery": "2.1.1",
+        "jquery-ui": "1.10.4"
+    },
     "devDependencies": {
         "grunt": "~0.4.1",
         "grunt-contrib-jshint": "~0.4.3",
