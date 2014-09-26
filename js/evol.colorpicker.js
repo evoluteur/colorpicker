@@ -316,7 +316,7 @@ $.widget( "evol.colorpicker", {
 
 	_bindColors: function() {
 		var es=this._palette.find('div.evo-color'),
-			sel=this.options.history?'td,.evo-cHist div':'td';
+			sel=this.options.history?'td,.evo-cHist>div':'td';
 		this._cTxt1=es.eq(0).children().eq(0);
 		this._cTxt2=es.eq(1).children().eq(0);
 		var that=this; 
