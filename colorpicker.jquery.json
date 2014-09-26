@@ -1,7 +1,7 @@
 {
 	"name": "colorpicker",
 	"title": "Evol ColorPicker",
-	"version": "2.2.3",
+	"version": "2.2.4",
 	"description": "A jQuery UI widget for color picking (similar to the one in Microsoft Office 2010).",
 	"keywords": [
 		"colorpicker",
