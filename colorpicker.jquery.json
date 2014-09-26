@@ -26,7 +26,7 @@
 		"jquery-ui": ">=1.8"
 	},
 	"homepage": "https://github.com/evoluteur/colorpicker",
-	"docs": "https://github.com/evoluteur/colorpicker",
+	"docs": "https://github.com/evoluteur/colorpicker#readme",
 	"demo": "http://evoluteur.github.io/colorpicker/index.html",
 	"bugs": "https://github.com/evoluteur/colorpicker/issues"
 }
