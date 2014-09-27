@@ -1,5 +1,5 @@
 /*
- evol.colorpicker 2.2.1
+ evol.colorpicker 2.2.4
  ColorPicker widget for jQuery UI
 
  https://github.com/evoluteur/colorpicker
@@ -156,17 +156,14 @@ $.widget( "evol.colorpicker", {
 	},
 
 	_colorIndHTML: function(c) {
-		var h=[];
-		h.push('<div class="evo-color" style="float:left"><div style="');
-		h.push(c?'background-color:'+c:'display:none');
-		if(isIE){
-			h.push('" class="evo-colorbox-ie"></div><span class=".evo-colortxt-ie" ');
-		}else{
-			h.push('"></div><span ');
-		}
-		h.push(c?'>'+c+'</span>':'/>');
-		h.push('</div>');
-		return h.join('');
+        return [
+            '<div class="evo-color" style="float:left"><div style="',
+            c?'background-color:'+c:'display:none',
+            isIE?'" class="evo-colorbox-ie"></div><span class=".evo-colortxt-ie" '
+                :'"></div><span ',
+            c?'>'+c+'</span>':'/>',
+            '</div>'
+        ].join('');
 	},
 
 	_paletteHTML1: function() {
@@ -208,7 +205,7 @@ $.widget( "evol.colorpicker", {
 	},
 
 	_paletteHTML2: function() {
-		var i, h=[],
+		var i, iMax, h=[],
 			oTD='<td style="background-color:#',
 			cTD=isIE?'"><div style="width:5px;"></div></td>':'"><span/></td>',
 			oTableTR='<table class="evo-palette2'+_ie+'"><tr>',
@@ -442,7 +439,7 @@ $.widget( "evol.colorpicker", {
 	destroy: function() {
 		$(document.body).off('click.'+this._id);
 		if(this._palette){
-			this._palette.off('mouseover click', 'td,.evo-cHist div')
+			this._palette.off('mouseover click', 'td,.evo-cHist>div')
 				.find('.evo-more a').off('click');
 			if(this._isPopup){
 				this._palette.remove();

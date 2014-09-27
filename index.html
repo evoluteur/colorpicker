@@ -99,7 +99,9 @@ $(document).ready(function(){
 			$('#title').attr('style','color:'+color);
 		})
 		.on('mouseover.color', function(evt, color){
-			$('#title').attr('style','background-color:'+color);
+            if(color){
+                $('#title').attr('style','background-color:'+color);
+            }
 		});
 	
 	$('#getVal').click(function(){
