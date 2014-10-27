@@ -134,25 +134,23 @@ $.widget( "evol.colorpicker", {
 	},
 
 	_paletteHTML: function() {		
-		var h=[], pIdx=this._paletteIdx=Math.abs(this._paletteIdx),
+		var pIdx=this._paletteIdx=Math.abs(this._paletteIdx),
 			opts=this.options,
 			labels=opts.strings.split(',');
-		h.push('<div class="evo-pop',_ie,' ui-widget ui-widget-content ui-corner-all"',
-			this._isPopup?' style="position:absolute"':'', '>');
-		// palette
-		h.push('<span>',this['_paletteHTML'+pIdx](),'</span>');
-		// links
-		h.push('<div class="evo-more"><a href="javascript:void(0)">', labels[1+pIdx],'</a>');
-		if(opts.history){
-			h.push('<a href="javascript:void(0)" class="evo-hist">', labels[5],'</a>');			
-		}
-		h.push('</div>');
-		// indicator
-		if(opts.displayIndicator){
-			h.push(this._colorIndHTML(this.options.color), this._colorIndHTML(''));
-		}
-		h.push('</div>');
-		return h.join('');
+
+		return [
+            '<div class="evo-pop',_ie,' ui-widget ui-widget-content ui-corner-all"',
+			this._isPopup?' style="position:absolute"':'','>',
+            // palette
+            '<span>',this['_paletteHTML'+pIdx](),'</span>',
+            // links
+            '<div class="evo-more"><a href="javascript:void(0)">', labels[1+pIdx],'</a>',
+            opts.history?'<a href="javascript:void(0)" class="evo-hist">' + labels[5] + '</a>':'',
+            '</div>',
+            // indicator
+            opts.displayIndicator?this._colorIndHTML(this.options.color)+this._colorIndHTML(''):'',
+            '</div>'
+        ].join('');
 	},
 
 	_colorIndHTML: function(c) {
