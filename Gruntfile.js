@@ -49,7 +49,7 @@ module.exports = function (grunt) {
             },
             prod: {
                 options: {
-                    yuicompress: true
+                    compress: true
                 },
                 files: {
                     "css/evol.colorpicker.min.css": "less/evol.colorpicker.less"
