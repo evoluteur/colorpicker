@@ -121,6 +121,18 @@ $("#mycolor").colorpicker({
 
 Defaults to *"Theme Colors,Standard Colors,More Colors,Less Colors,Back to Palette,History,No history yet."*.
 
+### transparentColor (Boolean)
+
+Allow for selection of the "transparent color". The hexadecimal value for the transparent color is "#0000ffff".
+
+```javascript
+$("#mycolor").colorpicker({
+    transparentColor: true
+});
+```
+
+Defaults to *false*.
+
 ## Events
 
 ### change.color
