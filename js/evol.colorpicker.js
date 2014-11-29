@@ -142,25 +142,26 @@ $.widget( "evol.colorpicker", {
 	},
 
 	_paletteHTML: function() {
-		var h=[], pIdx=this._paletteIdx=Math.abs(this._paletteIdx),
+		var pIdx=this._paletteIdx=Math.abs(this._paletteIdx),
 			opts=this.options,
 			labels=opts.strings.split(',');
-		h.push('<div class="evo-pop',_ie,' ui-widget ui-widget-content ui-corner-all"',
-			this._isPopup?' style="position:absolute"':'', '>');
-		// palette
-		h.push('<span>',this['_paletteHTML'+pIdx](),'</span>');
-		// links
-		h.push('<div class="evo-more"><a href="javascript:void(0)">', labels[1+pIdx],'</a>');
+
+		var h='<div class="evo-pop'+_ie+' ui-widget ui-widget-content ui-corner-all"'+
+			(this._isPopup?' style="position:absolute"':'')+'>'+
+			// palette
+			'<span>'+this['_paletteHTML'+pIdx]()+'</span>'+
+			// links
+			'<div class="evo-more"><a href="javascript:void(0)">'+labels[1+pIdx]+'</a>';
 		if(opts.history){
-			h.push('<a href="javascript:void(0)" class="evo-hist">', labels[5],'</a>');
+			h+='<a href="javascript:void(0)" class="evo-hist">'+labels[5]+'</a>';
 		}
-		h.push('</div>');
+		h+='</div>';
 		// indicator
 		if(opts.displayIndicator){
-			h.push(this._colorIndHTML(this.options.color), this._colorIndHTML(''));
+			h+=this._colorIndHTML(this.options.color)+this._colorIndHTML('');
 		}
-		h.push('</div>');
-		return h.join('');
+		h+='</div>';
+		return h;
 	},
 
 	_colorIndHTML: function(c) {
@@ -182,49 +183,48 @@ $.widget( "evol.colorpicker", {
 	},
 
 	_paletteHTML1: function() {
-		var h=[],
-			opts=this.options,
+		var opts=this.options,
 			labels=opts.strings.split(','),
 			oTD='<td style="background-color:#',
 			cTD=isIE?'"><div style="width:2px;"></div></td>':'"><span/></td>',
 			oTRTH='<tr><th colspan="10" class="ui-widget-content">';
 
 		// base theme colors
-		h.push('<table class="evo-palette',_ie,'">',oTRTH,labels[0],'</th></tr><tr>');
+		var h='<table class="evo-palette'+_ie+'">'+oTRTH+labels[0]+'</th></tr><tr>';
 		for(var i=0;i<10;i++){ 
-			h.push(oTD, baseThemeColors[i], cTD);
+			h+=oTD+baseThemeColors[i]+cTD;
 		}
-		h.push('</tr>');
+		h+='</tr>';
 		if(!isIE){
-			h.push('<tr><th colspan="10"></th></tr>');
+			h+='<tr><th colspan="10"></th></tr>';
 		}
-		h.push('<tr class="top">');
+		h+='<tr class="top">';
 		// theme colors
 		for(i=0;i<10;i++){ 
-			h.push(oTD, subThemeColors[i], cTD);
+			h+=oTD+subThemeColors[i]+cTD;
 		}
 		for(var r=1;r<4;r++){
-			h.push('</tr><tr class="in">');
+			h+='</tr><tr class="in">';
 			for(i=0;i<10;i++){ 
-				h.push(oTD, subThemeColors[r*10+i], cTD);
+				h+=oTD+subThemeColors[r*10+i]+cTD;
 			}
 		}
-		h.push('</tr><tr class="bottom">');
+		h+='</tr><tr class="bottom">';
 		for(i=40;i<50;i++){ 
-			h.push(oTD, subThemeColors[i], cTD);
+			h+=oTD+subThemeColors[i]+cTD;
 		}
-		h.push('</tr>',oTRTH);
+		h+='</tr>'+oTRTH;
 		// transparent color
 		if(opts.transparentColor){
-			h.push('<div class="evo-transparent evo-tr-box"></div>');
+			h+='<div class="evo-transparent evo-tr-box"></div>';
 		}
-		h.push(labels[1],'</th></tr><tr>');
+		h+=labels[1]+'</th></tr><tr>';
 		// standard colors
 		for(i=0;i<10;i++){ 
-			h.push(oTD, standardColors[i], cTD);
+			h+=oTD+standardColors[i]+cTD;
 		}
-		h.push('</tr></table>');
-		return h.join(''); 
+		h+='</tr></table>';
+		return h; 
 	},
 
 	_paletteHTML2: function() {
