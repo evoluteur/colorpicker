@@ -74,13 +74,9 @@
 .evo-colorind-ie,
 .evo-colorind-ff {
   border: solid 1px #c3c3c3;
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   float: right;
-}
-.evo-colorind {
-  position: relative;
-  top: 2px;
 }
 .evo-colorind-ie {
   position: relative;
