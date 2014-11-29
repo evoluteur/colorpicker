@@ -57,7 +57,7 @@
 	<input id="cpOther" value="#002060" />
 </div>
 
-<div class="demoPanel" style="width:170px">
+<div id="cpb" class="demoPanel" style="width:170px">
 	Event binding:<br/>
 	change.color and mouseover.color<br/><br/>
 	<input id="cp1"/><br/> 
@@ -106,16 +106,16 @@ $(document).ready(function(){
 	// Events demo
 	$('#cp1').colorpicker({color:'#8db3e2'})
 		.on('change.color', function(evt, color){
-			$('#title').attr('style','color:'+color);
+			$('#cpb').css('background-color',color);
 		})
 		.on('mouseover.color', function(evt, color){
             if(color){
-                $('#title').attr('style','background-color:'+color);
+                $('#cpb').css('background-color',color);
             }
 		});
 	
 	$('#getVal').click(function(){
-		alert($('#cp1').colorpicker("val"));
+		alert('Selected color = "' + $('#cp1').colorpicker("val") + '"');
 	});
 	$('#setVal').click(function(){
 		$('#cp1').colorpicker("val",'#31859b');
@@ -158,7 +158,7 @@ $(document).ready(function(){
 
 	// Inline colorpicker
 	$('#getVal2').click(function(){
-		alert($('#cpDiv').colorpicker("val"));
+		alert('Selected color = "' + $('#cpDiv').colorpicker("val") + '"');
 	});
 	$('#setVal2').click(function(){
 		$('#cpDiv').colorpicker("val",'#31859b');
@@ -170,7 +170,7 @@ $(document).ready(function(){
 		$('#cpDiv').colorpicker("disable");
 	});
 	$('#destroy2').click(function(){
-		var v=$('#cpDiv').colorpicker("destroy");
+		$('#cpDiv').colorpicker("destroy");
 	});
 
 	// Fix links
