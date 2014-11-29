@@ -164,9 +164,8 @@ $.widget( "evol.colorpicker", {
 	},
 
 	_colorIndHTML: function(c) {
-		var h=[],
-			css=isIE?'evo-colorbox-ie ':'',
-			style;
+		var css=isIE?'evo-colorbox-ie ':'',
+			style='';
 
 		if(c){
 			if(c===transColor){
@@ -177,11 +176,9 @@ $.widget( "evol.colorpicker", {
 		}else{
 			style='display:none';
 		}
-		h.push('<div class="evo-color" style="float:left">');
-		h.push('<div style="',style,'" class="',css,'"></div><span>'); // class="evo-colortxt-ie"
-		h.push(c?c:'');
-		h.push('</span></div>');
-		return h.join('');
+		return '<div class="evo-color" style="float:left">'+
+			'<div style="'+style+'" class="'+css+'"></div><span>'+ // class="evo-colortxt-ie"
+			(c?c:'')+'</span></div>';
 	},
 
 	_paletteHTML1: function() {
@@ -231,38 +228,40 @@ $.widget( "evol.colorpicker", {
 	},
 
 	_paletteHTML2: function() {
-		var i, iMax, h=[],
+		var i, iMax,
 			oTD='<td style="background-color:#',
 			cTD=isIE?'"><div style="width:5px;"></div></td>':'"><span/></td>',
 			oTableTR='<table class="evo-palette2'+_ie+'"><tr>',
 			cTableTR='</tr></table>';
-		h.push('<div class="evo-palcenter">');
+
+		var h='<div class="evo-palcenter">';
 		// hexagon colors
 		for(var r=0,rMax=moreColors.length;r<rMax;r++){
-			h.push(oTableTR);
+			h+=oTableTR;
 			var cs=moreColors[r];
 			for(i=0,iMax=cs.length;i<iMax;i++){ 
-				h.push(oTD, cs[i], cTD);
+				h+=oTD+cs[i]+cTD;
 			}
-			h.push(cTableTR);
+			h+=cTableTR;
 		}
-		h.push('<div class="evo-sep"/>');
+		h+='<div class="evo-sep"/>';
 		// gray scale colors
-		var h2=[];
-		h.push(oTableTR);
+		var h2='';
+		h+=oTableTR;
 		for(i=255;i>10;i-=10){
-			h.push(oTD, int2Hex3(i), cTD);
+			h+=oTD+int2Hex3(i)+cTD;
 			i-=10;
-			h2.push(oTD, int2Hex3(i), cTD); 
+			h2+=oTD+int2Hex3(i)+cTD;
 		}
-		h.push(cTableTR,oTableTR,h2.join(''),cTableTR);	
-		h.push('</div>');
-		return h.join('');
+		h+=cTableTR+oTableTR+h2+cTableTR+'</div>';
+		return h;
 	},
 
 	_switchPalette: function(link) {
 		if(this._enabled){
-			var idx, content, label,
+			var idx, 
+				content, 
+				label,
 				labels=this.options.strings.split(',');
 			if($(link).hasClass('evo-hist')){
 				// history
