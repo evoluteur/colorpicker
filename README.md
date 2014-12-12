@@ -72,17 +72,17 @@ $("#mycolor").colorpicker({
 
 Defaults to *null*.
 
-### history (Boolean)
+### defaultPalette (String)
 
-Used to track selection history (shared among all instances of the colorpicker).
+Used to set the default color palette. Possible values are "theme" or "web".
 
 ```javascript
 $("#mycolor").colorpicker({
-    history: false
+    defaultPalette: 'web'
 });
 ```
 
-Defaults to *true*.
+Defaults to *theme*.
 
 ### displayIndicator (Boolean)
 
@@ -91,6 +91,18 @@ Used to show color value on hover and click inside the palette.
 ```javascript
 $("#mycolor").colorpicker({
     displayIndicator: false
+});
+```
+
+Defaults to *true*.
+
+### history (Boolean)
+
+Used to track selection history (shared among all instances of the colorpicker).
+
+```javascript
+$("#mycolor").colorpicker({
+    history: false
 });
 ```
 
@@ -119,7 +131,7 @@ $("#mycolor").colorpicker({
 });
 ```
 
-Defaults to *"Theme Colors,Standard Colors,More Colors,Less Colors,Back to Palette,History,No history yet."*.
+Defaults to *"Theme Colors,Standard Colors,Web Colors,Theme Colors,Back to Palette,History,No history yet."*.
 
 ### transparentColor (Boolean)
 

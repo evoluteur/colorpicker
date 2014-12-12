@@ -41,8 +41,13 @@
 		<a href="#" id="enable2">Enable</a>
 		<a href="#" id="disable2">Disable</a>
 		<a href="#" id="destroy2">Destroy</a><br/><br/>
-		<div id="cpDiv"></div> 
 	</div> 
+	<div id="cpDiv"></div> 
+</div>
+
+<div class="demoPanel">
+	Inline with "web" default palette:<br/><br/>
+	<div id="cpDiv2"></div> 
 </div>
 
 <div class="demoPanel" style="width:130px">
@@ -133,6 +138,7 @@ $(document).ready(function(){
 	// Instanciate colorpickers
     $('#cpBoth').colorpicker();
     $('#cpDiv').colorpicker({color:'#31859b'});
+    $('#cpDiv2').colorpicker({color:'#31859b', defaultPalette:'web'});
     $('#cpFocus').colorpicker({showOn:'focus'});
     $('#cpButton').colorpicker({showOn:'button'});
     $('#cpOther').colorpicker({showOn:'none'});
@@ -141,7 +147,7 @@ $(document).ready(function(){
 		$('#cpOther').colorpicker("showPalette");
 	});
 	
-	// No color indicator
+	// With transparent color
 	$('#transColor').colorpicker({
 		transparentColor: true
 	});

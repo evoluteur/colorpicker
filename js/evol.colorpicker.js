@@ -25,7 +25,7 @@ var _idx=0,
 		'a5a5a5','262626','494429','17365d','366092','953734','76923c','5f497a','31859b','e36c09',
 		'7f7f7f','0c0c0c','1d1b10','0f243e','244061','632423','4f6128','3f3151','205867','974806'],
 	standardColors=['c00000','ff0000','ffc000','ffff00','92d050','00b050','00b0f0','0070c0','002060','7030a0'],
-	moreColors=[
+	webColors=[
 		['003366','336699','3366cc','003399','000099','0000cc','000066'],
 		['006666','006699','0099cc','0066cc','0033cc','0000ff','3333ff','333399'],
 		['669999','009999','33cccc','00ccff','0099ff','0066ff','3366ff','3333cc','666699'],
@@ -76,12 +76,13 @@ $.widget( "evol.colorpicker", {
 		displayIndicator: true,
 		transparentColor: false,
 		history: true,
-		strings: 'Theme Colors,Standard Colors,More Colors,Less Colors,Back to Palette,History,No history yet.'
+		defaultPalette: 'theme', // possible values: 'theme', 'web'
+		strings: 'Theme Colors,Standard Colors,Web Colors,Theme Colors,Back to Palette,History,No history yet.'
 	},
 
 	_create: function() {
 		var that=this;
-		this._paletteIdx=1;
+		this._paletteIdx=this.options.defaultPalette=='theme'?1:2;
 		this._id='evo-cp'+_idx++;
 		this._enabled=true;
 		switch(this.element.get(0).tagName){
@@ -236,9 +237,9 @@ $.widget( "evol.colorpicker", {
 
 		var h='<div class="evo-palcenter">';
 		// hexagon colors
-		for(var r=0,rMax=moreColors.length;r<rMax;r++){
+		for(var r=0,rMax=webColors.length;r<rMax;r++){
 			h+=oTableTR;
-			var cs=moreColors[r];
+			var cs=webColors[r];
 			for(i=0,iMax=cs.length;i<iMax;i++){ 
 				h+=oTD+cs[i]+cTD;
 			}
