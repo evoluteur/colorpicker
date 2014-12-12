@@ -195,7 +195,7 @@ $("#mycolor").colorpicker("isDisabled");
 Get or set the currently selected color value (as a string, ie. "#d0d0d0").
 
 ```javascript
-$("#mycolor").colorpicker("val");
+var colorValue = $("#mycolor").colorpicker("val");
 
 $("#mycolor").colorpicker("val", "#d0d0d0");
 ```
