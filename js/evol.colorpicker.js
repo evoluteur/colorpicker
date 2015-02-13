@@ -40,7 +40,7 @@ var _idx=0,
 		['996633','cc9900','ff9900','cc6600','ff3300','ff0000','cc0000','990033'],
 		['663300','996600','cc3300','993300','990000','800000','993333']
 	],
-	transColor='#0000ffff',
+	transColor='transparent',
 	int2Hex=function(i){
 		var h=i.toString(16);
 		if(h.length==1){
