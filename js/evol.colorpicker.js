@@ -73,6 +73,7 @@ $.widget( "evol.colorpicker", {
 	options: {
 		color: null, // example:'#31859B'
 		showOn: 'both', // possible values: 'focus','button','both'
+		hideButton: false,
 		displayIndicator: true,
 		transparentColor: false,
 		history: true,
@@ -85,11 +86,12 @@ $.widget( "evol.colorpicker", {
 		this._paletteIdx=this.options.defaultPalette=='theme'?1:2;
 		this._id='evo-cp'+_idx++;
 		this._enabled=true;
+		this.options.showOn=this.options.hideButton?'focus':this.options.showOn;
 		switch(this.element.get(0).tagName){
 			case 'INPUT':
 				var color=this.options.color,
 					e=this.element,
-					css=((this.options.showOn==='focus')?'':'evo-pointer ')+'evo-colorind'+(isMoz?'-ff':_ie),
+					css=((this.options.showOn==='focus')?'':'evo-pointer ')+'evo-colorind'+(isMoz?'-ff':_ie)+(this.options.hideButton?' evo-hidden-button':''),
 					style='';
 				this._isPopup=true;
 				this._palette=null;
@@ -107,7 +109,7 @@ $.widget( "evol.colorpicker", {
 					style=(color!==null)?('background-color:'+color):'';
 				}
 				e.addClass('colorPicker '+this._id)
-					.wrap('<div style="width:'+(this.element.width()+32)+'px;'+
+					.wrap('<div style="width:'+(this.options.hideButton?this.element.width():this.element.width()+32)+'px;'+
 						(isIE?'margin-bottom:-21px;':'')+
 						(isMoz?'padding:1px 0;':'')+
 						'"></div>')
