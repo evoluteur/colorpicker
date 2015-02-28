@@ -96,6 +96,19 @@ $("#mycolor").colorpicker({
 
 Defaults to *true*.
 
+### hideButton (Boolean)
+
+When binding the colorpicker to a textbox, a colored button will be added to the right of the textbox unless hideButton is set to true. 
+This option doens't have any effect if the colorpicker is bound to a DIV.
+
+```javascript
+$("#mycolor").colorpicker({
+    hideButton: true
+});
+```
+
+Defaults to *false*.
+
 ### history (Boolean)
 
 Used to track selection history (shared among all instances of the colorpicker).
