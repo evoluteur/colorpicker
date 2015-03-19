@@ -319,11 +319,17 @@ $.widget( "evol.colorpicker", {
 					});
 				this._bindColors();
 				var that=this;
-				$(document.body).on('click.'+this._id,function(evt){
-					if(evt.target!=that.element.get(0)){
-						that.hidePalette();
-					}
-				});
+				if(this._isPopup){
+					$(document.body).on('click.'+that._id, function(evt){
+						if(evt.target!=that.element.get(0)){
+							that.hidePalette();
+						}
+					}).on('keyup.'+that._id, function(evt){
+						if(evt.keyCode===27){
+							that.hidePalette();
+						}
+					});
+				}
 			}
 		}
 		return this;
