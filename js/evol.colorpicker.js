@@ -81,6 +81,9 @@ $.widget( "evol.colorpicker", {
 		strings: 'Theme Colors,Standard Colors,Web Colors,Theme Colors,Back to Palette,History,No history yet.'
 	},
 
+	// this is only true while showing the palette until color is chosen
+	_active: false,
+
 	_create: function() {
 		var that=this;
 		this._paletteIdx=this.options.defaultPalette=='theme'?1:2;
@@ -310,6 +313,7 @@ $.widget( "evol.colorpicker", {
 
 	showPalette: function() {
 		if(this._enabled){
+			this._active=true;
 			$('.colorPicker').not('.'+this._id).colorpicker('hidePalette');
 			if(this._palette===null){
 				this._palette=this.element.next()
@@ -365,6 +369,7 @@ $.widget( "evol.colorpicker", {
 				if(that._enabled){
 					var $this=$(this);
 					that._setValue($this.hasClass('evo-transparent')?transColor:toHex3($this.attr('style').substring(17)));
+					that._active=false;
 				}
 			})
 			.on('mouseover', sel, function(evt){
@@ -374,7 +379,9 @@ $.widget( "evol.colorpicker", {
 					if(that.options.displayIndicator){
 						that._setColorInd(c,2);
 					}
-					that.element.trigger('mouseover.color', c);
+					if(that._active){
+						that.element.trigger('mouseover.color', c);
+					}
 				}
 			})
 			.find('.evo-more a').on('click', function(){
