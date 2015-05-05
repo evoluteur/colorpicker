@@ -1,6 +1,6 @@
 {
     "name": "evol.colorpicker",
-    "version": "3.2.0",
+    "version": "3.2.1",
     "description": "jQuery UI widget for web color picking which looks like the one in Microsoft Office 2010.",
     "copyright": "(c) 2015 Olivier Giulieri",
     "homepage": "https://github.com/evoluteur/colorpicker",
