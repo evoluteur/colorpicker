@@ -1,0 +1,6 @@
+{
+  "name": "evol.colorpicker",
+  "homepage": "https://github.com/evoluteur/colorpicker",
+  "main": "js/evol.colorpicker.min.js",
+  "version": "3.2.1"
+}
