@@ -455,6 +455,10 @@ $.widget( "evol.colorpicker", {
 		history.push(c);
 	},
 
+	clear: function(){
+		this.hidePalette().val('');
+	},
+
 	enable: function() {
 		var e=this.element;
 		if(this._isPopup){

@@ -158,30 +158,15 @@ $("#mycolor").colorpicker({
 
 Defaults to *false*.
 
-## Events
-
-### change.color
-
-This event is triggered when a color is selected.
-
-```javascript
-$("#mycolor").on("change.color", function(event, color){
-    $('#title').css('background-color', color);
-});
-```
-
-### mouseover.color
-
-This event is triggered when the mouse moves over a color box on the palette.
-
-```javascript
-$("#mycolor").on("mouseover.color", function(event, color){
-    $('#title').css('background-color', color);
-});
-```
-
 
 ## Methods
+
+### clear()
+Clears the color value (and close the popup palette if opened).
+
+```javascript
+$("#mycolor").colorpicker("clear");
+```
 
 ### enable()
 Get the currently selected color value (returned as a string).
@@ -225,6 +210,28 @@ Hide the palette (when using the widget as a popup).
 
 ```javascript
 $("#mycolor").colorpicker("hidePalette");
+```
+
+## Events
+
+### change.color
+
+This event is triggered when a color is selected.
+
+```javascript
+$("#mycolor").on("change.color", function(event, color){
+    $('#title').css('background-color', color);
+});
+```
+
+### mouseover.color
+
+This event is triggered when the mouse moves over a color box on the palette.
+
+```javascript
+$("#mycolor").on("mouseover.color", function(event, color){
+    $('#title').css('background-color', color);
+});
 ```
 
 ## Browser Support

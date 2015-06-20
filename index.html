@@ -71,6 +71,7 @@
 	<a href="#" id="setVal">Set Value</a><br/>
 	<a href="#" id="enable">Enable</a>
 	<a href="#" id="disable">Disable</a>
+	<a href="#" id="clear">Clear</a>
 	<a href="#" id="destroy1">Destroy</a>
 	</div>
 </div>
@@ -136,6 +137,9 @@ $(document).ready(function(){
 	});
 	$('#disable').click(function(){
 		$('#cp1').colorpicker("disable");
+	});
+	$('#clear').click(function(){
+		var v=$('#cp1').colorpicker("clear") ;
 	});
 	$('#destroy1').click(function(){
 		var v=$('#cp1').colorpicker("destroy") ;
