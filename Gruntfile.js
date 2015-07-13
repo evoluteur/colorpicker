@@ -7,6 +7,7 @@ module.exports = function (grunt) {
         // *************************************************************************************
 
         pkg: grunt.file.readJSON('package.json'),
+
         banner :  '/*\n   <%= pkg.name %> <%= pkg.version %>\n   <%= pkg.copyright %>\n   <%= pkg.homepage %>\n*/\n',
 
         // *************************************************************************************
@@ -30,7 +31,7 @@ module.exports = function (grunt) {
             },
             js: {
                 files: { 
-                'js/evol.colorpicker.min.js': ['js/evol.colorpicker.js']
+                    'js/evol.colorpicker.min.js': ['js/evol.colorpicker.js']
                 }
             }
         },
@@ -39,9 +40,10 @@ module.exports = function (grunt) {
         //      LESS
         // *************************************************************************************
         less: {
-            options: {
-            },
             dev: {
+                options: {
+                    banner: '<%= banner %>'
+                },
                 files: {
                     "css/evol.colorpicker.css": "less/evol.colorpicker.less",
                     "css/demo.css": "less/demo.less"
@@ -49,6 +51,7 @@ module.exports = function (grunt) {
             },
             prod: {
                 options: {
+                    banner: '<%= banner %>',
                     compress: true
                 },
                 files: {
@@ -70,12 +73,12 @@ module.exports = function (grunt) {
     //      BUILD TASKS : dev prod
     // *************************************************************************************
     // Default task(s).
-    grunt.registerTask('default', ['dev']);
+    grunt.registerTask('default', ['prod']);
 
     // Dev only task(s).
     grunt.registerTask('dev', ['jshint', 'less:dev']);
 
-    // Prod only task(s).
+    // Prod task(s).
     grunt.registerTask('prod', ['jshint', 'uglify', 'less']);
 
 };
