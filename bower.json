@@ -8,7 +8,7 @@
 		"css/evol.colorpicker.min.css"
 	],
 	"authors": [
-		{ name: "Olivier Giulieri", homepage: "https://github.com/evoluteur"
+		{ "name": "Olivier Giulieri", "homepage": "https://github.com/evoluteur" }
 	],
 	"license": "MIT",
 	"keywords": [
