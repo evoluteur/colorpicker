@@ -145,6 +145,11 @@ $.widget( "evol.colorpicker", {
 		if(color && this.options.history){
 			this._add2History(color);
 		}
+	        if (this.options.initialHistrory) {
+	            var c = this.options.initialHistrory;
+	            for (var i in c)
+	                this._add2History(c[i]);
+	        }
 	},
 
 	_paletteHTML: function() {
