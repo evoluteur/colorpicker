@@ -126,22 +126,22 @@ $(document).ready(function(){
             }
 		});
 	
-	$('#getVal').click(function(){
+	$('#getVal').on('click', function(){
 		alert('Selected color = "' + $('#cp1').colorpicker("val") + '"');
 	});
-	$('#setVal').click(function(){
+	$('#setVal').on('click', function(){
 		$('#cp1').colorpicker("val",'#31859b');
 	});
-	$('#enable').click(function(){
+	$('#enable').on('click', function(){
 		$('#cp1').colorpicker("enable");
 	});
-	$('#disable').click(function(){
+	$('#disable').on('click', function(){
 		$('#cp1').colorpicker("disable");
 	});
-	$('#clear').click(function(){
+	$('#clear').on('click', function(){
 		var v=$('#cp1').colorpicker("clear") ;
 	});
-	$('#destroy1').click(function(){
+	$('#destroy1').on('click', function(){
 		var v=$('#cp1').colorpicker("destroy") ;
 	});
 	
@@ -152,7 +152,7 @@ $(document).ready(function(){
     $('#cpFocus').colorpicker({showOn:'focus'});
     $('#cpButton').colorpicker({showOn:'button'});
     $('#cpOther').colorpicker({showOn:'none'});
-	$('#show').click(function(evt){
+	$('#show').on('click', function(evt){
 		evt.stopImmediatePropagation();
 		$('#cpOther').colorpicker("showPalette");
 	});
@@ -178,19 +178,19 @@ $(document).ready(function(){
 	});
 
 	// Inline colorpicker
-	$('#getVal2').click(function(){
+	$('#getVal2').on('click', function(){
 		alert('Selected color = "' + $('#cpDiv').colorpicker("val") + '"');
 	});
-	$('#setVal2').click(function(){
+	$('#setVal2').on('click', function(){
 		$('#cpDiv').colorpicker("val",'#31859b');
 	});
-	$('#enable2').click(function(){
+	$('#enable2').on('click', function(){
 		$('#cpDiv').colorpicker("enable");
 	});
-	$('#disable2').click(function(){
+	$('#disable2').on('click', function(){
 		$('#cpDiv').colorpicker("disable");
 	});
-	$('#destroy2').click(function(){
+	$('#destroy2').on('click', function(){
 		$('#cpDiv').colorpicker("destroy");
 	});
 
