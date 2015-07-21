@@ -34,7 +34,9 @@
 </p>
 
 <div class="demoPanel">
-	Inline (using a DIV tag):<br/>
+	Inline (using a DIV tag):<br/><br/>
+	<div id="cpDiv"></div>
+	<br/>
 	<div class="demo-links">
 		<a href="#" id="getVal2">Get Value</a>
 		<a href="#" id="setVal2">Set Value</a><br/>
@@ -42,7 +44,6 @@
 		<a href="#" id="disable2">Disable</a>
 		<a href="#" id="destroy2">Destroy</a><br/><br/>
 	</div> 
-	<div id="cpDiv"></div> 
 </div>
 
 <div class="demoPanel">
@@ -116,7 +117,9 @@ $(document).ready(function(){
     });
 	
 	// Events demo
-	$('#cp1').colorpicker({color:'#8db3e2'})
+	$('#cp1').colorpicker({color:'#8db3e2',
+		initialHistory: ['#ff0000','#000000','red']
+})
 		.on('change.color', function(evt, color){
 			$('#cpb').css('background-color',color);
 		})
