@@ -111,7 +111,7 @@ Defaults to *false*.
 
 ### history (Boolean)
 
-Used to track selection history (shared among all instances of the colorpicker).
+Used to track selection history (shared among all instances of the colorpicker). The history keeps the last 28 colors selections.
 
 ```javascript
 $("#mycolor").colorpicker({
@@ -120,6 +120,18 @@ $("#mycolor").colorpicker({
 ```
 
 Defaults to *true*.
+
+### initialHistory (Array strings)
+
+Used to provide a color selection history. Colors are provided as strings of hexadecimal color values.
+
+```javascript
+$("#mycolor").colorpicker({
+    initialHistory: ["#ff0000", "#00ff00", "#0000ff"]
+});
+```
+
+Defaults to *null*.
 
 ### showOn (String)
 
