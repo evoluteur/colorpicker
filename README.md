@@ -1,7 +1,9 @@
 # evol.colorpicker
 
-evol.colorpicker is a web color picker which looks like the one in Microsoft Office 2010. It can be used inline or as a popup bound to a text box.
-It is a full jQuery UI widget, supporting various configurations and themes.
+evol.colorpicker is a web color picker which looks like the one in Microsoft Office 2010. 
+It comes with several color palettes and can track selection history.
+It can be used inline or as a popup bound to a text box. 
+It is a full jQuery UI widget, supporting various configurations and themes. 
 
 ## Demo
 
@@ -62,7 +64,7 @@ evol.colorpicker provides several options to customize its behaviour:
 
 ### color (String)
 
-Used to set the default color value.
+Used to set the color value.
 
 ```javascript
 $("#mycolor").colorpicker({
