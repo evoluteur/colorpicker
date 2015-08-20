@@ -98,10 +98,10 @@ $.widget( "evol.colorpicker", {
 					style='';
 				this._isPopup=true;
 				this._palette=null;
+				var v=e.val();
 				if(color!==null){
-					e.val(color);
+					if (color != v) e.val(color).change();
 				}else{
-					var v=e.val();
 					if(v!==''){
 						color=this.options.color=v;
 					}
@@ -413,7 +413,7 @@ $.widget( "evol.colorpicker", {
 			if(!noHide){
 				this.hidePalette();
 			}
-			this._setBoxColor(this.element.val(c).next(), c);
+			this._setBoxColor(this.element.val(c).change().next(), c);
 		}else{
 			this._setColorInd(c,1);
 		}
