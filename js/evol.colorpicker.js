@@ -319,6 +319,30 @@ $.widget( "evol.colorpicker", {
 		}
 	},
 
+	_downOrUpPositioning: function() {
+		var el = this.element;
+		var i = 0;
+		while (el !== null && i < 100) {
+			// Look up the first parent with non-visibile overflow and compute the relative position
+			if (el.css('overflow') != 'visible') {
+				var bott = this._palette.offset().top + this._palette.height();
+				var pBott = el.offset().top + el.height();
+				var top = this._palette.offset().top - this._palette.height() - this.element.outerHeight();
+				var pTop = el.offset().top;
+				var openUp = bott > pBott && top > pTop;
+				if (openUp) {
+					this._palette.css({ bottom: this.element.outerHeight()+'px' });
+				} else {
+					this._palette.css({ bottom: 'auto' });
+				}
+				break;
+			}
+			if (el[0].tagName == 'HTML') break;
+			else el = el.offsetParent();
+			i++;
+		}
+	},
+
 	showPalette: function() {
 		if(this._enabled){
 			this._active=true;
@@ -332,6 +356,7 @@ $.widget( "evol.colorpicker", {
 				this._bindColors();
 				var that=this;
 				if(this._isPopup){
+					this._downOrUpPositioning();
 					$(document.body).on('click.'+that._id, function(evt){
 						if(evt.target!=that.element.get(0)){
 							that.hidePalette();
