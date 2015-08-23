@@ -133,6 +133,7 @@ $.widget( "evol.colorpicker", {
 					e.next().on('click', function(evt){
 						evt.stopPropagation();
 						that.showPalette();
+						return false;
 					});
 				}
 				break;
@@ -352,6 +353,7 @@ $.widget( "evol.colorpicker", {
 					.after(this._paletteHTML()).next()
 					.on('click',function(evt){
 						evt.stopPropagation();
+						return false;
 					});
 				this._bindColors();
 				var that=this;
