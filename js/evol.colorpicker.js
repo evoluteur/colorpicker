@@ -115,7 +115,7 @@ $.widget( "evol.colorpicker", {
 					.wrap('<div style="width:'+(this.options.hideButton?this.element.width():this.element.width()+32)+'px;'+
 						(isIE?'margin-bottom:-21px;':'')+
 						(isMoz?'padding:1px 0;':'')+
-						'"></div>')
+						'" class="evo-cp-wrap"></div>')
 					.after('<div class="'+css+'" style="'+style+'"></div>')
 					.on('keyup onpaste', function(evt){
 						var c=$(this).val();
