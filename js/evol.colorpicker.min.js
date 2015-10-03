@@ -1,5 +1,5 @@
 /*
-   evol.colorpicker 3.2.2
+   evol.colorpicker 3.2.3
    (c) 2015 Olivier Giulieri
    http://evoluteur.github.io/colorpicker/
 */
