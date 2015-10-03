@@ -1,5 +1,15 @@
-module.exports = function (grunt) {
 
+/*
+           _                  _      _             
+  ___ ___ | | ___  _ __ _ __ (_) ___| | _____ _ __ 
+ / __/ _ \| |/ _ \| '__| '_ \| |/ __| |/ / _ \ '__|
+| (_| (_) | | (_) | |  | |_) | | (__|   <  __/ |   
+ \___\___/|_|\___/|_|  | .__/|_|\___|_|\_\___|_|   
+                       |_|                         
+                                                   
+*/
+
+module.exports = function (grunt) {
     grunt.initConfig({
 
         // *************************************************************************************
@@ -69,6 +79,19 @@ module.exports = function (grunt) {
 
 // Custom tasks
 
+    grunt.registerTask('header', 'evol.colorpicker version', function(arg1) {
+        var pkg=grunt.file.readJSON('package.json');
+        console.log(
+            (new Date()).toString() + '\n' + 
+'            _                  _      _\n'+
+'   ___ ___ | | ___  _ __ _ __ (_) ___| | _____ _ __\n'+
+'  / __/ _ \\| |/ _ \\| \'__| \'_ \\| |/ __| |/ / _ \\ \'__|\n'+
+' | (_| (_) | | (_) | |  | |_) | | (__|   <  __/ |\n'+
+'  \\___\\___/|_|\\___/|_|  | .__/|_|\\___|_|\\_\\___|_|   \n'+
+'                        |_|     '+ 
+            arg1 + ' '+ pkg.version
+        );
+    });
     // *************************************************************************************
     //      BUILD TASKS : dev prod
     // *************************************************************************************
@@ -76,10 +99,10 @@ module.exports = function (grunt) {
     grunt.registerTask('default', ['prod']);
 
     // Dev only task(s).
-    grunt.registerTask('dev', ['jshint', 'less:dev']);
+    grunt.registerTask('dev', ['header:dev', 'jshint', 'less:dev']);
 
     // Prod task(s).
-    grunt.registerTask('prod', ['jshint', 'uglify', 'less']);
+    grunt.registerTask('prod', ['header:prod', 'jshint', 'uglify', 'less']);
 
 };
 
