@@ -1,9 +1,9 @@
 /*
- evol.colorpicker 3.2.1
+ evol.colorpicker 3.2.4
  ColorPicker widget for jQuery UI
 
  https://github.com/evoluteur/colorpicker
- (c) 2015 Olivier Giulieri
+ (c) 2016 Olivier Giulieri
 
  * Depends:
  *	jquery.ui.core.js
