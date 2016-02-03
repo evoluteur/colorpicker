@@ -277,26 +277,29 @@ $.widget( "evol.colorpicker", {
 			var idx, 
 				content, 
 				label,
-				labels=this.options.strings.split(',');
+				opts=this.options,
+				labels=opts.strings.split(',');
 			if($(link).hasClass('evo-hist')){
 				// history
-				var h=['<table class="evo-palette"><tr><th class="ui-widget-content">',
-					labels[5], '</th></tr></tr></table>',
-					'<div class="evo-cHist">'];
+				var h='<table class="evo-palette"><tr><th class="ui-widget-content">'+
+					labels[5]+'</th></tr></tr></table>'+
+					'<div class="evo-cHist">';
 				if(history.length===0){
-					h.push('<p>&nbsp;',labels[6],'</p>');
+					h+='<p>&nbsp;'+labels[6]+'</p>';
 				}else{
 					for(var i=history.length-1;i>-1;i--){
 						if(history[i].length===9){
-							h.push('<div class="evo-transparent"></div>');
+							if(opts.transparentColor){
+								h+='<div class="evo-transparent"></div>';
+							}
 						}else{
-							h.push('<div style="background-color:',history[i],'"></div>');
+							h+='<div style="background-color:'+history[i]+'"></div>';
 						}
 					}
 				}
-				h.push('</div>');
+				h+='</div>';
 				idx=-this._paletteIdx;
-				content=h.join('');
+				content=h;
 				label=labels[4];
 			}else{
 				// palette
@@ -321,16 +324,16 @@ $.widget( "evol.colorpicker", {
 	},
 
 	_downOrUpPositioning: function() {
-		var el = this.element;
-		var i = 0;
+		var el = this.element,
+			i = 0;
 		while (el !== null && i < 100) {
 			// Look up the first parent with non-visibile overflow and compute the relative position
 			if (el.css('overflow') != 'visible') {
-				var bott = this._palette.offset().top + this._palette.height();
-				var pBott = el.offset().top + el.height();
-				var top = this._palette.offset().top - this._palette.height() - this.element.outerHeight();
-				var pTop = el.offset().top;
-				var openUp = bott > pBott && top > pTop;
+				var bott = this._palette.offset().top + this._palette.height(),
+					pBott = el.offset().top + el.height(),
+					top = this._palette.offset().top - this._palette.height() - this.element.outerHeight(),
+					pTop = el.offset().top,
+					openUp = bott > pBott && top > pTop;
 				if (openUp) {
 					this._palette.css({ bottom: this.element.outerHeight()+'px' });
 				} else {
