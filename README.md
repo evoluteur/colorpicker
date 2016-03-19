@@ -12,6 +12,23 @@ It is a full jQuery UI widget, supporting various configurations and themes.
 Check the [demo](http://evoluteur.github.com/colorpicker/index.html) for several examples.
 
 
+## Installation
+
+**evol-colorpicker** is available as an [npm package](https://www.npmjs.com/package/evol-colorpicker):
+
+```
+npm install evol-colorpicker
+```
+
+Install evol-colorpicker with Bower:
+
+```
+bower install evol-colorpicker
+```
+
+Download or fork on [GitHub](https://github.com/evoluteur/colorpicker).
+
+
 ## Usage
 
 First, load [jQuery](http://jquery.com/) (v1.7 or greater), [jQuery UI](http://jqueryui.com/) (v1.8 or greater), and the plugin:
