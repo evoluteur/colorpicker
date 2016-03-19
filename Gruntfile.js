@@ -27,7 +27,7 @@ module.exports = function (grunt) {
             all: [
                 'Gruntfile.js',
                 'package.json',
-                'js/evol.colorpicker.js'
+                'js/evol-colorpicker.js'
             ]
         },
 
@@ -41,7 +41,7 @@ module.exports = function (grunt) {
             },
             js: {
                 files: { 
-                    'js/evol.colorpicker.min.js': ['js/evol.colorpicker.js']
+                    'js/evol-colorpicker.min.js': ['js/evol-colorpicker.js']
                 }
             }
         },
@@ -55,7 +55,7 @@ module.exports = function (grunt) {
                     banner: '<%= banner %>'
                 },
                 files: {
-                    "css/evol.colorpicker.css": "less/evol.colorpicker.less",
+                    "css/evol-colorpicker.css": "less/evol-colorpicker.less",
                     "css/demo.css": "less/demo.less"
                 }
             },
@@ -65,7 +65,7 @@ module.exports = function (grunt) {
                     compress: true
                 },
                 files: {
-                    "css/evol.colorpicker.min.css": "less/evol.colorpicker.less"
+                    "css/evol-colorpicker.min.css": "less/evol-colorpicker.less"
                 }
             }
         }
@@ -79,7 +79,7 @@ module.exports = function (grunt) {
 
 // Custom tasks
 
-    grunt.registerTask('header', 'evol.colorpicker version', function(arg1) {
+    grunt.registerTask('header', 'evol-colorpicker version', function(arg1) {
         var pkg=grunt.file.readJSON('package.json');
         console.log(
             (new Date()).toString() + '\n' + 

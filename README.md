@@ -1,6 +1,6 @@
-# evol.colorpicker
+# evol-colorpicker
 
-evol.colorpicker is a web color picker which looks like the one in Microsoft Office 2010. 
+**evol-colorpicker** is a web color picker which looks like the one in Microsoft Office 2010. 
 It can be used inline or as a popup bound to a text box. 
 It comes with several color palettes, can track selection history and supports "transparent" color.
 It is a full jQuery UI widget, supporting various configurations and themes. 
@@ -19,14 +19,14 @@ First, load [jQuery](http://jquery.com/) (v1.7 or greater), [jQuery UI](http://j
 ```html
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
-<script src="js/evol.colorpicker.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/evol-colorpicker.min.js" type="text/javascript" charset="utf-8"></script>
 ```
 
-The widget requires a jQuery UI theme to be present, as well as its own included base CSS file ([evol.colorpicker.css](http://github.com/evoluteur/colorpicker/raw/master/css/evol.colorpicker.css)). Here we use the "ui-lightness" theme as an example:
+The widget requires a jQuery UI theme to be present, as well as its own included base CSS file ([evol-colorpicker.css](http://github.com/evoluteur/colorpicker/raw/master/css/evol-colorpicker.css)). Here we use the "ui-lightness" theme as an example:
 
 ```html
 <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/ui-lightness/jquery-ui.css">
-<link href="css/evol.colorpicker.css" rel="stylesheet" type="text/css">
+<link href="css/evol-colorpicker.css" rel="stylesheet" type="text/css">
 ```
 
 Now, let's attach it to an existing `<input>` tag:
@@ -55,12 +55,12 @@ Using the same syntax, the widget can also be instanciated on a `<div>` or a `<s
 
 ## Theming
 
-evol.colorpicker is as easily themeable as any jQuery UI widget, using one of the [jQuery UI themes](http://jqueryui.com/themeroller/#themeGallery) or your own custom theme made with [Themeroller](http://jqueryui.com/themeroller/).
+evol-colorpicker is as easily themeable as any jQuery UI widget, using one of the [jQuery UI themes](http://jqueryui.com/themeroller/#themeGallery) or your own custom theme made with [Themeroller](http://jqueryui.com/themeroller/).
 
 
 ## Options
 
-evol.colorpicker provides several options to customize its behaviour:
+evol-colorpicker provides several options to customize its behaviour:
 
 ### color (String)
 
@@ -250,7 +250,7 @@ $("#mycolor").on("mouseover.color", function(event, color){
 
 ## Browser Support
 
-evol.colorpicker.js has been tested for the following browsers:
+evol-colorpicker.js has been tested for the following browsers:
 
   - Internet Explorer 7+
   - Firefox 9+
@@ -262,5 +262,5 @@ evol.colorpicker.js has been tested for the following browsers:
 
 Copyright (c) 2016 Olivier Giulieri.
 
-evol.colorpicker is released under the [MIT license](http://github.com/evoluteur/colorpicker/raw/master/LICENSE.md).
+evol-colorpicker is released under the [MIT license](http://github.com/evoluteur/colorpicker/raw/master/LICENSE.md).
 
