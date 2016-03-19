@@ -7,7 +7,7 @@ It is a full jQuery UI widget, supporting various configurations and themes.
 
 ## Demo
 
-![screenshot 1](https://raw.github.com/evoluteur/colorpicker/master/screenshot1.png) &nbsp; ![screenshot 2](https://raw.github.com/evoluteur/colorpicker/master/screenshot2.png)
+![screenshot 1](https://raw.github.com/evoluteur/colorpicker/master/screenshot1.png) &nbsp; ![screenshot 2](https://raw.github.com/evoluteur/colorpicker/master/screenshot2.png) &nbsp; ![screenshot 3](https://raw.github.com/evoluteur/colorpicker/master/screenshot3.png)
 
 Check the [demo](http://evoluteur.github.com/colorpicker/index.html) for several examples.
 
