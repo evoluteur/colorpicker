@@ -72,6 +72,7 @@ $.widget( "evol.colorpicker", {
 	
 	options: {
 		color: null, // example:'#31859B'
+		customTheme: null, // example: ["#ff0000", "#00ff00", "#0000ff"]
 		showOn: 'both', // possible values: 'focus','button','both'
 		hideButton: false,
 		displayIndicator: true,
@@ -204,40 +205,48 @@ $.widget( "evol.colorpicker", {
 			cTD=isIE?'"><div style="width:2px;"></div></td>':'"><span/></td>',
 			oTRTH='<tr><th colspan="10" class="ui-widget-content">';
 
-		// base theme colors
 		var h='<table class="evo-palette'+_ie+'">'+oTRTH+labels[0]+'</th></tr><tr>';
-		for(var i=0;i<10;i++){ 
-			h+=oTD+baseThemeColors[i]+cTD;
-		}
-		h+='</tr>';
-		if(!isIE){
-			h+='<tr><th colspan="10"></th></tr>';
-		}
-		h+='<tr class="top">';
-		// theme colors
-		for(i=0;i<10;i++){ 
-			h+=oTD+subThemeColors[i]+cTD;
-		}
-		for(var r=1;r<4;r++){
-			h+='</tr><tr class="in">';
-			for(i=0;i<10;i++){ 
-				h+=oTD+subThemeColors[r*10+i]+cTD;
+		
+            if (opts.customTheme) {
+                for (var i=0;i<opts.customTheme.length;i++) {
+                    h+=oTD+opts.customTheme[i]+cTD;
+                }
+            }
+            else {
+		// base theme colors
+			for(var i=0;i<10;i++){ 
+				h+=oTD+baseThemeColors[i]+cTD;
 			}
-		}
-		h+='</tr><tr class="bottom">';
-		for(i=40;i<50;i++){ 
-			h+=oTD+subThemeColors[i]+cTD;
-		}
-		h+='</tr>'+oTRTH;
-		// transparent color
-		if(opts.transparentColor){
-			h+='<div class="evo-transparent evo-tr-box"></div>';
-		}
-		h+=labels[1]+'</th></tr><tr>';
-		// standard colors
-		for(i=0;i<10;i++){ 
-			h+=oTD+standardColors[i]+cTD;
-		}
+			h+='</tr>';
+			if(!isIE){
+				h+='<tr><th colspan="10"></th></tr>';
+			}
+			h+='<tr class="top">';
+			// theme colors
+			for(i=0;i<10;i++){ 
+				h+=oTD+subThemeColors[i]+cTD;
+			}
+			for(var r=1;r<4;r++){
+				h+='</tr><tr class="in">';
+				for(i=0;i<10;i++){ 
+					h+=oTD+subThemeColors[r*10+i]+cTD;
+				}
+			}
+			h+='</tr><tr class="bottom">';
+			for(i=40;i<50;i++){ 
+				h+=oTD+subThemeColors[i]+cTD;
+			}
+			h+='</tr>'+oTRTH;
+			// transparent color
+			if(opts.transparentColor){
+				h+='<div class="evo-transparent evo-tr-box"></div>';
+			}
+			h+=labels[1]+'</th></tr><tr>';
+			// standard colors
+			for(i=0;i<10;i++){ 
+				h+=oTD+standardColors[i]+cTD;
+			}
+        }
 		h+='</tr></table>';
 		return h; 
 	},
