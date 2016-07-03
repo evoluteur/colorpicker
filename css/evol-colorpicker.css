@@ -147,7 +147,7 @@
   float: left;
 }
 .evo-transparent {
-  background-image: repeating-linear-gradient(135deg, #000000, #000000 1px, #ffffff 1px, #ffffff 3px);
+  background-image: repeating-linear-gradient(135deg, black, black 1px, white 1px, white 3px);
 }
 .evo-tr-box {
   cursor: pointer;
