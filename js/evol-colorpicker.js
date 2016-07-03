@@ -72,7 +72,7 @@ $.widget( "evol.colorpicker", {
 	
 	options: {
 		color: null, // example:'#31859B'
-		customTheme: null, // example: ["#ff0000", "#00ff00", "#0000ff"]
+		customTheme: null, // example: ["#ff0000", "#00ff00", "blue"],
 		showOn: 'both', // possible values: 'focus','button','both'
 		hideButton: false,
 		displayIndicator: true,
@@ -201,20 +201,21 @@ $.widget( "evol.colorpicker", {
 	_paletteHTML1: function() {
 		var opts=this.options,
 			labels=opts.strings.split(','),
-			oTD='<td style="background-color:#',
+			oTD='<td style="background-color:',
 			cTD=isIE?'"><div style="width:2px;"></div></td>':'"><span/></td>',
-			oTRTH='<tr><th colspan="10" class="ui-widget-content">';
+			oTRTH='<tr><th colspan="10" class="ui-widget-content">',
+			i;
 
 		var h='<table class="evo-palette'+_ie+'">'+oTRTH+labels[0]+'</th></tr><tr>';
-		
-            if (opts.customTheme) {
-                for (var i=0;i<opts.customTheme.length;i++) {
-                    h+=oTD+opts.customTheme[i]+cTD;
-                }
-            }
-            else {
-		// base theme colors
-			for(var i=0;i<10;i++){ 
+
+		if (opts.customTheme) {
+			for (i=0, ml=opts.customTheme.length;i<ml;i++) {
+				h+=oTD+opts.customTheme[i]+cTD;
+			}
+		} else {
+			oTD+='#';
+			// base theme colors
+			for(i=0;i<10;i++){ 
 				h+=oTD+baseThemeColors[i]+cTD;
 			}
 			h+='</tr>';
@@ -246,7 +247,7 @@ $.widget( "evol.colorpicker", {
 			for(i=0;i<10;i++){ 
 				h+=oTD+standardColors[i]+cTD;
 			}
-        }
+		}
 		h+='</tr></table>';
 		return h; 
 	},

@@ -35,7 +35,7 @@
 
 <div class="demoPanel">
 	Inline (using a DIV tag):<br/><br/>
-	<div id="cpDiv"></div>
+	<div id="cpInline"></div>
 	<br/>
 	<div class="demo-links">
 		<a href="#" id="getVal2">Get Value</a>
@@ -48,7 +48,7 @@
 
 <div class="demoPanel">
 	Inline with "web" default palette:<br/><br/>
-	<div id="cpDiv2"></div> 
+	<div id="cpInline2"></div> 
 </div>
 
 <div class="demoPanel" style="width:130px">
@@ -77,6 +77,13 @@
 	</div>
 </div>
 
+<div class="demoPanel">
+	Custom Palette:<br/>
+	<br/> 
+	<div id="customTheme" value="#92cddc" ></div><br/>
+	Using the "customTheme" option you can provide your own list of colors.<br/>
+</div>
+
 <div class="demoPanel" style="width:130px">
 	With transparent color:<br/>
 	<br/> 
@@ -101,6 +108,7 @@
 	<input id="frenchColor" value="#92cddc" /><br/>
 	Using the "strings" option you can translate the colorpicker.<br/>
 </div>
+
 <div style="clear:both;"></div>
 
 </div>
@@ -117,9 +125,10 @@ $(document).ready(function(){
     });
 	
 	// Events demo
-	$('#cp1').colorpicker({color:'#8db3e2',
-		initialHistory: ['#ff0000','#000000','red']
-})
+	$('#cp1').colorpicker({
+		color:'#8db3e2',
+		initialHistory: ['#ff0000','#000000','red', 'purple']
+	})
 		.on('change.color', function(evt, color){
 			$('#cpb').css('background-color',color);
 		})
@@ -150,8 +159,14 @@ $(document).ready(function(){
 	
 	// Instanciate colorpickers
     $('#cpBoth').colorpicker();
-    $('#cpDiv').colorpicker({color:'#31859b'});
-    $('#cpDiv2').colorpicker({color:'#31859b', defaultPalette:'web'});
+    $('#cpInline').colorpicker({color:'#31859b'});
+    $('#cpInline2').colorpicker({color:'#31859b', defaultPalette:'web'});
+
+	// Custom theme palette
+	$('#customTheme').colorpicker({
+		color: '#f44336',
+		customTheme: ['#f44336','#ff9800','#ffc107','#4caf50','#00bcd4','#3f51b5','#9c27b0', 'white', 'black']
+	});
     $('#cpFocus').colorpicker({showOn:'focus'});
     $('#cpButton').colorpicker({showOn:'button'});
     $('#cpOther').colorpicker({showOn:'none'});
@@ -180,21 +195,21 @@ $(document).ready(function(){
 		strings: "Couleurs de themes,Couleurs de base,Plus de couleurs,Moins de couleurs,Palette,Historique,Pas encore d'historique."
 	});
 
-	// Inline colorpicker
+	// Events demo
 	$('#getVal2').on('click', function(){
-		alert('Selected color = "' + $('#cpDiv').colorpicker("val") + '"');
+		alert('Selected color = "' + $('#cpInline').colorpicker("val") + '"');
 	});
 	$('#setVal2').on('click', function(){
-		$('#cpDiv').colorpicker("val",'#31859b');
+		$('#cpInline').colorpicker("val",'#31859b');
 	});
 	$('#enable2').on('click', function(){
-		$('#cpDiv').colorpicker("enable");
+		$('#cpInline').colorpicker("enable");
 	});
 	$('#disable2').on('click', function(){
-		$('#cpDiv').colorpicker("disable");
+		$('#cpInline').colorpicker("disable");
 	});
 	$('#destroy2').on('click', function(){
-		$('#cpDiv').colorpicker("destroy");
+		$('#cpInline').colorpicker("destroy");
 	});
 
 	// Fix links
