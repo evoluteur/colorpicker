@@ -14,19 +14,23 @@ Check the [demo](http://evoluteur.github.com/colorpicker/index.html) for several
 
 ## Installation
 
-**evol-colorpicker** is available as an [npm package](https://www.npmjs.com/package/evol-colorpicker):
+Download or fork **evol-colorpicker** at [GitHub](https://github.com/evoluteur/colorpicker).
+
+```
+git clone https://github.com/evoluteur/colorpicker
+```
+or use a [npm package](https://www.npmjs.com/package/evol-colorpicker):
 
 ```
 npm install evol-colorpicker
 ```
 
-Install evol-colorpicker with Bower:
+or install with Bower:
 
 ```
 bower install evol-colorpicker
 ```
 
-Download or fork on [GitHub](https://github.com/evoluteur/colorpicker).
 
 
 ## Usage
@@ -279,5 +283,5 @@ evol-colorpicker.js has been tested for the following browsers:
 
 Copyright (c) 2016 Olivier Giulieri.
 
-evol-colorpicker is released under the [MIT license](http://github.com/evoluteur/colorpicker/raw/master/LICENSE.md).
+**evol-colorpicker** is released under the [MIT license](http://github.com/evoluteur/colorpicker/raw/master/LICENSE.md).
 
