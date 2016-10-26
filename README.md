@@ -5,24 +5,28 @@ It can be used inline or as a popup bound to a text box.
 It comes with several color palettes, can track selection history and supports "transparent" color.
 It is a full jQuery UI widget, supporting various configurations and themes. 
 
-## Demo
-
 ![screenshot 1](https://raw.github.com/evoluteur/colorpicker/master/screenshot1.png) &nbsp; ![screenshot 2](https://raw.github.com/evoluteur/colorpicker/master/screenshot2.png) &nbsp; ![screenshot 3](https://raw.github.com/evoluteur/colorpicker/master/screenshot3.png)
 
-Check the [demo](http://evoluteur.github.com/colorpicker/index.html) for several examples.
+Check the [online demo](http://evoluteur.github.com/colorpicker/index.html) for several examples.
+
+### Table of Contents
+1. [Installation](#Installation)
+2. [Usage](#Usage)
+3. [Theming](#Theming)
+4. [Options](#Options)
+5. [Methods](#Methods)
+6. [Events](#Events)
+7. [Browser Support](#Browser)
+8. [License](#License)
 
 
+<a name="Installation"></a>
 ## Installation
 
 Download or fork **evol-colorpicker** at [GitHub](https://github.com/evoluteur/colorpicker).
 
 ```
 git clone https://github.com/evoluteur/colorpicker
-```
-or use a [npm package](https://www.npmjs.com/package/evol-colorpicker):
-
-```
-npm install evol-colorpicker
 ```
 
 or install with Bower:
@@ -31,22 +35,27 @@ or install with Bower:
 bower install evol-colorpicker
 ```
 
+or use a [npm package](https://www.npmjs.com/package/evol-colorpicker):
 
+```
+npm install evol-colorpicker
+```
 
+<a name="Usage"></a>
 ## Usage
 
 First, load [jQuery](http://jquery.com/) (v1.7 or greater), [jQuery UI](http://jqueryui.com/) (v1.8 or greater), and the plugin:
 
 ```html
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/evol-colorpicker.min.js" type="text/javascript" charset="utf-8"></script>
 ```
 
 The widget requires a jQuery UI theme to be present, as well as its own included base CSS file ([evol-colorpicker.css](http://github.com/evoluteur/colorpicker/raw/master/css/evol-colorpicker.css)). Here we use the "ui-lightness" theme as an example:
 
 ```html
-<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/ui-lightness/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/themes/ui-lightness/jquery-ui.css">
 <link href="css/evol-colorpicker.css" rel="stylesheet" type="text/css">
 ```
 
@@ -74,11 +83,13 @@ This will wrap it into a "holder" `<div>` and add another `<div>` beside it for 
 Using the same syntax, the widget can also be instanciated on a `<div>` or a `<span>` tag to show inline. In that case the generated HTML is the full palette.
 
 
+<a name="Theming"></a>
 ## Theming
 
 evol-colorpicker is as easily themeable as any jQuery UI widget, using one of the [jQuery UI themes](http://jqueryui.com/themeroller/#themeGallery) or your own custom theme made with [Themeroller](http://jqueryui.com/themeroller/).
 
 
+<a name="Options"></a>
 ## Options
 
 evol-colorpicker provides several options to customize its behaviour:
@@ -194,6 +205,7 @@ $("#mycolor").colorpicker({
 Defaults to *false*.
 
 
+<a name="Methods"></a>
 ## Methods
 
 ### clear()
@@ -247,6 +259,7 @@ Hide the palette (when using the widget as a popup).
 $("#mycolor").colorpicker("hidePalette");
 ```
 
+<a name="Events"></a>
 ## Events
 
 ### change.color
@@ -269,6 +282,7 @@ $("#mycolor").on("mouseover.color", function(event, color){
 });
 ```
 
+<a name="Browser"></a>
 ## Browser Support
 
 evol-colorpicker.js has been tested for the following browsers:
@@ -279,6 +293,7 @@ evol-colorpicker.js has been tested for the following browsers:
   - Safari 5+
 
 
+<a name="License"></a>
 ## License
 
 Copyright (c) 2016 Olivier Giulieri.
