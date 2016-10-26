@@ -24,13 +24,16 @@
     "grunt-contrib-less": "~1.0.0"
   },
   "keywords": [
+    "colorpicker",
     "color",
     "picker",
-    "colorpicker",
+    "palette",
     "input",
     "widget",
     "jquery",
-    "jquery-ui"
+    "jquery-ui",
+    "ui",
+    "web"
   ],
   "main": "js/evol-colorpicker.js"
 }
