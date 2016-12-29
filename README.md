@@ -296,7 +296,7 @@ evol-colorpicker.js has been tested for the following browsers:
 <a name="License"></a>
 ## License
 
-Copyright (c) 2016 Olivier Giulieri.
+Copyright (c) 2017 [Olivier Giulieri](https://evoluteur.github.io/).
 
 **evol-colorpicker** is released under the [MIT license](http://github.com/evoluteur/colorpicker/raw/master/LICENSE.md).
 
