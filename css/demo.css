@@ -7,8 +7,11 @@ body {
   padding: 20px;
   font-size: 11pt;
   font-family: "Century Gothic", arial;
-  color: #777;
+  color: #555;
   font-weight: 300;
+}
+h1 {
+  color: #39C;
 }
 a {
   color: #39C;
