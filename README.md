@@ -47,15 +47,15 @@ npm install evol-colorpicker
 First, load [jQuery](http://jquery.com/) (v1.7 or greater), [jQuery UI](http://jqueryui.com/) (v1.8 or greater), and the plugin:
 
 ```html
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/evol-colorpicker.min.js" type="text/javascript" charset="utf-8"></script>
 ```
 
 The widget requires a jQuery UI theme to be present, as well as its own included base CSS file ([evol-colorpicker.css](http://github.com/evoluteur/colorpicker/raw/master/css/evol-colorpicker.css)). Here we use the "ui-lightness" theme as an example:
 
 ```html
-<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/themes/ui-lightness/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/ui-lightness/jquery-ui.css">
 <link href="css/evol-colorpicker.css" rel="stylesheet" type="text/css">
 ```
 
