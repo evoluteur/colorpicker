@@ -18,11 +18,15 @@ a {
   font-weight: 400;
 }
 a:hover {
-  color: #FF9900;
+  color: navy;
 }
 a.sel {
   color: #000;
   text-decoration: none;
+}
+label {
+  display: block;
+  margin: 15px 0 4px;
 }
 #github {
   float: right;
@@ -36,13 +40,13 @@ a.sel {
 }
 .demoPanel {
   float: left;
-  border: 2px solid #A7C8E2;
+  border: 2px solid #A7C8E2 !important;
   margin: 4px 3px;
-  padding: 10px;
+  padding: 15px;
   width: 212px;
-  border-radius: 10px;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
 }
 .demoPanel input {
   width: 100px;

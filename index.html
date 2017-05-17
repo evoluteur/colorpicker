@@ -7,9 +7,10 @@
     <meta name="keywords" content="jQuery UI widget plugin colorpicker color picker palette input web ms office">
 
     <link rel="icon" type="image/png" href="favicon.png" />
-	<link id="jquiCSS" rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/ui-lightness/jquery-ui.css" type="text/css" media="all">
+	<link id="jquiCSS" rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css" type="text/css" media="all">
 	<link href="css/demo.css" rel="stylesheet" /> 
 	<link href="css/evol-colorpicker.min.css" rel="stylesheet" />
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js" type="text/javascript"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript"></script>
 	<script src="js/evol-colorpicker.min.js" type="text/javascript"></script>
@@ -26,22 +27,24 @@
 <h1 id="title">Evol-ColorPicker</h1>
 
 <p style="clear:both;"><strong>Evol-ColorPicker</strong> (currently v3.3.1) is a web color picker which looks like the one in Microsoft Office 2010.
-
 </p>
+
 <p>
     It can be used inline or as a popup bound to a text box.
     It comes with several color palettes, can track selection history and supports "transparent" color. 
     It is a full jQuery UI widget, supporting various configurations and themes.
 </p>
 
-<div style="padding:2px 40px">
+<div>
 
 <p>Themes:
-    <a href="#" class="css sel">ui-lightness</a> -
-    <a href="#" class="css">ui-darkness</a> -
-    <a href="#" class="css">redmond</a> -
-    <a href="#" class="css">sunny</a> -
-    <a href="#" class="css">le-frog</a>
+    <a href="#" class="css sel">Base</a> -
+    <a href="#" class="css">UI lightness</a> -
+    <a href="#" class="css">UI darkness</a> -
+    <a href="#" class="css">Redmond</a> -
+    <a href="#" class="css">Sunny</a> -
+    <a href="#" class="css">Le Frog</a> -
+    <a href="#" class="css">Swanky Purse</a>
 </p>
 
 <div class="demoPanel">
@@ -53,7 +56,7 @@
 		<a href="#" id="setVal2">Set Value</a><br/>
 		<a href="#" id="enable2">Enable</a>
 		<a href="#" id="disable2">Disable</a>
-		<a href="#" id="destroy2">Destroy</a><br/><br/>
+		<a href="#" id="destroy2">Destroy</a>
 	</div> 
 </div>
 
@@ -62,62 +65,70 @@
 	<div id="cpInline2"></div> 
 </div>
 
-<div class="demoPanel" style="width:130px">
-	Using "showOn" option:<br/><br/>
-	button
-	<input id="cpButton" value="#92cddc" />
-	focus 
-	<input id="cpFocus" value="#dbeef3" />
-	both
-	<input id="cpBoth" value="#31859b" />
-	<a href="#" id="show">link</a>
-	<input id="cpOther" value="#002060" />
+<div class="demoPanel ui-widget ui-widget-content ui-corner-all" style="width:130px">
+	Palette triggers:<br/><br/>
+	<label>button only</label>
+	<input id="cpButton" value="#ccc1d9" />
+	<label>focus only</label>
+	<input id="cpFocus" value="#8db3e2" />
+	<label>button + focus</label>
+	<input id="cpBoth" value="#b7dde8" />
+	<label><a href="#" id="show">link</a></label>
+	<input id="cpOther" value="#d7e3bc" />
+	<br/> 
+	<i>Using "showOn" option.</i>
 </div>
 
-<div id="cpb" class="demoPanel" style="width:170px">
-	Event binding:<br/>
-	change.color and mouseover.color<br/><br/>
+<div id="cpb" class="demoPanel" style="width:170px;">
+	Methods:<br/><br/>
 	<input id="cp1"/><br/> 
 	<div id="tests" class="demo-links">
-	<a href="#" id="getVal">Get Value</a>
-	<a href="#" id="setVal">Set Value</a><br/>
-	<a href="#" id="enable">Enable</a>
-	<a href="#" id="disable">Disable</a>
-	<a href="#" id="clear">Clear</a>
-	<a href="#" id="destroy1">Destroy</a>
+		<a href="#" id="getVal">Get Value</a>
+		<a href="#" id="setVal">Set Value</a><br/>
+		<a href="#" id="enable">Enable</a>
+		<a href="#" id="disable">Disable</a>
+		<a href="#" id="clear">Clear</a>
+		<a href="#" id="destroy1">Destroy</a>
 	</div>
+</div>
+
+<div id="cpEvent" class="demoPanel" style="width:170px;background-color:#ebf1dd;">
+	Event binding:
+	<br/><br/>
+	<input id="cpBinding"/><br/> 
+	<i>Using "change.color" and "mouseover.color" events.</i>
 </div>
 
 <div class="demoPanel">
 	Custom Palette:<br/>
 	<br/> 
 	<div id="customTheme" value="#92cddc" ></div><br/>
-	Using the "customTheme" option you can provide your own list of colors.<br/>
+	<i>Using the "customTheme" option you can provide your own list of colors.</i>
 </div>
 
-<div class="demoPanel" style="width:130px">
-	With transparent color:<br/>
-	<br/> 
-	<input id="transColor" value="#0000ffff" /><br/> 
+<div class="demoPanel ui-widget ui-widget-content ui-corner-all" style="width:130px">
+	With transparent color:
+	<br/><br/>
+	<input id="transColor" value="#0000ffff" />
 </div>
 
-<div class="demoPanel" style="width:130px">
+<div class="demoPanel ui-widget ui-widget-content ui-corner-all" style="width:130px">
 	Using "hideButton" option:<br/>
 	<br/>
-	<input id="hideButton" value="#92cddc" /><br/>
+	<input id="hideButton" value="#92cddc" />
 </div>
 
 <div class="demoPanel ui-widget ui-widget-content ui-corner-all" style="width:130px;">
 	No color indicator on the palette:<br/>
 	<br/> 
-	<input id="noIndColor" value="#92cddc" /><br/> 
+	<input id="noIndColor" value="#92cddc" />
 </div>
 
 <div class="demoPanel ui-widget ui-widget-content ui-corner-all" style="width:130px;">
 	In French:<br/>
 	<br/> 
 	<input id="frenchColor" value="#92cddc" /><br/>
-	Using the "strings" option you can translate the colorpicker.<br/>
+	<i>Using the "strings" option you can translate the colorpicker.</i>
 </div>
 
 <div style="clear:both;"></div>
@@ -129,26 +140,29 @@
 $(document).ready(function(){
 
 	// Change theme
-    $('.css').on('click', function(evt){ 
-        $('#jquiCSS').attr('href','http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/'+this.innerHTML+'/jquery-ui.css');
+    $('.css').on('click', function(evt){
+        var theme=this.innerHTML.toLowerCase().replace(' ', '-'),
+            url='http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/'+theme+'/jquery-ui.css';
+        $('#jquiCSS').attr('href', url);
         $('.css').removeClass('sel');
         $(this).addClass('sel');
     });
 	
 	// Events demo
-	$('#cp1').colorpicker({
-		color:'#8db3e2',
+	function setColor(evt, color){
+        if(color){
+            $('#cpEvent').css('background-color', color);
+        }
+	}
+
+	$('#cpBinding').colorpicker({
+		color:'#ebf1dd',
 		initialHistory: ['#ff0000','#000000','red', 'purple']
 	})
-		.on('change.color', function(evt, color){
-			$('#cpb').css('background-color',color);
-		})
-		.on('mouseover.color', function(evt, color){
-            if(color){
-                $('#cpb').css('background-color',color);
-            }
-		});
+		.on('change.color', setColor)
+		.on('mouseover.color', setColor);
 	
+	// Methods demo
 	$('#getVal').on('click', function(){
 		alert('Selected color = "' + $('#cp1').colorpicker("val") + '"');
 	});
@@ -162,25 +176,49 @@ $(document).ready(function(){
 		$('#cp1').colorpicker("disable");
 	});
 	$('#clear').on('click', function(){
-		var v=$('#cp1').colorpicker("clear") ;
+		$('#cp1').colorpicker("clear");
 	});
 	$('#destroy1').on('click', function(){
-		var v=$('#cp1').colorpicker("destroy") ;
+		$('#cp1').colorpicker("destroy");
+	});
+	// Methods demo 2 (inline colorpicker)
+	$('#getVal2').on('click', function(){
+		alert('Selected color = "' + $('#cpInline').colorpicker("val") + '"');
+	});
+	$('#setVal2').on('click', function(){
+		$('#cpInline').colorpicker("val", '#31859b');
+	});
+	$('#enable2').on('click', function(){
+		$('#cpInline').colorpicker("enable");
+	});
+	$('#disable2').on('click', function(){
+		$('#cpInline').colorpicker("disable");
+	});
+	$('#destroy2').on('click', function(){
+		$('#cpInline').colorpicker("destroy");
 	});
 	
 	// Instanciate colorpickers
-    $('#cpBoth').colorpicker();
-    $('#cpInline').colorpicker({color:'#31859b'});
-    $('#cpInline2').colorpicker({color:'#31859b', defaultPalette:'web'});
+	$('#cp1').colorpicker({
+		color:'#ff9800',
+		initialHistory: ['#ff0000','#000000','red', 'purple']
+	})
+	$('#cpBinding').colorpicker({
+		color:'#ebf1dd'
+	})
+    $('#cpInline').colorpicker({color:'#92cddc'});
+    $('#cpInline2').colorpicker({color:'#92cddc', defaultPalette:'web'});
 
 	// Custom theme palette
 	$('#customTheme').colorpicker({
 		color: '#f44336',
 		customTheme: ['#f44336','#ff9800','#ffc107','#4caf50','#00bcd4','#3f51b5','#9c27b0', 'white', 'black']
 	});
-    $('#cpFocus').colorpicker({showOn:'focus'});
     $('#cpButton').colorpicker({showOn:'button'});
+    $('#cpFocus').colorpicker({showOn:'focus'});
+    $('#cpBoth').colorpicker();
     $('#cpOther').colorpicker({showOn:'none'});
+
 	$('#show').on('click', function(evt){
 		evt.stopImmediatePropagation();
 		$('#cpOther').colorpicker("showPalette");
@@ -204,23 +242,6 @@ $(document).ready(function(){
 	// French colorpicker
 	$('#frenchColor').colorpicker({
 		strings: "Couleurs de themes,Couleurs de base,Plus de couleurs,Moins de couleurs,Palette,Historique,Pas encore d'historique."
-	});
-
-	// Events demo
-	$('#getVal2').on('click', function(){
-		alert('Selected color = "' + $('#cpInline').colorpicker("val") + '"');
-	});
-	$('#setVal2').on('click', function(){
-		$('#cpInline').colorpicker("val",'#31859b');
-	});
-	$('#enable2').on('click', function(){
-		$('#cpInline').colorpicker("enable");
-	});
-	$('#disable2').on('click', function(){
-		$('#cpInline').colorpicker("disable");
-	});
-	$('#destroy2').on('click', function(){
-		$('#cpInline').colorpicker("destroy");
 	});
 
 	// Fix links
