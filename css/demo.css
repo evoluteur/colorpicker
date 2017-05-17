@@ -18,7 +18,7 @@ a {
   font-weight: 400;
 }
 a:hover {
-  color: navy;
+  color: #FF9900;
 }
 a.sel {
   color: #000;
