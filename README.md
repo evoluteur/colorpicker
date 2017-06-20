@@ -44,7 +44,7 @@ npm install evol-colorpicker
 <a name="Usage"></a>
 ## Usage
 
-First, load [jQuery](http://jquery.com/) (v1.7 or greater), [jQuery UI](http://jqueryui.com/) (v1.8 or greater), and the plugin:
+First, load [jQuery](http://jquery.com/) (v3.1 or greater), [jQuery UI](http://jqueryui.com/) (v1.12.1 or greater), and the plugin (for earlier version of jQuery-UI, use an earlier version of Colorpicker).
 
 ```html
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
@@ -281,17 +281,6 @@ $("#mycolor").on("mouseover.color", function(event, color){
     $('#title').css('background-color', color);
 });
 ```
-
-<a name="Browser"></a>
-## Browser Support
-
-evol-colorpicker.js has been tested for the following browsers:
-
-  - Internet Explorer 7+
-  - Firefox 9+
-  - Chrome 21+
-  - Safari 5+
-
 
 <a name="License"></a>
 ## License
