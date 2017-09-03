@@ -1,0 +1,29 @@
+{
+  "name": "evoluteur/colorpicker",
+  "description": "jQuery UI widget for color picking (similar to the one in Microsoft Office 2010).",
+  "type": "component",
+  "homepage": "http://evoluteur.github.io/colorpicker/",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Olivier Giulieri",
+      "email": "ogiulieri@gmail.com"
+    }
+  ],
+  "require": {
+    "robloach/component-installer": "*",
+    "components/jqueryui": "*"
+  },
+  "extra": {
+    "component": {
+      "scripts": [
+        "js/evol-colorpicker.js"
+      ],
+      "files": [
+        "js/*.js",
+        "css/*.css",
+        "less/*.less"
+      ]
+    }
+  }
+}
