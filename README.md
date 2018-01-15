@@ -285,7 +285,7 @@ $("#mycolor").on("mouseover.color", function(event, color){
 <a name="License"></a>
 ## License
 
-Copyright (c) 2017 [Olivier Giulieri](https://evoluteur.github.io/).
+Copyright (c) 2018 [Olivier Giulieri](https://evoluteur.github.io/).
 
 **evol-colorpicker** is released under the [MIT license](http://github.com/evoluteur/colorpicker/raw/master/LICENSE.md).
 
