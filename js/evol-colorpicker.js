@@ -434,6 +434,7 @@ $.widget( "evol.colorpicker", {
 			})
 			.find('.evo-more a').on('click', function(){
 				that._switchPalette(this);
+				return false; // otherwise IE10 will fire onbeforeunload event @see https://stackoverflow.com/questions/10548614/anchor-javascriptvoid0-causing-window-onbeforeunload-to-fire-on-ie
 			});
 	},
 
