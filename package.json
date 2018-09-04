@@ -18,10 +18,10 @@
     "jquery-ui": "~1.12.1"
   },
   "devDependencies": {
-    "grunt": "~1.0.1",
-    "grunt-contrib-jshint": "~1.1.0",
-    "grunt-contrib-uglify": "~3.3.0",
-    "grunt-contrib-less": "~1.4.1"
+    "grunt": "1.0.3",
+    "grunt-contrib-jshint": "1.1.0",
+    "grunt-contrib-uglify": "3.3.0",
+    "grunt-contrib-less": "1.4.1"
   },
   "keywords": [
     "colorpicker",
