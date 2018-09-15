@@ -21,6 +21,7 @@ Check the [online demo](http://evoluteur.github.com/colorpicker/index.html) for 
 
 
 <a name="Installation"></a>
+
 ## Installation
 
 Download or fork **evol-colorpicker** at [GitHub](https://github.com/evoluteur/colorpicker).
@@ -42,6 +43,7 @@ npm install evol-colorpicker
 ```
 
 <a name="Usage"></a>
+
 ## Usage
 
 First, load [jQuery](http://jquery.com/) (v3.1 or greater), [jQuery UI](http://jqueryui.com/) (v1.12.1 or greater), and the plugin (for earlier version of jQuery-UI, use an earlier version of Colorpicker).
@@ -84,12 +86,14 @@ Using the same syntax, the widget can also be instanciated on a `<div>` or a `<s
 
 
 <a name="Theming"></a>
+
 ## Theming
 
 evol-colorpicker is as easily themeable as any jQuery UI widget, using one of the [jQuery UI themes](http://jqueryui.com/themeroller/#themeGallery) or your own custom theme made with [Themeroller](http://jqueryui.com/themeroller/).
 
 
 <a name="Options"></a>
+
 ## Options
 
 evol-colorpicker provides several options to customize its behaviour:
@@ -206,6 +210,7 @@ Defaults to *false*.
 
 
 <a name="Methods"></a>
+
 ## Methods
 
 ### clear()
@@ -260,6 +265,7 @@ $("#mycolor").colorpicker("hidePalette");
 ```
 
 <a name="Events"></a>
+
 ## Events
 
 ### change.color
@@ -283,6 +289,7 @@ $("#mycolor").on("mouseover.color", function(event, color){
 ```
 
 <a name="License"></a>
+
 ## License
 
 Copyright (c) 2018 [Olivier Giulieri](https://evoluteur.github.io/).
