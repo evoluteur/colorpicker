@@ -14,13 +14,13 @@
     "url": "https://github.com/evoluteur/colorpicker/issues"
   },
   "dependencies": {
-    "jquery": "~3.3.0",
+    "jquery": "~3.4.0",
     "jquery-ui": "~1.12.1"
   },
   "devDependencies": {
-    "grunt": "1.0.3",
+    "grunt": "1.0.4",
     "grunt-contrib-jshint": "2.1.0",
-    "grunt-contrib-uglify": "4.0.0",
+    "grunt-contrib-uglify": "4.0.1",
     "grunt-contrib-less": "2.0.0"
   },
   "keywords": [
