@@ -50,7 +50,7 @@ npm install evol-colorpicker
 First, load [jQuery](http://jquery.com/) (v3.1 or greater), [jQuery UI](http://jqueryui.com/) (v1.12.1 or greater), and the plugin (for earlier version of jQuery-UI, use an earlier version of Colorpicker).
 
 ```html
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/evol-colorpicker.min.js" type="text/javascript" charset="utf-8"></script>
 ```
