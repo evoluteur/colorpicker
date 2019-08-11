@@ -202,13 +202,17 @@ $.widget( "evol.colorpicker", {
 			oTD='<td style="background-color:',
 			cTD=isIE?'"><div style="width:2px;"></div></td>':'"><span/></td>',
 			oTRTH='<tr><th colspan="10" class="ui-widget-content">',
-			i;
+			i,
+			css='evo-palette'+_ie + (opts.customTheme ? ' cust-theme':'');
 
-		var h='<table class="evo-palette'+_ie+'">'+oTRTH+labels[0]+'</th></tr><tr>';
+		var h='<table class="'+css+'">'+oTRTH+labels[0]+'</th></tr><tr>';
 
 		if (opts.customTheme) {
 			for (i=0, ml=opts.customTheme.length;i<ml;i++) {
 				h+=oTD+opts.customTheme[i]+cTD;
+				if(i%10===9){
+					h+='</tr><tr>';
+				}
 			}
 		} else {
 			oTD+='#';
