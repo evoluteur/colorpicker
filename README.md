@@ -1,4 +1,4 @@
-# evol-colorpicker &middot; [![GitHub license](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/evoluteur/colorpicker/blob/master/LICENSE.md) [![npm version](https://img.shields.io/npm/v/evol-colorpicker)](https://www.npmjs.com/package/evol-colorpicker) 
+# evol-colorpicker &middot; [![GitHub license](https://img.shields.io/github/license/evoluteur/colorpicker)](https://github.com/evoluteur/colorpicker/blob/master/LICENSE.md) [![npm version](https://img.shields.io/npm/v/evol-colorpicker)](https://www.npmjs.com/package/evol-colorpicker) 
 
 
 **evol-colorpicker** is a web color picker which looks like the one in Microsoft Office 2010. 
