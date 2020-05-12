@@ -50,7 +50,7 @@ npm install evol-colorpicker
 First, load [jQuery](http://jquery.com/) (v3.1 or greater), [jQuery UI](http://jqueryui.com/) (v1.12.1 or greater), and the plugin (for earlier version of jQuery-UI, use an earlier version of Colorpicker).
 
 ```html
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/evol-colorpicker.min.js" type="text/javascript" charset="utf-8"></script>
 ```
@@ -293,7 +293,7 @@ $("#mycolor").on("mouseover.color", function(event, color){
 
 ## License
 
-Copyright (c) 2019 [Olivier Giulieri](https://evoluteur.github.io/).
+Copyright (c) 2020 [Olivier Giulieri](https://evoluteur.github.io/).
 
 **evol-colorpicker** is released under the [MIT license](http://github.com/evoluteur/colorpicker/raw/master/LICENSE.md).
 

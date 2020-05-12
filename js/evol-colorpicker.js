@@ -1,9 +1,9 @@
 /*
- evol-colorpicker 3.4.0
+ evol-colorpicker 3.4.2
  ColorPicker widget for jQuery UI
 
  https://github.com/evoluteur/colorpicker
- (c) 2019 Olivier Giulieri
+ (c) 2020 Olivier Giulieri
 
  * Depends:
  *	jquery.ui.core.js
@@ -200,7 +200,7 @@ $.widget( "evol.colorpicker", {
 		var opts=this.options,
 			labels=opts.strings.split(','),
 			oTD='<td style="background-color:',
-			cTD=isIE?'"><div style="width:2px;"></div></td>':'"><span/></td>',
+			cTD=isIE?'"><div style="width:2px;"></div></td>':'"><span></span></td>',
 			oTRTH='<tr><th colspan="10" class="ui-widget-content">',
 			i,
 			css='evo-palette'+_ie + (opts.customTheme ? ' cust-theme':'');
@@ -257,7 +257,7 @@ $.widget( "evol.colorpicker", {
 	_paletteHTML2: function() {
 		var i, iMax,
 			oTD='<td style="background-color:#',
-			cTD=isIE?'"><div style="width:5px;"></div></td>':'"><span/></td>',
+			cTD=isIE?'"><div style="width:5px;"></div></td>':'"><span></span></td>',
 			oTableTR='<table class="evo-palette2'+_ie+'"><tr>',
 			cTableTR='</tr></table>';
 
@@ -271,7 +271,7 @@ $.widget( "evol.colorpicker", {
 			}
 			h+=cTableTR;
 		}
-		h+='<div class="evo-sep"/>';
+		h+='<div class="evo-sep"></div>';
 		// gray scale colors
 		var h2='';
 		h+=oTableTR;
