@@ -31,16 +31,16 @@ Download or fork **evol-colorpicker** at [GitHub](https://github.com/evoluteur/c
 git clone https://github.com/evoluteur/colorpicker
 ```
 
+or use the [npm package](https://www.npmjs.com/package/evol-colorpicker):
+
+```
+npm install evol-colorpicker
+```
+
 or install with Bower:
 
 ```
 bower install evol-colorpicker
-```
-
-or use a [npm package](https://www.npmjs.com/package/evol-colorpicker):
-
-```
-npm install evol-colorpicker
 ```
 
 <a name="Usage"></a>
