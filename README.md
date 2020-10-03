@@ -92,6 +92,7 @@ Using the same syntax, the widget can also be instanciated on a `<div>` or a `<s
 
 evol-colorpicker is as easily themeable as any jQuery UI widget, using one of the [jQuery UI themes](http://jqueryui.com/themeroller/#themeGallery) or your own custom theme made with [Themeroller](http://jqueryui.com/themeroller/).
 
+![Light and Dark themes](https://raw.github.com/evoluteur/colorpicker/master/screenshots/themes.gif)
 
 <a name="Options"></a>
 
