@@ -2,21 +2,28 @@
 // http://evoluteur.github.io/colorpicker/
 
 body{
-	padding: 20px;
+    padding: 20px 10px 10px 40px;
 	font-size: 11pt;
 	font-family: "Century Gothic",arial;
 	color: #555;
 	font-weight: 300;
+    background-image: url(bg0.png);
+    background-repeat: repeat-y;
 }
-h1{
-	color: #39C;
+h1 {
+    margin: 0 0 30px;
 }
+h1 > span{
+    font-size: .7em;
+    font-weight: 400;
+} 
 a {
+    text-decoration: none;
 	color: #39C;
 	font-weight: 400;
 
 	&:hover {
-    	color: #FF9900;
+    	color: navy;
 	}
 
 	&.sel{
@@ -29,12 +36,13 @@ label{
     display: block;
     margin: 15px 0 4px;
 }
+header{
+    position: relative;
+}
 #github{
-    float: right;
-    margin: 0 0 10px 30px;
-	a {
-	    text-decoration: none;
-	}
+    position: absolute;
+    top: 0;
+    right: 0;
 	iframe {
 	    margin-top:10px;
 	}
@@ -59,4 +67,10 @@ label{
 	text-align: center;
 	font-size:smaller;
 	color:Gray;
+}
+.clearer{
+    display:block;
+    height:0;
+    width:0;
+    clear: both;
 }

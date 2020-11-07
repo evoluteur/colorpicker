@@ -1,11 +1,11 @@
-<html xmlns="http://www.w3.org/1999/xhtml" > 
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
-
 	<title>ColorPicker</title>
     <meta name="description" content="Evol-ColorPicker: a web color picker which looks like the one in Microsoft Office 2010.">
     <meta name="keywords" content="jQuery UI widget plugin colorpicker color picker palette input web ms office">
-
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="icon" type="image/png" href="favicon.gif" />
 	<link id="jquiCSS" rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css" type="text/css" media="all">
 	<link href="css/demo.css" rel="stylesheet" /> 
@@ -17,16 +17,14 @@
 </head>
 
 <body>
-
-	<h2 id="github">
-		<a href="https://github.com/evoluteur/colorpicker">GitHub</a><br/>
+<header>
+    <h1 id="title">Evol-ColorPicker <span>v3.4.2</span></h1>
+	<div id="github"> 
 		<iframe src="https://ghbtns.com/github-btn.html?user=evoluteur&type=star&count=true&size=small&repo=colorpicker" frameborder="0" scrolling="0" width="100px" height="30px"></iframe>
-		<div class=""/>
-	</h2>
-		
-<h1 id="title">Evol-ColorPicker</h1>
+	</div>
+</header>
 
-<p style="clear:both;"><strong>Evol-ColorPicker</strong> (currently v3.4.2) is a web color picker which looks like the one in Microsoft Office 2010.
+<p><strong>Evol-ColorPicker</strong> is a web color picker which looks like the one in Microsoft Office 2010.
 </p>
 
 <p>
@@ -34,6 +32,8 @@
     It comes with several color palettes, can track selection history and supports "transparent" color. 
     It is a full jQuery UI widget, supporting various configurations and themes.
 </p>
+
+<p>Open Source at GitHub:  <a href="https://github.com/evoluteur/colorpicker">evoluteur/colorpicker</a></p>
 
 <div>
 
@@ -47,65 +47,71 @@
     <a href="#" class="css">Swanky Purse</a>
 </p>
 
-<div class="demoPanel">
-	Inline (using a DIV tag):<br/><br/>
-	<div id="cpInline"></div>
-	<br/>
-	<div class="demo-links">
-		<a href="#" id="getVal2">Get Value</a>
-		<a href="#" id="setVal2">Set Value</a><br/>
-		<a href="#" id="enable2">Enable</a>
-		<a href="#" id="disable2">Disable</a>
-		<a href="#" id="destroy2">Destroy</a>
-	</div> 
+<div>
+    <div class="demoPanel">
+        Inline (using a DIV tag):<br/><br/>
+        <div id="cpInline"></div>
+        <br/>
+        <div class="demo-links">
+            <a href="#" id="getVal2">Get Value</a>
+            <a href="#" id="setVal2">Set Value</a><br/>
+            <a href="#" id="enable2">Enable</a>
+            <a href="#" id="disable2">Disable</a>
+            <a href="#" id="destroy2">Destroy</a>
+        </div> 
+    </div>
+
+    <div class="demoPanel">
+        Inline with "web" default palette:<br/><br/>
+        <div id="cpInline2"></div> 
+    </div>
+
+    <div class="demoPanel ui-widget ui-widget-content ui-corner-all" style="width:130px">
+        Palette triggers:<br/><br/>
+        <label>button only</label>
+        <input id="cpButton" value="#ccc1d9" />
+        <label>focus only</label>
+        <input id="cpFocus" value="#8db3e2" />
+        <label>button + focus</label>
+        <input id="cpBoth" value="#b7dde8" />
+        <label><a href="#" id="show">link</a></label>
+        <input id="cpOther" value="#d7e3bc" />
+        <br/> 
+        <i>Using "showOn" option.</i>
+    </div>
+
+    <span class="clearer"></span>
 </div>
 
-<div class="demoPanel">
-	Inline with "web" default palette:<br/><br/>
-	<div id="cpInline2"></div> 
-</div>
+<div>
+    <div id="cpb" class="demoPanel" style="width:170px;">
+        Methods:<br/><br/>
+        <input id="cp1"/><br/> 
+        <div id="tests" class="demo-links">
+            <a href="#" id="getVal">Get Value</a>
+            <a href="#" id="setVal">Set Value</a><br/>
+            <a href="#" id="enable">Enable</a>
+            <a href="#" id="disable">Disable</a>
+            <a href="#" id="clear">Clear</a>
+            <a href="#" id="destroy1">Destroy</a>
+        </div>
+    </div>
 
-<div class="demoPanel ui-widget ui-widget-content ui-corner-all" style="width:130px">
-	Palette triggers:<br/><br/>
-	<label>button only</label>
-	<input id="cpButton" value="#ccc1d9" />
-	<label>focus only</label>
-	<input id="cpFocus" value="#8db3e2" />
-	<label>button + focus</label>
-	<input id="cpBoth" value="#b7dde8" />
-	<label><a href="#" id="show">link</a></label>
-	<input id="cpOther" value="#d7e3bc" />
-	<br/> 
-	<i>Using "showOn" option.</i>
-</div>
+    <div id="cpEvent" class="demoPanel" style="width:170px;background-color:#ebf1dd;">
+        Event binding:
+        <br/><br/>
+        <input id="cpBinding"/><br/> 
+        <i>Using "change.color" and "mouseover.color" events.</i>
+    </div>
 
-<div id="cpb" class="demoPanel" style="width:170px;">
-	Methods:<br/><br/>
-	<input id="cp1"/><br/> 
-	<div id="tests" class="demo-links">
-		<a href="#" id="getVal">Get Value</a>
-		<a href="#" id="setVal">Set Value</a><br/>
-		<a href="#" id="enable">Enable</a>
-		<a href="#" id="disable">Disable</a>
-		<a href="#" id="clear">Clear</a>
-		<a href="#" id="destroy1">Destroy</a>
-	</div>
+    <div class="demoPanel">
+        Custom Palette:<br/>
+        <br/> 
+        <div id="customTheme" value="#92cddc" ></div><br/>
+        <i>Using the "customTheme" option you can provide your own list of colors.</i>
+    </div>
+    <span class="clearer"></span>
 </div>
-
-<div id="cpEvent" class="demoPanel" style="width:170px;background-color:#ebf1dd;">
-	Event binding:
-	<br/><br/>
-	<input id="cpBinding"/><br/> 
-	<i>Using "change.color" and "mouseover.color" events.</i>
-</div>
-
-<div class="demoPanel">
-	Custom Palette:<br/>
-	<br/> 
-	<div id="customTheme" value="#92cddc" ></div><br/>
-	<i>Using the "customTheme" option you can provide your own list of colors.</i>
-</div>
-
 <div class="demoPanel ui-widget ui-widget-content ui-corner-all" style="width:130px">
 	With transparent color:
 	<br/><br/>
@@ -131,7 +137,7 @@
 	<i>Using the "strings" option you can translate the colorpicker.</i>
 </div>
 
-<div style="clear:both;"></div>
+<span class="clearer"></span>
 
 </div>
 
