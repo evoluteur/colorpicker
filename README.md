@@ -1,14 +1,14 @@
-# evol-colorpicker &middot; [![GitHub license](https://img.shields.io/github/license/evoluteur/colorpicker)](https://github.com/evoluteur/colorpicker/blob/master/LICENSE.md) [![npm version](https://img.shields.io/npm/v/evol-colorpicker)](https://www.npmjs.com/package/evol-colorpicker) 
+# evol-colorpicker &middot; [![GitHub license](https://img.shields.io/github/license/evoluteur/colorpicker)](https://github.com/evoluteur/colorpicker/blob/master/LICENSE.md) [![npm version](https://img.shields.io/npm/v/evol-colorpicker)](https://www.npmjs.com/package/evol-colorpicker)
 
 
-**evol-colorpicker** is a web color picker which looks like the one in Microsoft Office 2010. 
-It can be used inline or as a popup bound to a text box. 
+**evol-colorpicker** is a web color picker which looks like the one in Microsoft Office 2010.
+It can be used inline or as a popup bound to a text box.
 It comes with several color palettes, can track selection history and supports "transparent" color.
-It is a full jQuery UI widget, supporting various configurations and themes. 
+It is a full jQuery UI widget, supporting various configurations and themes.
 
 ![screenshot 1](https://raw.github.com/evoluteur/colorpicker/master/screenshot1.png) &nbsp; ![screenshot 2](https://raw.github.com/evoluteur/colorpicker/master/screenshot2.png) &nbsp; ![screenshot 3](https://raw.github.com/evoluteur/colorpicker/master/screenshot3.png)
 
-Check the [online demo](https://evoluteur.github.com/colorpicker/index.html) for several examples.
+Check the [online demo](https://evoluteur.github.io/colorpicker/index.html) for several examples.
 
 ### Table of Contents
 1. [Installation](#Installation)
@@ -138,7 +138,7 @@ Defaults to *true*.
 
 ### hideButton (Boolean)
 
-When binding the colorpicker to a textbox, a colored button will be added to the right of the textbox unless hideButton is set to true. 
+When binding the colorpicker to a textbox, a colored button will be added to the right of the textbox unless hideButton is set to true.
 This option doens't have any effect if the colorpicker is bound to a DIV.
 
 ```javascript
@@ -188,7 +188,7 @@ Defaults to *"both"*.
 
 ### strings (String)
 
-Used to translate the widget. It is a coma separated list of all labels used in the UI. 
+Used to translate the widget. It is a coma separated list of all labels used in the UI.
 
 ```javascript
 $("#mycolor").colorpicker({
@@ -294,7 +294,7 @@ $("#mycolor").on("mouseover.color", function(event, color){
 
 ## License
 
-Copyright (c) 2020 [Olivier Giulieri](https://evoluteur.github.io/).
+Copyright (c) 2021 [Olivier Giulieri](https://evoluteur.github.io/).
 
 **evol-colorpicker** is released under the [MIT license](http://github.com/evoluteur/colorpicker/raw/master/LICENSE.md).
 
