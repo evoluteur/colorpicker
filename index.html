@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="icon" type="image/png" href="favicon.gif" />
 	<link id="jquiCSS" rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css" type="text/css" media="all">
-	<link href="css/demo.css" rel="stylesheet" /> 
+	<link href="css/demo.css" rel="stylesheet" />
 	<link href="css/evol-colorpicker.min.css" rel="stylesheet" />
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" type="text/javascript"></script>
@@ -18,8 +18,8 @@
 
 <body>
 <header>
-    <h1 id="title">Evol-ColorPicker <span>v3.4.2</span></h1>
-	<div id="github"> 
+    <h1 id="title">Evol-ColorPicker <span>v3.4.3</span></h1>
+	<div id="github">
 		<iframe src="https://ghbtns.com/github-btn.html?user=evoluteur&type=star&count=true&size=small&repo=colorpicker" frameborder="0" scrolling="0" width="100px" height="30px"></iframe>
 	</div>
 </header>
@@ -29,7 +29,7 @@
 
 <p>
     It can be used inline or as a popup bound to a text box.
-    It comes with several color palettes, can track selection history and supports "transparent" color. 
+    It comes with several color palettes, can track selection history and supports "transparent" color.
     It is a full jQuery UI widget, supporting various configurations and themes.
 </p>
 
@@ -58,12 +58,12 @@
             <a href="#" id="enable2">Enable</a>
             <a href="#" id="disable2">Disable</a>
             <a href="#" id="destroy2">Destroy</a>
-        </div> 
+        </div>
     </div>
 
     <div class="demoPanel">
         Inline with "web" default palette:<br/><br/>
-        <div id="cpInline2"></div> 
+        <div id="cpInline2"></div>
     </div>
 
     <div class="demoPanel ui-widget ui-widget-content ui-corner-all" style="width:130px">
@@ -76,7 +76,7 @@
         <input id="cpBoth" value="#b7dde8" />
         <label><a href="#" id="show">link</a></label>
         <input id="cpOther" value="#d7e3bc" />
-        <br/> 
+        <br/>
         <i>Using "showOn" option.</i>
     </div>
 
@@ -86,7 +86,7 @@
 <div>
     <div id="cpb" class="demoPanel" style="width:170px;">
         Methods:<br/><br/>
-        <input id="cp1"/><br/> 
+        <input id="cp1"/><br/>
         <div id="tests" class="demo-links">
             <a href="#" id="getVal">Get Value</a>
             <a href="#" id="setVal">Set Value</a><br/>
@@ -100,13 +100,13 @@
     <div id="cpEvent" class="demoPanel" style="width:170px;background-color:#ebf1dd;">
         Event binding:
         <br/><br/>
-        <input id="cpBinding"/><br/> 
+        <input id="cpBinding"/><br/>
         <i>Using "change.color" and "mouseover.color" events.</i>
     </div>
 
     <div class="demoPanel">
         Custom Palette:<br/>
-        <br/> 
+        <br/>
         <div id="customTheme" value="#92cddc" ></div><br/>
         <i>Using the "customTheme" option you can provide your own list of colors.</i>
     </div>
@@ -126,13 +126,13 @@
 
 <div class="demoPanel ui-widget ui-widget-content ui-corner-all" style="width:130px;">
 	No color indicator on the palette:<br/>
-	<br/> 
+	<br/>
 	<input id="noIndColor" value="#92cddc" />
 </div>
 
 <div class="demoPanel ui-widget ui-widget-content ui-corner-all" style="width:130px;">
 	In French:<br/>
-	<br/> 
+	<br/>
 	<input id="frenchColor" value="#92cddc" /><br/>
 	<i>Using the "strings" option you can translate the colorpicker.</i>
 </div>
@@ -153,7 +153,7 @@ $(document).ready(function(){
         $('.css').removeClass('sel');
         $(this).addClass('sel');
     });
-	
+
 	// Events demo
 	function setColor(evt, color){
         if(color){
@@ -167,7 +167,7 @@ $(document).ready(function(){
 	})
 		.on('change.color', setColor)
 		.on('mouseover.color', setColor);
-	
+
 	// Methods demo
 	$('#getVal').on('click', function(){
 		alert('Selected color = "' + $('#cp1').colorpicker("val") + '"');
@@ -203,7 +203,7 @@ $(document).ready(function(){
 	$('#destroy2').on('click', function(){
 		$('#cpInline').colorpicker("destroy");
 	});
-	
+
 	// Instanciate colorpickers
 	$('#cp1').colorpicker({
 		color:'#ff9800',
@@ -229,7 +229,7 @@ $(document).ready(function(){
 		evt.stopImmediatePropagation();
 		$('#cpOther').colorpicker("showPalette");
 	});
-	
+
 	// With transparent color
 	$('#transColor').colorpicker({
 		transparentColor: true

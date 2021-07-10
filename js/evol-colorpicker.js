@@ -1,5 +1,5 @@
 /*
- evol-colorpicker 3.4.2
+ evol-colorpicker 3.4.3
  ColorPicker widget for jQuery UI
 
  https://github.com/evoluteur/colorpicker
@@ -69,7 +69,7 @@ var _idx=0,
 $.widget( "evol.colorpicker", {
 
 	version: '3.4.0',
-	
+
 	options: {
 		color: null, // example:'#31859B'
 		customTheme: null, // example: ["#ff0000", "#00ff00", "blue"],
@@ -217,7 +217,7 @@ $.widget( "evol.colorpicker", {
 		} else {
 			oTD+='#';
 			// base theme colors
-			for(i=0;i<10;i++){ 
+			for(i=0;i<10;i++){
 				h+=oTD+baseThemeColors[i]+cTD;
 			}
 			h+='</tr>';
@@ -226,17 +226,17 @@ $.widget( "evol.colorpicker", {
 			}
 			h+='<tr class="top">';
 			// theme colors
-			for(i=0;i<10;i++){ 
+			for(i=0;i<10;i++){
 				h+=oTD+subThemeColors[i]+cTD;
 			}
 			for(var r=1;r<4;r++){
 				h+='</tr><tr class="in">';
-				for(i=0;i<10;i++){ 
+				for(i=0;i<10;i++){
 					h+=oTD+subThemeColors[r*10+i]+cTD;
 				}
 			}
 			h+='</tr><tr class="bottom">';
-			for(i=40;i<50;i++){ 
+			for(i=40;i<50;i++){
 				h+=oTD+subThemeColors[i]+cTD;
 			}
 			h+='</tr>'+oTRTH;
@@ -246,12 +246,12 @@ $.widget( "evol.colorpicker", {
 			}
 			h+=labels[1]+'</th></tr><tr>';
 			// standard colors
-			for(i=0;i<10;i++){ 
+			for(i=0;i<10;i++){
 				h+=oTD+standardColors[i]+cTD;
 			}
 		}
 		h+='</tr></table>';
-		return h; 
+		return h;
 	},
 
 	_paletteHTML2: function() {
@@ -266,7 +266,7 @@ $.widget( "evol.colorpicker", {
 		for(var r=0,rMax=webColors.length;r<rMax;r++){
 			h+=oTableTR;
 			var cs=webColors[r];
-			for(i=0,iMax=cs.length;i<iMax;i++){ 
+			for(i=0,iMax=cs.length;i<iMax;i++){
 				h+=oTD+cs[i]+cTD;
 			}
 			h+=cTableTR;
@@ -286,8 +286,8 @@ $.widget( "evol.colorpicker", {
 
 	_switchPalette: function(link) {
 		if(this._enabled){
-			var idx, 
-				content, 
+			var idx,
+				content,
 				label,
 				opts=this.options,
 				labels=opts.strings.split(',');
@@ -516,7 +516,7 @@ $.widget( "evol.colorpicker", {
 			e.removeAttr('disabled');
 		}else{
 			e.css({
-				'opacity': '1', 
+				'opacity': '1',
 				'pointer-events': 'auto'
 			});
 		}
@@ -535,7 +535,7 @@ $.widget( "evol.colorpicker", {
 		}else{
 			this.hidePalette();
 			e.css({
-				'opacity': '0.3', 
+				'opacity': '0.3',
 				'pointer-events': 'none'
 			});
 		}
