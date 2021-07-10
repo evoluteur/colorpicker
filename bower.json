@@ -15,6 +15,7 @@
 		"jquery-ui",
 		"ui",
 		"widget",
+		"popup",
 		"web",
     	"input",
     	"form",
