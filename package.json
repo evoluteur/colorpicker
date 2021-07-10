@@ -21,7 +21,7 @@
     "grunt": "^1.4.1",
     "grunt-contrib-jshint": "2.1.0",
     "grunt-contrib-less": "2.0.0",
-    "grunt-contrib-uglify": "4.0.1"
+    "grunt-contrib-uglify": "5.0.1"
   },
   "keywords": [
     "colorpicker",
