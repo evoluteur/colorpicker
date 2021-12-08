@@ -11,8 +11,8 @@
     }
   ],
   "require": {
-    "robloach/component-installer": "*",
-    "components/jqueryui": "*"
+    "robloach/component-installer": "0.2.3",
+    "components/jqueryui": "1.12.1"
   },
   "extra": {
     "component": {
