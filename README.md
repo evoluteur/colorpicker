@@ -1,6 +1,5 @@
 # evol-colorpicker &middot; [![GitHub license](https://img.shields.io/github/license/evoluteur/colorpicker)](https://github.com/evoluteur/colorpicker/blob/master/LICENSE.md) [![npm version](https://img.shields.io/npm/v/evol-colorpicker)](https://www.npmjs.com/package/evol-colorpicker)
 
-
 **evol-colorpicker** is a web color picker which looks like the one in Microsoft Office 2010.
 It can be used inline or as a popup bound to a text box.
 It comes with several color palettes, can track selection history and supports "transparent" color.
@@ -11,6 +10,7 @@ It is a full jQuery UI widget, supporting various configurations and themes.
 Check the [online demo](https://evoluteur.github.io/colorpicker/index.html) for several examples.
 
 ### Table of Contents
+
 1. [Installation](#Installation)
 2. [Usage](#Usage)
 3. [Theming](#Theming)
@@ -19,7 +19,6 @@ Check the [online demo](https://evoluteur.github.io/colorpicker/index.html) for 
 6. [Events](#Events)
 7. [Browser Support](#Browser)
 8. [License](#License)
-
 
 <a name="Installation"></a>
 
@@ -294,7 +293,6 @@ $("#mycolor").on("mouseover.color", function(event, color){
 
 ## License
 
-Copyright (c) 2021 [Olivier Giulieri](https://evoluteur.github.io/).
+Copyright (c) 2022 [Olivier Giulieri](https://evoluteur.github.io/).
 
 **evol-colorpicker** is released under the [MIT license](http://github.com/evoluteur/colorpicker/raw/master/LICENSE.md).
-
