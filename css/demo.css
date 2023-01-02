@@ -1,6 +1,6 @@
 /*
    evol-colorpicker 3.4.3
-   (c) 2022 Olivier Giulieri
+   (c) 2023 Olivier Giulieri
    http://evoluteur.github.io/colorpicker/
 */
 body {
@@ -21,7 +21,7 @@ h1 > span {
 }
 a {
   text-decoration: none;
-  color: #39C;
+  color: #39c;
   font-weight: 400;
 }
 a:hover {
@@ -48,7 +48,7 @@ header {
 }
 .demoPanel {
   float: left;
-  border: 2px solid #A7C8E2 !important;
+  border: 2px solid #a7c8e2 !important;
   margin: 4px 3px;
   padding: 15px;
   width: 212px;
