@@ -70,3 +70,67 @@ header {
   width: 0;
   clear: both;
 }
+
+.heart {
+  color: var(--color-text-secondary);
+  font-size: 20px;
+  position: relative;
+  top: 4px;
+  display: inline-block;
+  text-align: center;
+  transition: color 1s;
+}
+.evo-footer {
+  margin: 10px 0 20px;
+}
+.evo-footer:hover .heart {
+  color: #bf360c;
+  -webkit-animation: beat 0.35s infinite alternate;
+  -moz-animation: beat 0.35s infinite alternate;
+  -ms-animation: beat 0.35s infinite alternate;
+  -o-animation: beat 0.35s infinite alternate;
+  animation: beat 0.35s infinite alternate;
+  -webkit-transform-origin: center;
+  -moz-transform-origin: center;
+  -o-transform-origin: center;
+  -ms-transform-origin: center;
+  transform-origin: center;
+}
+
+@keyframes beat {
+  to {
+    -webkit-transform: scale(1.4);
+    -moz-transform: scale(1.4);
+    -o-transform: scale(1.4);
+    -ms-transform: scale(1.4);
+    transform: scale(1.4);
+  }
+}
+
+@-moz-keyframes beat {
+  to {
+    -moz-transform: scale(1.4);
+    transform: scale(1.4);
+  }
+}
+
+@-webkit-keyframes beat {
+  to {
+    -webkit-transform: scale(1.4);
+    transform: scale(1.4);
+  }
+}
+
+@-ms-keyframes beat {
+  to {
+    -ms-transform: scale(1.4);
+    transform: scale(1.4);
+  }
+}
+
+@-o-keyframes beat {
+  to {
+    -o-transform: scale(1.4);
+    transform: scale(1.4);
+  }
+}
