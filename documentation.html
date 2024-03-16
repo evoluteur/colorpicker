@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-063933E3C2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-063933E3C2");
+    </script>
+    <meta charset="utf-8" />
+    <title>ColorPicker Documentation</title>
+    <meta
+      name="description"
+      content="Evol-ColorPicker documentation: a web color picker which looks like the one in Microsoft Office 2010."
+    />
+    <meta
+      name="keywords"
+      content="documentation, jQuery, UI, widget, plugin, colorpicker, color, picker, palette, input, office"
+    />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" type="image/png" href="favicon.gif" />
+    <meta
+      property="og:url"
+      content="https://evoluteur.github.io/colorpicker/"
+    />
+    <meta
+      property="og:image"
+      content="https://raw.github.com/evoluteur/colorpicker/master/screenshot2.png"
+    />
+    <link href="css/demo.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <header>
+      <h1 id="title">Evol-ColorPicker <span>v3.4.3</span></h1>
+      <nav>
+        <a href="index.html">Demo</a>
+        <a href="documentation.html">Documentation</a>
+      </nav>
+      <div id="github">
+        <iframe
+          src="https://ghbtns.com/github-btn.html?user=evoluteur&type=star&count=true&size=small&repo=colorpicker"
+          frameborder="0"
+          scrolling="0"
+          width="100px"
+          height="30px"
+        ></iframe>
+      </div>
+    </header>
+    <section>
+      <p>
+        <strong>evol-colorpicker</strong> is a web color picker which looks like
+        the one in Microsoft Office 2010. It can be used inline or as a popup
+        bound to a text box. It comes with several color palettes, can track
+        selection history and supports &quot;transparent&quot; color. It is a
+        full jQuery UI widget, supporting various configurations and themes.
+      </p>
+      <p>
+        <br />
+        <img
+          src="https://raw.github.com/evoluteur/colorpicker/master/screenshot1.png"
+          alt="screenshot 1"
+        />
+        &nbsp;
+        <img
+          src="https://raw.github.com/evoluteur/colorpicker/master/screenshot2.png"
+          alt="screenshot 2"
+        />
+        &nbsp;
+        <img
+          src="https://raw.github.com/evoluteur/colorpicker/master/screenshot3.png"
+          alt="screenshot 3"
+        />
+      </p>
+      <h3 id="table-of-contents">Table of Contents</h3>
+      <ul>
+        <li><a href="#Installation">Installation</a></li>
+        <li><a href="#Usage">Usage</a></li>
+        <li><a href="#Theming">Theming</a></li>
+        <li><a href="#Options">Options</a></li>
+        <li><a href="#Methods">Methods</a></li>
+        <li><a href="#Events">Events</a></li>
+        <li><a href="#License">License</a></li>
+      </ul>
+      <p><a name="Installation"></a></p>
+      <h2 id="installation">Installation</h2>
+      <p>
+        Download or fork <strong>evol-colorpicker</strong> at
+        <a href="https://github.com/evoluteur/colorpicker">GitHub</a>.
+      </p>
+      <pre><code>git clone https://github.com/evoluteur/colorpicker
+</code></pre>
+      <p>
+        or use the
+        <a href="https://www.npmjs.com/package/evol-colorpicker">npm package</a
+        >:
+      </p>
+      <pre><code>npm install evol-colorpicker
+</code></pre>
+      <p>or install with Bower:</p>
+      <pre><code>bower install evol-colorpicker
+</code></pre>
+      <p><a name="Usage"></a></p>
+      <h2 id="usage">Usage</h2>
+      <p>
+        First, load <a href="http://jquery.com/">jQuery</a> (v3.1 or greater),
+        <a href="http://jqueryui.com/">jQuery UI</a> (v1.12.1 or greater), and
+        the plugin (for earlier version of jQuery-UI, use an earlier version of
+        Colorpicker).
+      </p>
+      <pre><code class="language-html">&lt;script
+  src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js&quot;
+  type=&quot;text/javascript&quot;
+  charset=&quot;utf-8&quot;
+&gt;&lt;/script&gt;
+&lt;script
+  src=&quot;https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js&quot;
+  type=&quot;text/javascript&quot;
+  charset=&quot;utf-8&quot;
+&gt;&lt;/script&gt;
+&lt;script
+  src=&quot;js/evol-colorpicker.min.js&quot;
+  type=&quot;text/javascript&quot;
+  charset=&quot;utf-8&quot;
+&gt;&lt;/script&gt;
+</code></pre>
+      <p>
+        The widget requires a jQuery UI theme to be present, as well as its own
+        included base CSS file (<a
+          href="http://github.com/evoluteur/colorpicker/raw/master/css/evol-colorpicker.css"
+          >evol-colorpicker.css</a
+        >). Here we use the &quot;ui-lightness&quot; theme as an example:
+      </p>
+      <pre><code class="language-html">&lt;link
+  rel=&quot;stylesheet&quot;
+  type=&quot;text/css&quot;
+  href=&quot;http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/ui-lightness/jquery-ui.css&quot;
+/&gt;
+&lt;link href=&quot;css/evol-colorpicker.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;
+</code></pre>
+      <p>
+        Now, let&#39;s attach it to an existing <code>&lt;input&gt;</code> tag:
+      </p>
+      <pre><code class="language-html">&lt;script type=&quot;text/javascript&quot;&gt;
+  $(document).ready(function () {
+    $(&quot;#mycolor&quot;).colorpicker();
+  });
+&lt;/script&gt;
+
+&lt;input style=&quot;width:100px;&quot; id=&quot;mycolor&quot; /&gt;
+</code></pre>
+      <p>
+        This will wrap it into a &quot;holder&quot; <code>&lt;div&gt;</code> and
+        add another <code>&lt;div&gt;</code> beside it for the color box:
+      </p>
+      <pre><code class="language-html">&lt;div style=&quot;width:128px;&quot;&gt;
+  &lt;input style=&quot;width:100px;&quot; id=&quot;mycolor&quot; class=&quot;colorPicker evo-cp0&quot; /&gt;
+  &lt;div class=&quot;evo-colorind&quot; style=&quot;background-color:#8db3e2&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+      <p>
+        Using the same syntax, the widget can also be instanciated on a
+        <code>&lt;div&gt;</code> or a <code>&lt;span&gt;</code> tag to show
+        inline. In that case the generated HTML is the full palette.
+      </p>
+      <p><a name="Theming"></a></p>
+      <h2 id="theming">Theming</h2>
+      <p>
+        evol-colorpicker is as easily themeable as any jQuery UI widget, using
+        one of the
+        <a href="http://jqueryui.com/themeroller/#themeGallery"
+          >jQuery UI themes</a
+        >
+        or your own custom theme made with
+        <a href="http://jqueryui.com/themeroller/">Themeroller</a>.
+      </p>
+      <p>
+        <img
+          src="https://raw.github.com/evoluteur/colorpicker/master/screenshots/themes.gif"
+          alt="Light and Dark themes"
+        />
+      </p>
+      <p><a name="Options"></a></p>
+      <h2 id="options">Options</h2>
+      <p>
+        evol-colorpicker provides several options to customize its behaviour:
+      </p>
+      <h3 id="color-string">color (String)</h3>
+      <p>Used to set the color value.</p>
+      <pre><code class="language-javascript">$(&quot;#mycolor&quot;).colorpicker({
+  color: &quot;#ffffff&quot;,
+});
+</code></pre>
+      <p>Defaults to <em>null</em>.</p>
+      <h3 id="defaultpalette-string">defaultPalette (String)</h3>
+      <p>
+        Used to set the default color palette. Possible values are
+        &quot;theme&quot; or &quot;web&quot;.
+      </p>
+      <pre><code class="language-javascript">$(&quot;#mycolor&quot;).colorpicker({
+  defaultPalette: &quot;web&quot;,
+});
+</code></pre>
+      <p>Defaults to <em>theme</em>.</p>
+      <h3 id="displayindicator-boolean">displayIndicator (Boolean)</h3>
+      <p>Used to show color value on hover and click inside the palette.</p>
+      <pre><code class="language-javascript">$(&quot;#mycolor&quot;).colorpicker({
+  displayIndicator: false,
+});
+</code></pre>
+      <p>Defaults to <em>true</em>.</p>
+      <h3 id="hidebutton-boolean">hideButton (Boolean)</h3>
+      <p>
+        When binding the colorpicker to a textbox, a colored button will be
+        added to the right of the textbox unless hideButton is set to true. This
+        option doens&#39;t have any effect if the colorpicker is bound to a DIV.
+      </p>
+      <pre><code class="language-javascript">$(&quot;#mycolor&quot;).colorpicker({
+  hideButton: true,
+});
+</code></pre>
+      <p>Defaults to <em>false</em>.</p>
+      <h3 id="history-boolean">history (Boolean)</h3>
+      <p>
+        Used to track selection history (shared among all instances of the
+        colorpicker). The history keeps the last 28 colors selections.
+      </p>
+      <pre><code class="language-javascript">$(&quot;#mycolor&quot;).colorpicker({
+  history: false,
+});
+</code></pre>
+      <p>Defaults to <em>true</em>.</p>
+      <h3 id="initialhistory-array-strings">initialHistory (Array strings)</h3>
+      <p>
+        Used to provide a color selection history. Colors are provided as
+        strings of hexadecimal color values.
+      </p>
+      <pre><code class="language-javascript">$(&quot;#mycolor&quot;).colorpicker({
+  initialHistory: [&quot;#ff0000&quot;, &quot;#00ff00&quot;, &quot;#0000ff&quot;],
+});
+</code></pre>
+      <p>Defaults to <em>null</em>.</p>
+      <h3 id="showon-string">showOn (String)</h3>
+      <p>
+        Have the colorpicker appear automatically when the field receives focus
+        (&quot;focus&quot;), appear only when a button is clicked
+        (&quot;button&quot;), or appear when either event takes place
+        (&quot;both&quot;). This option only takes effect when the color picker
+        is instanciated on a textbox.
+      </p>
+      <pre><code class="language-javascript">$(&quot;#mycolor&quot;).colorpicker({
+  showOn: &quot;button&quot;,
+});
+</code></pre>
+      <p>Defaults to <em>&quot;both&quot;</em>.</p>
+      <h3 id="strings-string">strings (String)</h3>
+      <p>
+        Used to translate the widget. It is a coma separated list of all labels
+        used in the UI.
+      </p>
+      <pre><code class="language-javascript">$(&quot;#mycolor&quot;).colorpicker({
+  strings:
+    &quot;Couleurs de themes,Couleurs de base,Plus de couleurs,Moins de couleurs,Palette,Historique,Pas encore d&#39;historique.&quot;,
+});
+</code></pre>
+      <p>
+        Defaults to
+        <em
+          >&quot;Theme Colors,Standard Colors,Web Colors,Theme Colors,Back to
+          Palette,History,No history yet.&quot;</em
+        >.
+      </p>
+      <h3 id="transparentcolor-boolean">transparentColor (Boolean)</h3>
+      <p>
+        Allow for selection of the &quot;transparent color&quot;. The
+        hexadecimal value for the transparent color is &quot;#0000ffff&quot;.
+      </p>
+      <pre><code class="language-javascript">$(&quot;#mycolor&quot;).colorpicker({
+  transparentColor: true,
+});
+</code></pre>
+      <p>Defaults to <em>false</em>.</p>
+      <p><a name="Methods"></a></p>
+      <h2 id="methods">Methods</h2>
+      <h3 id="clear">clear()</h3>
+      <p>Clears the color value (and close the popup palette if opened).</p>
+      <pre><code class="language-javascript">$(&quot;#mycolor&quot;).colorpicker(&quot;clear&quot;);
+</code></pre>
+      <h3 id="enable">enable()</h3>
+      <p>Get the currently selected color value (returned as a string).</p>
+      <pre><code class="language-javascript">$(&quot;#mycolor&quot;).colorpicker(&quot;enable&quot;);
+</code></pre>
+      <h3 id="disable">disable()</h3>
+      <p>Get the currently selected color value (returned as a string).</p>
+      <pre><code class="language-javascript">$(&quot;#mycolor&quot;).colorpicker(&quot;disable&quot;);
+</code></pre>
+      <h3 id="isdisabled">isDisabled()</h3>
+      <p>Get the currently selected color value (returned as a string).</p>
+      <pre><code class="language-javascript">$(&quot;#mycolor&quot;).colorpicker(&quot;isDisabled&quot;);
+</code></pre>
+      <h3 id="valcolor">val([color])</h3>
+      <p>
+        Get or set the currently selected color value (as a string, ie.
+        &quot;#d0d0d0&quot;).
+      </p>
+      <pre><code class="language-javascript">var colorValue = $(&quot;#mycolor&quot;).colorpicker(&quot;val&quot;);
+
+$(&quot;#mycolor&quot;).colorpicker(&quot;val&quot;, &quot;#d0d0d0&quot;);
+</code></pre>
+      <h3 id="showpalette">showPalette()</h3>
+      <p>Show the palette (when using the widget as a popup).</p>
+      <pre><code class="language-javascript">$(&quot;#mycolor&quot;).colorpicker(&quot;showPalette&quot;);
+</code></pre>
+      <h3 id="hidepalette">hidePalette()</h3>
+      <p>Hide the palette (when using the widget as a popup).</p>
+      <pre><code class="language-javascript">$(&quot;#mycolor&quot;).colorpicker(&quot;hidePalette&quot;);
+</code></pre>
+      <p><a name="Events"></a></p>
+      <h2 id="events">Events</h2>
+      <h3 id="changecolor">change.color</h3>
+      <p>This event is triggered when a color is selected.</p>
+      <pre><code class="language-javascript">$(&quot;#mycolor&quot;).on(&quot;change.color&quot;, function (event, color) {
+  $(&quot;#title&quot;).css(&quot;background-color&quot;, color);
+});
+</code></pre>
+      <h3 id="mouseovercolor">mouseover.color</h3>
+      <p>
+        This event is triggered when the mouse moves over a color box on the
+        palette.
+      </p>
+      <pre><code class="language-javascript">$(&quot;#mycolor&quot;).on(&quot;mouseover.color&quot;, function (event, color) {
+  $(&quot;#title&quot;).css(&quot;background-color&quot;, color);
+});
+</code></pre>
+      <p><a name="License"></a></p>
+      <h2 id="license">License</h2>
+      <p>
+        <strong>evol-colorpicker</strong> is released under the
+        <a href="http://github.com/evoluteur/colorpicker/raw/master/LICENSE.md"
+          >MIT license</a
+        >.
+      </p>
+
+      <div>
+        Made in California with
+        <div class="heart">♥</div>
+      </div>
+
+      <p>
+        Check out my other jQuery UI widget
+        <a href="https://evoluteur.github.io/structured-filter"
+          >structured-filter</a
+        >.
+      </p>
+      <p>
+        &#169; 2024 <a href="https://evoluteur.github.io/">Olivier Giulieri</a>
+      </p>
+    </section>
+  </body>
+</html>

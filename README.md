@@ -17,8 +17,7 @@ Check the [online demo](https://evoluteur.github.io/colorpicker/index.html) for 
 4. [Options](#Options)
 5. [Methods](#Methods)
 6. [Events](#Events)
-7. [Browser Support](#Browser)
-8. [License](#License)
+7. [License](#License)
 
 <a name="Installation"></a>
 

@@ -3,8 +3,13 @@
    (c) 2024 Olivier Giulieri
    http://evoluteur.github.io/colorpicker/
 */
+html {
+  margin: 0;
+  scroll-behavior: smooth;
+}
 body {
-  padding: 20px 10px 10px 40px;
+  margin: 0;
+  padding: 0;
   font-size: 11pt;
   font-family: "Century Gothic", arial;
   color: #555;
@@ -12,12 +17,43 @@ body {
   background-image: url(bg0.png);
   background-repeat: repeat-y;
 }
+header {
+  position: relative;
+  padding: 20px 20px 20px 40px;
+  color: white;
+  background-color: #3366cc;
+  > nav {
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+    > a {
+      display: inline-block;
+      padding: 5px 10px;
+      color: white;
+      &:hover {
+        color: orange;
+      }
+    }
+  }
+}
+section {
+  padding: 20px 10px 10px 40px;
+}
+pre {
+  padding: 20px;
+  background-color: #ebebeb;
+  overflow-y: auto;
+  font-size: 10pt;
+}
 h1 {
-  margin: 0 0 30px;
+  margin: 0;
 }
 h1 > span {
   font-size: 0.7em;
   font-weight: 400;
+}
+h2 {
+  margin-top: 40px;
 }
 a {
   text-decoration: none;
@@ -44,7 +80,7 @@ header {
   right: 0;
 }
 #github iframe {
-  margin-top: 10px;
+  margin-top: 20px;
 }
 .demoPanel {
   float: left;
@@ -74,16 +110,9 @@ header {
 .heart {
   color: var(--color-text-secondary);
   font-size: 20px;
-  position: relative;
-  top: 4px;
   display: inline-block;
   text-align: center;
   transition: color 1s;
-}
-.evo-footer {
-  margin: 10px 0 20px;
-}
-.evo-footer:hover .heart {
   color: #bf360c;
   -webkit-animation: beat 0.35s infinite alternate;
   -moz-animation: beat 0.35s infinite alternate;
@@ -95,6 +124,9 @@ header {
   -o-transform-origin: center;
   -ms-transform-origin: center;
   transform-origin: center;
+}
+.evo-footer {
+  margin: 10px 0 20px;
 }
 
 @keyframes beat {

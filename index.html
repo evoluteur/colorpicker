@@ -61,6 +61,10 @@
   <body>
     <header>
       <h1 id="title">Evol-ColorPicker <span>v3.4.3</span></h1>
+      <nav>
+        <a href="index.html">Demo</a>
+        <a href="documentation.html">Documentation</a>
+      </nav>
       <div id="github">
         <iframe
           src="https://ghbtns.com/github-btn.html?user=evoluteur&type=star&count=true&size=small&repo=colorpicker"
@@ -71,329 +75,332 @@
         ></iframe>
       </div>
     </header>
-
-    <p>
-      <strong>Evol-ColorPicker</strong> is a web color picker which looks like
-      the one in Microsoft Office 2010.
-    </p>
-
-    <p>
-      It can be used inline or as a popup bound to a text box. It comes with
-      several color palettes, can track selection history and supports
-      "transparent" color. It is a full jQuery UI widget, supporting various
-      configurations and themes.
-    </p>
-
-    <p>
-      Open Source at GitHub:
-      <a href="https://github.com/evoluteur/colorpicker"
-        >evoluteur/colorpicker</a
-      >
-    </p>
-
-    <div>
+    <section>
       <p>
-        Themes: <a href="#" class="css sel">Base</a> -
-        <a href="#" class="css">UI lightness</a> -
-        <a href="#" class="css">UI darkness</a> -
-        <a href="#" class="css">Redmond</a> -
-        <a href="#" class="css">Sunny</a> -
-        <a href="#" class="css">Le Frog</a> -
-        <a href="#" class="css">Swanky Purse</a>
+        <strong>Evol-ColorPicker</strong> is a web color picker which looks like
+        the one in Microsoft Office 2010.
+      </p>
+
+      <p>
+        It can be used inline or as a popup bound to a text box. It comes with
+        several color palettes, can track selection history and supports
+        "transparent" color. It is a full jQuery UI widget, supporting various
+        configurations and themes.
+      </p>
+
+      <p>
+        Open Source at GitHub:
+        <a href="https://github.com/evoluteur/colorpicker"
+          >evoluteur/colorpicker</a
+        >
       </p>
 
       <div>
-        <div class="demoPanel">
-          Inline (using a DIV tag):<br /><br />
-          <div id="cpInline"></div>
-          <br />
-          <div class="demo-links">
-            <a href="#" id="getVal2">Get Value</a>
-            <a href="#" id="setVal2">Set Value</a><br />
-            <a href="#" id="enable2">Enable</a>
-            <a href="#" id="disable2">Disable</a>
-            <a href="#" id="destroy2">Destroy</a>
+        <p>
+          Themes: <a href="#" class="css sel">Base</a> -
+          <a href="#" class="css">UI lightness</a> -
+          <a href="#" class="css">UI darkness</a> -
+          <a href="#" class="css">Redmond</a> -
+          <a href="#" class="css">Sunny</a> -
+          <a href="#" class="css">Le Frog</a> -
+          <a href="#" class="css">Swanky Purse</a>
+        </p>
+
+        <div>
+          <div class="demoPanel">
+            Inline (using a DIV tag):<br /><br />
+            <div id="cpInline"></div>
+            <br />
+            <div class="demo-links">
+              <a href="#" id="getVal2">Get Value</a>
+              <a href="#" id="setVal2">Set Value</a><br />
+              <a href="#" id="enable2">Enable</a>
+              <a href="#" id="disable2">Disable</a>
+              <a href="#" id="destroy2">Destroy</a>
+            </div>
           </div>
+
+          <div class="demoPanel">
+            Inline with "web" default palette:<br /><br />
+            <div id="cpInline2"></div>
+          </div>
+
+          <div
+            class="demoPanel ui-widget ui-widget-content ui-corner-all"
+            style="width: 130px"
+          >
+            Palette triggers:<br /><br />
+            <label>button only</label>
+            <input id="cpButton" value="#ccc1d9" />
+            <label>focus only</label>
+            <input id="cpFocus" value="#8db3e2" />
+            <label>button + focus</label>
+            <input id="cpBoth" value="#b7dde8" />
+            <label><a href="#" id="show">link</a></label>
+            <input id="cpOther" value="#d7e3bc" />
+            <br />
+            <i>Using "showOn" option.</i>
+          </div>
+
+          <span class="clearer"></span>
         </div>
 
-        <div class="demoPanel">
-          Inline with "web" default palette:<br /><br />
-          <div id="cpInline2"></div>
+        <div>
+          <div id="cpb" class="demoPanel" style="width: 170px">
+            Methods:<br /><br />
+            <input id="cp1" /><br />
+            <div id="tests" class="demo-links">
+              <a href="#" id="getVal">Get Value</a>
+              <a href="#" id="setVal">Set Value</a><br />
+              <a href="#" id="enable">Enable</a>
+              <a href="#" id="disable">Disable</a>
+              <a href="#" id="clear">Clear</a>
+              <a href="#" id="destroy1">Destroy</a>
+            </div>
+          </div>
+
+          <div
+            id="cpEvent"
+            class="demoPanel"
+            style="width: 170px; background-color: #ebf1dd"
+          >
+            Event binding:
+            <br /><br />
+            <input id="cpBinding" /><br />
+            <i>Using "change.color" and "mouseover.color" events.</i>
+          </div>
+
+          <div class="demoPanel">
+            Custom Palette:<br />
+            <br />
+            <div id="customTheme" value="#92cddc"></div>
+            <br />
+            <i
+              >Using the "customTheme" option you can provide your own list of
+              colors.</i
+            >
+          </div>
+          <span class="clearer"></span>
+        </div>
+        <div
+          class="demoPanel ui-widget ui-widget-content ui-corner-all"
+          style="width: 130px"
+        >
+          With transparent color:
+          <br /><br />
+          <input id="transColor" value="#0000ffff" />
         </div>
 
         <div
           class="demoPanel ui-widget ui-widget-content ui-corner-all"
           style="width: 130px"
         >
-          Palette triggers:<br /><br />
-          <label>button only</label>
-          <input id="cpButton" value="#ccc1d9" />
-          <label>focus only</label>
-          <input id="cpFocus" value="#8db3e2" />
-          <label>button + focus</label>
-          <input id="cpBoth" value="#b7dde8" />
-          <label><a href="#" id="show">link</a></label>
-          <input id="cpOther" value="#d7e3bc" />
+          Using "hideButton" option:<br />
           <br />
-          <i>Using "showOn" option.</i>
-        </div>
-
-        <span class="clearer"></span>
-      </div>
-
-      <div>
-        <div id="cpb" class="demoPanel" style="width: 170px">
-          Methods:<br /><br />
-          <input id="cp1" /><br />
-          <div id="tests" class="demo-links">
-            <a href="#" id="getVal">Get Value</a>
-            <a href="#" id="setVal">Set Value</a><br />
-            <a href="#" id="enable">Enable</a>
-            <a href="#" id="disable">Disable</a>
-            <a href="#" id="clear">Clear</a>
-            <a href="#" id="destroy1">Destroy</a>
-          </div>
+          <input id="hideButton" value="#92cddc" />
         </div>
 
         <div
-          id="cpEvent"
-          class="demoPanel"
-          style="width: 170px; background-color: #ebf1dd"
+          class="demoPanel ui-widget ui-widget-content ui-corner-all"
+          style="width: 130px"
         >
-          Event binding:
-          <br /><br />
-          <input id="cpBinding" /><br />
-          <i>Using "change.color" and "mouseover.color" events.</i>
+          No color indicator on the palette:<br />
+          <br />
+          <input id="noIndColor" value="#92cddc" />
         </div>
 
-        <div class="demoPanel">
-          Custom Palette:<br />
+        <div
+          class="demoPanel ui-widget ui-widget-content ui-corner-all"
+          style="width: 130px"
+        >
+          In French:<br />
           <br />
-          <div id="customTheme" value="#92cddc"></div>
-          <br />
-          <i
-            >Using the "customTheme" option you can provide your own list of
-            colors.</i
-          >
+          <input id="frenchColor" value="#92cddc" /><br />
+          <i>Using the "strings" option you can translate the colorpicker.</i>
         </div>
+
         <span class="clearer"></span>
       </div>
-      <div
-        class="demoPanel ui-widget ui-widget-content ui-corner-all"
-        style="width: 130px"
-      >
-        With transparent color:
-        <br /><br />
-        <input id="transColor" value="#0000ffff" />
-      </div>
 
-      <div
-        class="demoPanel ui-widget ui-widget-content ui-corner-all"
-        style="width: 130px"
-      >
-        Using "hideButton" option:<br />
-        <br />
-        <input id="hideButton" value="#92cddc" />
-      </div>
+      <script>
+        $(document).ready(function () {
+          // Change theme
+          $(".css").on("click", function (evt) {
+            var theme = this.innerHTML.toLowerCase().replace(" ", "-"),
+              url =
+                "https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/" +
+                theme +
+                "/jquery-ui.css";
+            $("#jquiCSS").attr("href", url);
+            $(".css").removeClass("sel");
+            $(this).addClass("sel");
+          });
 
-      <div
-        class="demoPanel ui-widget ui-widget-content ui-corner-all"
-        style="width: 130px"
-      >
-        No color indicator on the palette:<br />
-        <br />
-        <input id="noIndColor" value="#92cddc" />
-      </div>
-
-      <div
-        class="demoPanel ui-widget ui-widget-content ui-corner-all"
-        style="width: 130px"
-      >
-        In French:<br />
-        <br />
-        <input id="frenchColor" value="#92cddc" /><br />
-        <i>Using the "strings" option you can translate the colorpicker.</i>
-      </div>
-
-      <span class="clearer"></span>
-    </div>
-
-    <script>
-      $(document).ready(function () {
-        // Change theme
-        $(".css").on("click", function (evt) {
-          var theme = this.innerHTML.toLowerCase().replace(" ", "-"),
-            url =
-              "https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/" +
-              theme +
-              "/jquery-ui.css";
-          $("#jquiCSS").attr("href", url);
-          $(".css").removeClass("sel");
-          $(this).addClass("sel");
-        });
-
-        // Events demo
-        function setColor(evt, color) {
-          if (color) {
-            $("#cpEvent").css("background-color", color);
+          // Events demo
+          function setColor(evt, color) {
+            if (color) {
+              $("#cpEvent").css("background-color", color);
+            }
           }
-        }
 
-        $("#cpBinding")
-          .colorpicker({
-            color: "#ebf1dd",
+          $("#cpBinding")
+            .colorpicker({
+              color: "#ebf1dd",
+              initialHistory: ["#ff0000", "#000000", "red", "purple"],
+            })
+            .on("change.color", setColor)
+            .on("mouseover.color", setColor);
+
+          // Methods demo
+          $("#getVal").on("click", function () {
+            alert('Selected color = "' + $("#cp1").colorpicker("val") + '"');
+          });
+          $("#setVal").on("click", function () {
+            $("#cp1").colorpicker("val", "#31859b");
+          });
+          $("#enable").on("click", function () {
+            $("#cp1").colorpicker("enable");
+          });
+          $("#disable").on("click", function () {
+            $("#cp1").colorpicker("disable");
+          });
+          $("#clear").on("click", function () {
+            $("#cp1").colorpicker("clear");
+          });
+          $("#destroy1").on("click", function () {
+            $("#cp1").colorpicker("destroy");
+          });
+          // Methods demo 2 (inline colorpicker)
+          $("#getVal2").on("click", function () {
+            alert(
+              'Selected color = "' + $("#cpInline").colorpicker("val") + '"'
+            );
+          });
+          $("#setVal2").on("click", function () {
+            $("#cpInline").colorpicker("val", "#31859b");
+          });
+          $("#enable2").on("click", function () {
+            $("#cpInline").colorpicker("enable");
+          });
+          $("#disable2").on("click", function () {
+            $("#cpInline").colorpicker("disable");
+          });
+          $("#destroy2").on("click", function () {
+            $("#cpInline").colorpicker("destroy");
+          });
+
+          // Instanciate colorpickers
+          $("#cp1").colorpicker({
+            color: "#ff9800",
             initialHistory: ["#ff0000", "#000000", "red", "purple"],
-          })
-          .on("change.color", setColor)
-          .on("mouseover.color", setColor);
+          });
+          $("#cpBinding").colorpicker({
+            color: "#ebf1dd",
+          });
+          $("#cpInline").colorpicker({ color: "#92cddc" });
+          $("#cpInline2").colorpicker({
+            color: "#92cddc",
+            defaultPalette: "web",
+          });
 
-        // Methods demo
-        $("#getVal").on("click", function () {
-          alert('Selected color = "' + $("#cp1").colorpicker("val") + '"');
-        });
-        $("#setVal").on("click", function () {
-          $("#cp1").colorpicker("val", "#31859b");
-        });
-        $("#enable").on("click", function () {
-          $("#cp1").colorpicker("enable");
-        });
-        $("#disable").on("click", function () {
-          $("#cp1").colorpicker("disable");
-        });
-        $("#clear").on("click", function () {
-          $("#cp1").colorpicker("clear");
-        });
-        $("#destroy1").on("click", function () {
-          $("#cp1").colorpicker("destroy");
-        });
-        // Methods demo 2 (inline colorpicker)
-        $("#getVal2").on("click", function () {
-          alert('Selected color = "' + $("#cpInline").colorpicker("val") + '"');
-        });
-        $("#setVal2").on("click", function () {
-          $("#cpInline").colorpicker("val", "#31859b");
-        });
-        $("#enable2").on("click", function () {
-          $("#cpInline").colorpicker("enable");
-        });
-        $("#disable2").on("click", function () {
-          $("#cpInline").colorpicker("disable");
-        });
-        $("#destroy2").on("click", function () {
-          $("#cpInline").colorpicker("destroy");
-        });
+          // Custom theme palette
+          $("#customTheme").colorpicker({
+            color: "#f44336",
+            customTheme: [
+              "#f44336",
+              "#ff9800",
+              "#ffc107",
+              "#4caf50",
+              "#00bcd4",
+              "#3f51b5",
+              "#9c27b0",
+              "white",
+              "black",
+            ],
+          });
+          $("#cpButton").colorpicker({ showOn: "button" });
+          $("#cpFocus").colorpicker({ showOn: "focus" });
+          $("#cpBoth").colorpicker();
+          $("#cpOther").colorpicker({ showOn: "none" });
 
-        // Instanciate colorpickers
-        $("#cp1").colorpicker({
-          color: "#ff9800",
-          initialHistory: ["#ff0000", "#000000", "red", "purple"],
+          $("#show").on("click", function (evt) {
+            evt.stopImmediatePropagation();
+            $("#cpOther").colorpicker("showPalette");
+          });
+
+          // With transparent color
+          $("#transColor").colorpicker({
+            transparentColor: true,
+          });
+
+          // With hidden button
+          $("#hideButton").colorpicker({
+            hideButton: true,
+          });
+
+          // No color indicator
+          $("#noIndColor").colorpicker({
+            displayIndicator: false,
+          });
+
+          // French colorpicker
+          $("#frenchColor").colorpicker({
+            strings:
+              "Couleurs de themes,Couleurs de base,Plus de couleurs,Moins de couleurs,Palette,Historique,Pas encore d'historique.",
+          });
+
+          // Fix links
+          $('a[href="#"]').attr("href", "javascript:void(0)");
         });
-        $("#cpBinding").colorpicker({
-          color: "#ebf1dd",
-        });
-        $("#cpInline").colorpicker({ color: "#92cddc" });
-        $("#cpInline2").colorpicker({
-          color: "#92cddc",
-          defaultPalette: "web",
-        });
+      </script>
 
-        // Custom theme palette
-        $("#customTheme").colorpicker({
-          color: "#f44336",
-          customTheme: [
-            "#f44336",
-            "#ff9800",
-            "#ffc107",
-            "#4caf50",
-            "#00bcd4",
-            "#3f51b5",
-            "#9c27b0",
-            "white",
-            "black",
-          ],
-        });
-        $("#cpButton").colorpicker({ showOn: "button" });
-        $("#cpFocus").colorpicker({ showOn: "focus" });
-        $("#cpBoth").colorpicker();
-        $("#cpOther").colorpicker({ showOn: "none" });
+      <p>
+        <br /><a
+          href="https://github.com/evoluteur/colorpicker/archive/master.zip"
+          >Download</a
+        >,
+        <a href="https://github.com/evoluteur/colorpicker/issues"
+          >feature requests</a
+        >
+        and
+        <a href="https://github.com/evoluteur/colorpicker/issues"
+          >bugs report</a
+        >
+        are available at
+        <a href="https://github.com/evoluteur/colorpicker" target="download"
+          >GitHub</a
+        >.
+      </p>
 
-        $("#show").on("click", function (evt) {
-          evt.stopImmediatePropagation();
-          $("#cpOther").colorpicker("showPalette");
-        });
+      <p>
+        Evol-ColorPicker is released under the
+        <a href="http://github.com/evoluteur/colorpicker/raw/master/LICENSE.md"
+          >MIT license</a
+        >
+        (<a
+          href="https://npm-stat.com/charts.html?package=evol-colorpicker&from=2016-01-01&to=2023-12-31"
+          >50,000 downloads</a
+        >
+        on NPM in 2023).
+      </p>
 
-        // With transparent color
-        $("#transColor").colorpicker({
-          transparentColor: true,
-        });
-
-        // With hidden button
-        $("#hideButton").colorpicker({
-          hideButton: true,
-        });
-
-        // No color indicator
-        $("#noIndColor").colorpicker({
-          displayIndicator: false,
-        });
-
-        // French colorpicker
-        $("#frenchColor").colorpicker({
-          strings:
-            "Couleurs de themes,Couleurs de base,Plus de couleurs,Moins de couleurs,Palette,Historique,Pas encore d'historique.",
-        });
-
-        // Fix links
-        $('a[href="#"]').attr("href", "javascript:void(0)");
-      });
-    </script>
-
-    <p>
-      <br /><a
-        href="https://github.com/evoluteur/colorpicker/archive/master.zip"
-        >Download</a
-      >,
-      <a href="https://github.com/evoluteur/colorpicker#readme">documentation</a
-      >,
-      <a href="https://github.com/evoluteur/colorpicker/issues"
-        >feature requests</a
-      >
-      and
-      <a href="https://github.com/evoluteur/colorpicker/issues">bugs report</a>
-      are available at
-      <a href="https://github.com/evoluteur/colorpicker" target="download"
-        >GitHub</a
-      >.
-    </p>
-
-    <p>
-      Evol-ColorPicker is released under the
-      <a href="http://github.com/evoluteur/colorpicker/raw/master/LICENSE.md"
-        >MIT license</a
-      >
-      (<a
-        href="https://npm-stat.com/charts.html?package=evol-colorpicker&from=2016-01-01&to=2024-12-25"
-        >50,000 downloads</a
-      >
-      on NPM in 2024).
-    </p>
-
-    <div>
-      Check out my other jQuery UI widget
-      <a href="https://evoluteur.github.io/structured-filter"
-        >structured-filter</a
-      >.
-    </div>
-
-    <div class="evo-footer" role="contentinfo">
       <div>
-        Made in California with
-        <div class="heart">♥</div>
+        Check out my other jQuery UI widget
+        <a href="https://evoluteur.github.io/structured-filter"
+          >structured-filter</a
+        >.
       </div>
-    </div>
 
-    <p>
-      &#169; 2024 <a href="https://evoluteur.github.io/">Olivier Giulieri</a>
-    </p>
+      <div class="evo-footer" role="contentinfo">
+        <div>
+          Made in California with
+          <div class="heart">♥</div>
+        </div>
+      </div>
+
+      <p>
+        &#169; 2024 <a href="https://evoluteur.github.io/">Olivier Giulieri</a>
+      </p>
+    </section>
   </body>
 </html>
