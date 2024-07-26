@@ -5,7 +5,8 @@
     <version>3.4.3</version>
     <authors>Olivier Giulieri</authors>
     <owners>Olivier Giulieri</owners>
-    <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
+    <license type="file">LICENSE.txt</license>
+    <readme>README.md</readme>
     <projectUrl>http://evoluteur.github.io/colorpicker/</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>jQuery UI widget for web color picking which looks like the one in Microsoft Office 2010.</description>
@@ -13,5 +14,7 @@
   </metadata>
   <files>
     <file src="js/evol-colorpicker.min.js" target="content/scripts/" />
+    <file src="LICENSE.md" target="LICENSE.md" />
+    <file src="README.md" target="README.md" />
   </files>
 </package>
