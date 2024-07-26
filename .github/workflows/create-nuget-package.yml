@@ -32,4 +32,4 @@ jobs:
         env:
           NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
         run: |
-          mono nuget.exe push evol-colorpicker.3.4.3.nupkg -Source https://api.nuget.org/v3/index.json -ApiKey $NUGET_API_KEY
+          mono nuget.exe push evol-colorpicker.3.4.3-alpha1.nupkg -Source https://api.nuget.org/v3/index.json -ApiKey $NUGET_API_KEY

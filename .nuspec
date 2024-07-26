@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>evol-colorpicker</id>
-    <version>3.4.3</version>
+    <version>3.4.3-alpha1</version>
     <authors>Olivier Giulieri</authors>
     <owners>Olivier Giulieri</owners>
     <license type="file">LICENSE.md</license>
@@ -14,6 +14,7 @@
   </metadata>
   <files>
     <file src="js/evol-colorpicker.min.js" target="content/scripts/" />
+    <file src="css/evol-colorpicker.min.css" target="content/styles/" />
     <file src="LICENSE.md" target="LICENSE.md" />
     <file src="README.md" target="README.md" />
   </files>
