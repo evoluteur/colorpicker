@@ -26,7 +26,7 @@ jobs:
 
       - name: Create NuGet package
         run: |
-          mono nuget.exe pack evol-colorpicker.nuspec
+          mono nuget.exe pack .nuspec
 
       - name: Upload NuGet package
         env:
