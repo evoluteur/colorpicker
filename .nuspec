@@ -5,7 +5,7 @@
     <version>3.4.3</version>
     <authors>Olivier Giulieri</authors>
     <owners>Olivier Giulieri</owners>
-    <license type="file">LICENSE.txt</license>
+    <license type="file">LICENSE.md</license>
     <readme>README.md</readme>
     <projectUrl>http://evoluteur.github.io/colorpicker/</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
