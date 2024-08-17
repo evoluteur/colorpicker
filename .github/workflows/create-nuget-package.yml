@@ -1,0 +1,35 @@
+name: Create NuGet Package
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "6.0.x"
+
+      - name: Install NuGet CLI
+        run: |
+          wget https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
+          chmod +x nuget.exe
+
+      - name: Create NuGet package
+        run: |
+          mono nuget.exe pack .nuspec
+
+      - name: Upload NuGet package
+        env:
+          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+        run: |
+          mono nuget.exe push evol-colorpicker.3.4.3-alpha1.nupkg -Source https://api.nuget.org/v3/index.json -ApiKey $NUGET_API_KEY

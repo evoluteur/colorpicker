@@ -41,6 +41,12 @@ or install with Bower:
 bower install evol-colorpicker
 ```
 
+or use the [nuget package](https://www.nuget.org/packages/evol-colorpicker):
+
+```
+dotnet add package evol-colorpicker
+```
+
 <a name="Usage"></a>
 
 ## Usage
