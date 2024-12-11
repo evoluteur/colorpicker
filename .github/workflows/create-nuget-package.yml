@@ -14,10 +14,21 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build CSS
+        run: npx grunt less:prod
+
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: "6.0.x"
+          dotnet-version: '6.0.x'
 
       - name: Install NuGet CLI
         run: |
@@ -28,8 +39,15 @@ jobs:
         run: |
           mono nuget.exe pack .nuspec
 
-      - name: Upload NuGet package
-        env:
-          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+      - name: Verify CSS file exists
         run: |
-          mono nuget.exe push evol-colorpicker.3.4.3-alpha1.nupkg -Source https://api.nuget.org/v3/index.json -ApiKey $NUGET_API_KEY
+          if [ ! -f "css/evol-colorpicker.min.css" ]; then
+            echo "CSS file not found!"
+            exit 1
+          fi
+
+      # - name: Upload NuGet package
+      #   env:
+      #     NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+      #   run: |
+      #     mono nuget.exe push evol-colorpicker.3.4.4.nupkg -Source https://api.nuget.org/v3/index.json -ApiKey $NUGET_API_KEY
