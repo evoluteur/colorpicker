@@ -50,8 +50,8 @@ jobs:
             exit 1
           fi
 
-      # - name: Upload NuGet package
-      #   env:
-      #     NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
-      #   run: |
-      #     mono nuget.exe push *.nupkg -Source https://api.nuget.org/v3/index.json -ApiKey $NUGET_API_KEY
+      - name: Upload NuGet package
+        env:
+          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+        run: |
+          mono nuget.exe push *.nupkg -Source https://api.nuget.org/v3/index.json -ApiKey $NUGET_API_KEY
