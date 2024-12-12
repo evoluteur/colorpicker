@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>evol-colorpicker</id>
-    <version>3.4.3-alpha1</version>
+    <version>3.4.4</version>
     <authors>Olivier Giulieri</authors>
     <owners>Olivier Giulieri</owners>
     <license type="file">LICENSE.md</license>
