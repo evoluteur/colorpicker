@@ -14,8 +14,8 @@
     "url": "https://github.com/evoluteur/colorpicker/issues"
   },
   "dependencies": {
-    "jquery": "~3.6.0",
-    "jquery-ui": "~1.13.0"
+    "jquery": "~3.7.1",
+    "jquery-ui": "~1.14.1"
   },
   "devDependencies": {
     "grunt": "^1.4.1",

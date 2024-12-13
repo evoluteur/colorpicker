@@ -57,12 +57,12 @@ First, load [jQuery](http://jquery.com/) (v3.1 or greater), [jQuery UI](http://j
 
 ```html
 <script
-  src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+  src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"
   type="text/javascript"
   charset="utf-8"
 ></script>
 <script
-  src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
+  src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.14.1/jquery-ui.min.js"
   type="text/javascript"
   charset="utf-8"
 ></script>
@@ -79,7 +79,7 @@ The widget requires a jQuery UI theme to be present, as well as its own included
 <link
   rel="stylesheet"
   type="text/css"
-  href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/ui-lightness/jquery-ui.css"
+  href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.14.1/themes/ui-lightness/jquery-ui.css"
 />
 <link href="css/evol-colorpicker.css" rel="stylesheet" type="text/css" />
 ```
