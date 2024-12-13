@@ -63,24 +63,39 @@ a {
 a:hover {
   color: navy;
 }
+nav {
+  > a {
+    display: inline-block;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+}
 a.sel {
-  color: #000;
+  color: #000 !important;
   text-decoration: none;
+  background: white;
 }
 label {
   display: block;
   margin: 15px 0 4px;
 }
 header {
-  position: relative;
+  position: sticky;
+  top: 0;
 }
 #github {
   position: absolute;
-  top: 0;
+  top: -8px;
   right: 0;
 }
 #github iframe {
   margin-top: 20px;
+}
+.screenshots {
+  display: flex;
+  gap: 20px;
+  margin: 10px;
+  flex-wrap: wrap;
 }
 .demoPanel {
   float: left;
