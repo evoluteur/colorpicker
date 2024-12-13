@@ -1,5 +1,5 @@
 /*
-   evol-colorpicker 3.4.3
+   evol-colorpicker 3.4.4
    (c) 2024 Olivier Giulieri
    http://evoluteur.github.io/colorpicker/
 */
@@ -36,7 +36,7 @@
 .evo-palette-ie {
   border-collapse: separate;
   border-spacing: 4px 0px;
-  *border-collapse: expression("separate", cellSpacing= "2px");
+  *border-collapse: expression('separate', cellSpacing='2px');
 }
 .evo-palette th,
 .evo-palette-ie th {
@@ -145,13 +145,7 @@
   float: left;
 }
 .evo-transparent {
-  background-image: repeating-linear-gradient(
-    135deg,
-    black,
-    black 1px,
-    white 1px,
-    white 3px
-  );
+  background-image: repeating-linear-gradient(135deg, black, black 1px, white 1px, white 3px);
 }
 .evo-tr-box {
   cursor: pointer;

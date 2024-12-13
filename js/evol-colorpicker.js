@@ -1,5 +1,5 @@
 /*
- evol-colorpicker 3.4.3
+ evol-colorpicker 3.4.4
  ColorPicker widget for jQuery UI
 
  https://github.com/evoluteur/colorpicker
